@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 13bee365cdccad2449d9a80fda32327a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - nextSceneLoader: {instanceID: 0}
+  - nextLevelTrigger: {instanceID: 0}
+  - SoundSaver: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

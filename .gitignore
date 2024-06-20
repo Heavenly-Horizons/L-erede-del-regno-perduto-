@@ -1,0 +1,21 @@
+﻿################################################################################
+# Il file gitignore è stato creato automaticamente da Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/.vscode
+/Library
+/Logs
+/obj
+/Packages
+/ProjectSettings
+/UserSettings
+/Temp
+.vsconfig
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+Pitch Sviluppo di Videogiochi 2023-2024.pptx
+Tyr.sln
+Tyr-timeOfRedemption.sln
+Assets.zip
+Assets.rar
