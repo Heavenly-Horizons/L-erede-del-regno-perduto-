@@ -4,6 +4,7 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy
 {
     public class DialogueSystem : MonoBehaviour
     {
+<<<<<<< HEAD
         [SerializeField] public Achille_Movement achille_Movement;
         public int i;
         public byte j;
@@ -22,18 +23,38 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy
             dialogueTriggerFinn = finn.GetComponent<DialogueTrigger>();
         }
 
+=======
+        [SerializeField] public Achille_Movement achilleMovement;
+        [SerializeField] private DialogueTrigger dialogueTriggerAchille;
+        [SerializeField] private DialogueTrigger dialogueTriggerFinn;
+        [SerializeField] private Rigidbody2D finnRb;
+        [SerializeField] private PlayerMovement finnMovement;
+
+        public int i;
+        public byte j;
+        public bool isEnded;
+
+>>>>>>> main
         public void ResetDialogueTrigger()
         {
             dialogueTriggerAchille.dialogue.isEnded = false;
             dialogueTriggerFinn.dialogue.isEnded = false;
         }
 
+<<<<<<< HEAD
         private void LoadNewDialogue(DialogueTrigger dialogueTrigger, string[] sentences)
+=======
+        private static void LoadNewDialogue(DialogueTrigger dialogueTrigger, string[] sentences)
+>>>>>>> main
         {
             dialogueTrigger.dialogue.sentences = sentences;
         }
 
+<<<<<<< HEAD
         public void HandleDialogue(ref int i, ref byte j, DialogueTrigger dialogueTrigger, string[] dialogues)
+=======
+        private void HandleDialogue(ref int i, ref byte j, DialogueTrigger dialogueTrigger, string[] dialogues)
+>>>>>>> main
         {
             if (j == 0)
             {
@@ -56,6 +77,11 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy
             switch (i)
             {
                 case 0:
+<<<<<<< HEAD
+=======
+                    //finnRb.bodyType = RigidbodyType2D.Static;
+                    finnMovement.CanNotMove();
+>>>>>>> main
                     HandleDialogue(ref i, ref j, dialogueTriggerAchille, new[]
                     {
                         "Guarda guarda",
@@ -81,6 +107,11 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy
                     break;
                 //inizia la sfida
                 case 3:
+<<<<<<< HEAD
+=======
+                    finnRb.bodyType = RigidbodyType2D.Dynamic;
+                    finnMovement.CanMove();
+>>>>>>> main
                     DialogueSceneTileMap.k = 1;
                     isEnded = true;
                     break;
@@ -92,6 +123,11 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy
             switch (i)
             {
                 case 0:
+<<<<<<< HEAD
+=======
+                    finnRb.bodyType = RigidbodyType2D.Static;
+                    finnMovement.CanNotMove();
+>>>>>>> main
                     // parla achille
                     HandleDialogue(ref i, ref j, dialogueTriggerAchille, new[]
                     {
@@ -142,7 +178,11 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy
                     //Finn ottiene la lancia
                     HandleDialogue(ref i, ref j, dialogueTriggerFinn, new[]
                     {
+<<<<<<< HEAD
                         "Finn ottiene la lancia"
+=======
+                        "FINN OTTIENE LA LANCIA"
+>>>>>>> main
                     });
                     break;
                 case 6:
@@ -153,6 +193,11 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy
                     });
                     break;
                 case 7:
+<<<<<<< HEAD
+=======
+                    finnRb.bodyType = RigidbodyType2D.Dynamic;
+                    finnMovement.CanMove();
+>>>>>>> main
                     DialogueSceneTileMap.k = 2;
                     isEnded = true;
                     break;

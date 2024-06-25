@@ -5,11 +5,17 @@ public class toNextScene : MonoBehaviour
 {
     [SerializeField] private GameObject nextSceneLoader;
     [SerializeField] private GameObject nextLevelTrigger;
+<<<<<<< HEAD
     
     [SerializeField] private GameObject SoundSaver;
     private AudioManager soundsaver;
     
     [SerializeField] private GameObject PlayerSaver;
+=======
+    [SerializeField] private GameObject SoundSaver;
+    [SerializeField] private GameObject PlayerSaver;
+    private AudioManager soundsaver;
+>>>>>>> main
     private PlayerStats playersaver;
     private SceneLoader sceneLoader;
 
@@ -30,7 +36,11 @@ public class toNextScene : MonoBehaviour
             nextLevelTrigger.GetComponent<BoxCollider2D>().isTrigger = true;
             Debug.Log(nextLevelTrigger.GetComponent<BoxCollider2D>().isTrigger);
             soundsaver.SaveSoundSettings();
+<<<<<<< HEAD
             playersaver.SavePlayerHealthStaminaScene();
+=======
+            playersaver.SavePlayerAndScene();
+>>>>>>> main
             sceneLoader.LoadGameScene(false);
         }
     }

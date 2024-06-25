@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerSettings : MonoBehaviour
 {
+<<<<<<< HEAD
     private static readonly string PlayerHealthValue = "PlayerHealtValue";
     private static readonly string PlayerStaminaValue = "PlayerStaminaValue";
     private static readonly string PlayerMaxHealthValue = "PlayerMaxHealtValue";
@@ -13,6 +14,8 @@ public class PlayerSettings : MonoBehaviour
     private float PlayerCurrentHealth, PlayerCurrentStamina;
     private float PlayerCurrentMaxHealth, PlayerCurrentMaxStamina;
 
+=======
+>>>>>>> main
     [SerializeField] private Slider healthBar;
     [SerializeField] private Slider staminaBar;
 
@@ -20,6 +23,7 @@ public class PlayerSettings : MonoBehaviour
 
     void Awake()
     {
+<<<<<<< HEAD
         if(SceneManager.GetActiveScene().buildIndex != 0){
             ContinueSettings();
         }
@@ -38,4 +42,11 @@ public class PlayerSettings : MonoBehaviour
         healthBar.value = (float)Math.Floor(PlayerCurrentHealth);
         staminaBar.value = (float)Math.Floor(PlayerCurrentStamina);
     }
+=======
+        PlayerStats playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+        if (SceneManager.GetActiveScene().buildIndex != 0){
+            playerStats.LoadPlayerData();
+        }
+    }
+>>>>>>> main
 }

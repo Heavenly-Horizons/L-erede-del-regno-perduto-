@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
 
     private bool Grounded;
+<<<<<<< HEAD
     [SerializeField] private float speed;  // Campo serializzabile per impostare la velocità da Unity
     [SerializeField] private float jumpForce = 5f;  // Forza del salto
     private bool canMove = true;
@@ -15,6 +16,21 @@ public class PlayerMovement : MonoBehaviour
     
     public bool KnockFromRight;
 
+=======
+    [SerializeField] private float speed = 25f;  // Campo serializzabile per impostare la velocità da Unity
+    [SerializeField] private float jumpForce = 5f;  // Forza del salto
+    private bool canMove = true;
+    public float KBForce=40f;
+    public float KBCounter;
+    public float KBTotalTime=0.2f;
+    
+    public bool KnockFromRight;
+
+    private float horizontalInput;
+
+    private int coinCount;
+
+>>>>>>> main
 
     private void Awake()
     {
@@ -37,7 +53,11 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
             // Ottieni l'input orizzontale in Update
+<<<<<<< HEAD
             float horizontalInput = Input.GetAxis("Horizontal");  
+=======
+             horizontalInput = Input.GetAxis("Horizontal");  // Correzione del nome della variabile
+>>>>>>> main
             if(KBCounter <= 0){
                // Imposta la velocità del rigidbody
                 body.velocity = new Vector2(horizontalInput * speed, body.velocity.y); 
@@ -76,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
         Grounded = false;
     }
 
+<<<<<<< HEAD
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "terra")
@@ -84,6 +105,30 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+=======
+   private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("terra"))
+        {
+            Grounded = true;
+        }
+
+        // Gestione del knockback dalla freccia
+        if (collision.gameObject.CompareTag("Freccia"))
+        {
+            // Calcola la posizione della freccia rispetto al giocatore
+            Vector3 relativePosition = collision.transform.position - transform.position;
+
+            // Determina la direzione del knockback in base alla posizione della freccia
+            KnockFromRight = (relativePosition.x > 0); // Se la freccia è alla destra del giocatore, KnockFromRight sarà true
+
+            // Applica il knockback e altri effetti desiderati
+            KBCounter = KBTotalTime;
+        }
+    }
+
+
+>>>>>>> main
     public void CanMove()
     {
         canMove = true;
@@ -93,4 +138,19 @@ public class PlayerMovement : MonoBehaviour
     {
         canMove = false;
     }
+<<<<<<< HEAD
+=======
+
+    public bool canAttack(){
+        return Grounded == true;
+    }
+
+    public void AddCoin()
+    {
+        coinCount++;
+        // Aggiungi qui qualsiasi altra logica, come aggiornare l'interfaccia utente
+        Debug.Log("Coins: " + coinCount);
+    }
+    
+>>>>>>> main
 }

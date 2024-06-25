@@ -11,6 +11,10 @@ namespace Script.Dialogue.SceneManager.PreKingEncounter
         [SerializeField] private GameObject healthBar;
         [SerializeField] private GameObject staminaBar;
         [SerializeField] private PlayerMovement player;
+<<<<<<< HEAD
+=======
+        [SerializeField] private Rigidbody2D playerRb;
+>>>>>>> main
         public int i;
         public byte j;
         public bool isEnded;
@@ -56,7 +60,11 @@ namespace Script.Dialogue.SceneManager.PreKingEncounter
             {
                 case 0:
                     //disattiva la gravità
+<<<<<<< HEAD
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+=======
+                    playerRb.bodyType = RigidbodyType2D.Static;
+>>>>>>> main
                     player.CanNotMove();
                     timeline.enabled = false;
                     HandleDialogue(ref i, ref j, dialogueTriggerNarrator, new[]
@@ -95,7 +103,11 @@ namespace Script.Dialogue.SceneManager.PreKingEncounter
                 //inizio tutorial
                 case 5:
                     //attiva la gravità
+<<<<<<< HEAD
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+=======
+                    playerRb.bodyType = RigidbodyType2D.Dynamic;
+>>>>>>> main
                     player.CanMove();
                     i++;
                     break;

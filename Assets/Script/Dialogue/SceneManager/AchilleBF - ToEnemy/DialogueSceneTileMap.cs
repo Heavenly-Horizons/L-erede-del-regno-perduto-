@@ -17,11 +17,19 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy
         private void Update()
         {
             //se la vita è maggiore di 10 e i dialoghi non sono finiti
+<<<<<<< HEAD
             if (dialogueSystem.achille_Movement.life > 10 && k == 0)
                 //dialoghi
                 dialogueSystem.FirstDialogue();
             //se la vita è inferiore o uguale a 10
             else if (dialogueSystem.achille_Movement.life <= 10 && k == 1)
+=======
+            if (dialogueSystem.achilleMovement.life > 10 && k == 0)
+                //dialoghi
+                dialogueSystem.FirstDialogue();
+            //se la vita è inferiore o uguale a 10
+            else if (dialogueSystem.achilleMovement.life <= 10 && k == 1)
+>>>>>>> main
                 // nel caso la vita di achille è inferiore a 10, la riporta a 10.
                 // questo per fare la scena finale
                 //if (dialogueSystem.achille_Movement.life < 10) dialogueSystem.achille_Movement.life = 10;
