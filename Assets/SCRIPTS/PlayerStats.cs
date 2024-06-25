@@ -1,9 +1,9 @@
-using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-[System.Serializable]
+[Serializable]
 public class PlayerStats : MonoBehaviour
 {
     // Campi per la gestione dei valori del player
@@ -23,53 +23,64 @@ public class PlayerStats : MonoBehaviour
     private static readonly string PlayerDefenceLevel = "PlayerDefenceLevel";
     private static readonly string PlayerHPRegenLevel = "PlayerHPRegenLevel";
     private static readonly string PlayerSPRegenLevel = "PlayerSPRegenLevel";
+    public static bool isNewGameplay = true;
 
     // Statistiche iniziali del player
     public float maxHealth = 100;
     public float maxStamina = 100;
-    public int PlayerMoney = 0;
+    public int PlayerMoney;
     public int atkLevel = 1, staminaLevel = 1, defLevel = 1;
     public int hpRegenLevel = 1, spRegenLevel = 1;
     public float playerDamage = 15f;
-    public float playerDefence = 0f;
+    public float playerDefence;
     public float staminaTookForParry = 10, healthTookForParry = 10;
-    public float staminaTookForPerfectParry = 5, healthTookForPerfectParry = 0;
+    public float staminaTookForPerfectParry = 5, healthTookForPerfectParry;
     public float secondsToFullStamina = 8f;
     public float staminaRegenRatio;
-    
-    // Statistiche attuali del player
-    private float PlayerCurrentHealth, PlayerCurrentStamina;
-    private float PlayerCurrentMaxHealth, PlayerCurrentMaxStamina, PlayerCurrentDamage, PlayerCurrentDefence;
-    private int CurrentAtkLevel, CurrentStaminaLevel, CurrentDefenseLevel;
-    private int CurrentHPRegenLevel, CurrentSPRegenLevel;
 
     // Altro
-    private bool dead;
+    public bool isPlayerDead;
 
     [SerializeField] private Slider healthBar;
     [SerializeField] private Slider staminaBar;
     public Animator animator;
-    public static bool isNewGameplay = true;
+    private int CurrentAtkLevel, CurrentStaminaLevel, CurrentDefenseLevel;
+    private int CurrentHPRegenLevel, CurrentSPRegenLevel;
+
+    // Statistiche attuali del player
+    private float PlayerCurrentHealth, PlayerCurrentStamina;
+    private float PlayerCurrentMaxHealth, PlayerCurrentMaxStamina, PlayerCurrentDamage, PlayerCurrentDefence;
 
 
-
-
-void Awake()
-{
-    if (isNewGameplay)
+    private void Awake()
     {
-        InitializeNewPlayer();
-        isNewGameplay = false;  // Imposta a false dopo l'inizializzazione
-    }
-    else
-    {
-        LoadPlayerData();
+        if (isNewGameplay)
+        {
+            InitializeNewPlayer();
+            isNewGameplay = false; // Imposta a false dopo l'inizializzazione
+        }
+        else
+        {
+            LoadPlayerData();
+        }
+
+        staminaRegenRatio = maxStamina / secondsToFullStamina;
+        SavePlayerAndScene();
+        animator = GetComponent<Animator>();
     }
 
-    staminaRegenRatio = maxStamina / secondsToFullStamina;
-    SavePlayerAndScene();
-    animator = GetComponent<Animator>();
-}
+    private void FixedUpdate()
+    {
+        if (PlayerCurrentHealth < 1)
+        {
+            //   Die()
+        }
+    }
+
+    private void OnApplicationFocus(bool focusStatus)
+    {
+        if (!focusStatus) SavePlayerAndScene();
+    }
 
     private void InitializeNewPlayer()
     {
@@ -153,37 +164,20 @@ void Awake()
         PlayerPrefs.SetInt(PlayerCurrentScene, SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void OnApplicationFocus(bool focusStatus)
-    {
-        if (!focusStatus)
-        {
-            SavePlayerAndScene();
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (PlayerCurrentHealth < 1)
-        {
-         //   Die()
-        }
-    }
-
     public void TakeDamage(float amount)
     {
         PlayerCurrentHealth = Mathf.Max(PlayerCurrentHealth - amount, 0);
         healthBar.value = Mathf.Floor(PlayerCurrentHealth);
         Debug.Log(healthBar.value);
 
-        if (PlayerCurrentHealth > 0){
+        if (PlayerCurrentHealth > 0)
+        {
             animator.SetTrigger("hurt");
         }
-        else{
-            if(!dead){
-                Die();
-            }
+        else
+        {
+            if (!isPlayerDead) Die();
         }
-        
     }
 
     public void UseStamina(float amount)
