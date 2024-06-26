@@ -173,6 +173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 71272673748902069, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1524048169012316570, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: m_AngularDrag
       value: 0
@@ -183,7 +187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1956032446194713308, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -30.3
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 1956032446194713308, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -225,6 +229,10 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1421112632}
+    - target: {fileID: 2433138471206888094, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: attackCooldown
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2433138471206888094, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: staminaRecoveryCD
       value: 0
@@ -872,7 +880,7 @@ Transform:
   m_GameObject: {fileID: 242246365}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.02, y: -0.61, z: 0}
+  m_LocalPosition: {x: 3.1, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2546,7 +2554,7 @@ GameObject:
   - component: {fileID: 961610210}
   m_Layer: 0
   m_Name: Tyr
-  m_TagString: Untagged
+  m_TagString: Nemico
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2612,7 +2620,7 @@ Transform:
   m_GameObject: {fileID: 961610202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 32.452934, y: -29.457037, z: 1352.491}
+  m_LocalPosition: {x: 32.452934, y: -30, z: 1352.491}
   m_LocalScale: {x: 2, y: 2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2671,7 +2679,7 @@ MonoBehaviour:
   attackPoint: {fileID: 242246366}
   attackDamage: 15
   attackRange: 4
-  attackOffset: {x: 1.5, y: 0, z: 0}
+  attackOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &961610208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2719,7 +2727,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 7
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e9c88ecdc3548ab4b922f8b7a82e2ef8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
