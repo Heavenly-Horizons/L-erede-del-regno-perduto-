@@ -21,6 +21,7 @@ public class BossWalk : StateMachineBehaviour
         bossWeapon = animator.GetComponent<BossWeapon>();
         attackRange = bossWeapon.attackRange * 3.5f;
         target = new Vector2(player.position.x, -30);
+        bossTransform = animator.GetComponent<Transform>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
