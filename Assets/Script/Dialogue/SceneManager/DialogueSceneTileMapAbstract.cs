@@ -4,8 +4,8 @@ namespace Script.Dialogue.SceneManager
 {
     public abstract class DialogueSceneTileMapAbstract : MonoBehaviour
     {
-        protected GameObject healthBar;
-        protected GameObject staminaBar;
+        [SerializeField] protected GameObject healthBar;
+        [SerializeField] protected GameObject staminaBar;
 
         private void Awake()
         {
