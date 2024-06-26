@@ -34,7 +34,7 @@ public class Player_Attack : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // Faccio partire il timer 
         if (staminaRecoveryCD > 0)

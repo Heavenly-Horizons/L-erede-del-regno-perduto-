@@ -19,7 +19,7 @@ public class BossWalk : StateMachineBehaviour
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<Boss>();
         bossWeapon = animator.GetComponent<BossWeapon>();
-        attackRange = bossWeapon.attackRange * 3.5f;
+        attackRange = bossWeapon.attackRange * 2.5f;
         target = new Vector2(player.position.x, -30);
         bossTransform = animator.GetComponent<Transform>();
     }
