@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-[Serializable]
+[System.Serializable]
 public class PlayerStats : MonoBehaviour
 {
     // Campi per la gestione dei valori del player
@@ -23,63 +25,49 @@ public class PlayerStats : MonoBehaviour
     private static readonly string PlayerDefenceLevel = "PlayerDefenceLevel";
     private static readonly string PlayerHPRegenLevel = "PlayerHPRegenLevel";
     private static readonly string PlayerSPRegenLevel = "PlayerSPRegenLevel";
-    public static bool isNewGameplay = true;
 
     // Statistiche iniziali del player
     public float maxHealth = 100;
     public float maxStamina = 100;
-    public int PlayerMoney;
+    public int PlayerMoney = 0;
     public int atkLevel = 1, staminaLevel = 1, defLevel = 1;
     public int hpRegenLevel = 1, spRegenLevel = 1;
     public float playerDamage = 15f;
-    public float playerDefence;
+    public float playerDefence = 0f;
     public float staminaTookForParry = 10, healthTookForParry = 10;
-    public float staminaTookForPerfectParry = 5, healthTookForPerfectParry;
+    public float staminaTookForPerfectParry = 5, healthTookForPerfectParry = 0;
     public float secondsToFullStamina = 8f;
-    public float staminaRegenRatio;
-
-    // Altro
-    public bool isPlayerDead;
-
-    [SerializeField] private Slider healthBar;
-    [SerializeField] private Slider staminaBar;
-    public Animator animator;
-    private int CurrentAtkLevel, CurrentStaminaLevel, CurrentDefenseLevel;
-    private int CurrentHPRegenLevel, CurrentSPRegenLevel;
+    public double staminaRegenRatio;
 
     // Statistiche attuali del player
     private float PlayerCurrentHealth, PlayerCurrentStamina;
     private float PlayerCurrentMaxHealth, PlayerCurrentMaxStamina, PlayerCurrentDamage, PlayerCurrentDefence;
+    private int CurrentAtkLevel, CurrentStaminaLevel, CurrentDefenseLevel, PlayerCurrentMoney;
+    private int CurrentHPRegenLevel, CurrentSPRegenLevel;
 
+    // Altro
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private Slider staminaBar;
+    public Animator animator;
+    public static bool isNewGameplay = true;
+    public bool isPlayerDead = false; // serve come controllo in PlayerSettings ed anche per far smettere di inseguire il player dai boss una volta morto
+    public float staminaRecoveryCooldown; //probabilmente è ancora poco, forse sta da raddoppiare, poi vediamo
 
-    private void Awake()
+    void Awake()
     {
         if (isNewGameplay)
         {
             InitializeNewPlayer();
-            isNewGameplay = false; // Imposta a false dopo l'inizializzazione
+            isNewGameplay = false;  // Imposta a false dopo l'inizializzazione
         }
         else
         {
             LoadPlayerData();
         }
 
-        staminaRegenRatio = maxStamina / secondsToFullStamina;
+        staminaRegenRatio = Math.Round(maxStamina / secondsToFullStamina, 2);
         SavePlayerAndScene();
         animator = GetComponent<Animator>();
-    }
-
-    private void FixedUpdate()
-    {
-        if (PlayerCurrentHealth < 1)
-        {
-            //   Die()
-        }
-    }
-
-    private void OnApplicationFocus(bool focusStatus)
-    {
-        if (!focusStatus) SavePlayerAndScene();
     }
 
     private void InitializeNewPlayer()
@@ -122,6 +110,7 @@ public class PlayerStats : MonoBehaviour
         PlayerCurrentMaxStamina = PlayerPrefs.GetFloat(PlayerMaxStaminaValue);
         PlayerCurrentDamage = PlayerPrefs.GetFloat(PlayerDamageValue);
         PlayerCurrentDefence = PlayerPrefs.GetFloat(PlayerDefenceValue);
+        PlayerCurrentMoney = PlayerPrefs.GetInt(PlayerMoneyAmount);
 
         CurrentAtkLevel = PlayerPrefs.GetInt(PlayerAttackLevel);
         CurrentStaminaLevel = PlayerPrefs.GetInt(PlayerStaminaLevel);
@@ -164,21 +153,81 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.SetInt(PlayerCurrentScene, SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void AfterDeadPlayer()
+    {
+        PlayerCurrentHealth = PlayerPrefs.GetFloat(PlayerHealthValue);
+        PlayerCurrentStamina = PlayerPrefs.GetFloat(PlayerStaminaValue);
+        PlayerCurrentMaxHealth = PlayerPrefs.GetFloat(PlayerMaxHealthValue);
+        PlayerCurrentMaxStamina = PlayerPrefs.GetFloat(PlayerMaxStaminaValue);
+        PlayerCurrentDamage = PlayerPrefs.GetFloat(PlayerDamageValue);
+        PlayerCurrentDefence = PlayerPrefs.GetFloat(PlayerDefenceValue);
+        PlayerCurrentMoney = PlayerPrefs.GetInt(PlayerMoneyAmount);
+
+        CurrentAtkLevel = PlayerPrefs.GetInt(PlayerAttackLevel);
+        CurrentStaminaLevel = PlayerPrefs.GetInt(PlayerStaminaLevel);
+        CurrentDefenseLevel = PlayerPrefs.GetInt(PlayerDefenceLevel);
+        CurrentHPRegenLevel = PlayerPrefs.GetInt(PlayerHPRegenLevel);
+        CurrentSPRegenLevel = PlayerPrefs.GetInt(PlayerSPRegenLevel);
+
+        healthBar.value = PlayerCurrentMaxHealth;
+        staminaBar.value = PlayerCurrentMaxStamina;
+
+        playerDamage = PlayerCurrentDamage;
+        atkLevel = CurrentAtkLevel;
+        staminaLevel = CurrentStaminaLevel;
+        defLevel = CurrentDefenseLevel;
+        hpRegenLevel = CurrentHPRegenLevel;
+        spRegenLevel = CurrentSPRegenLevel;
+
+        isPlayerDead = false;
+
+        SavePlayerAndScene();
+    }
+
+    private void OnApplicationFocus(bool focusStatus)
+    {
+        if (!focusStatus)
+        {
+            SavePlayerAndScene();
+        }
+    }
+
     public void TakeDamage(float amount)
     {
-        PlayerCurrentHealth = Mathf.Max(PlayerCurrentHealth - amount, 0);
-        healthBar.value = Mathf.Floor(PlayerCurrentHealth);
-        Debug.Log(healthBar.value);
-
         if (PlayerCurrentHealth > 0)
         {
+
+            PlayerCurrentHealth = Mathf.Max(PlayerCurrentHealth - (amount - playerDefence), 0);
+            healthBar.value = Mathf.Floor(PlayerCurrentHealth);
+            Debug.Log(healthBar.value);
+
             animator.SetTrigger("hurt");
         }
         else
         {
-            if (!isPlayerDead) Die();
+            Debug.Log("You died!");
+            isPlayerDead = true;
+            GameObject.FindGameObjectWithTag("DeathScreen").SetActive(true);
+            Debug.Log("Menu morte attivo: " + GameObject.FindGameObjectWithTag("DeathScreen").activeSelf);
+            //StartCoroutine(PlayDeathAnimation())
+            // ...
         }
     }
+
+    // provo a fare una cosa, attivo solamente il gameobject del menù della morte e vedo che succede
+
+    // IEnumerator PlayDeathAnimation()
+    // {
+    //     GameObject deathScreen = GameObject.FindGameObjectWithTag("DeathScreen")
+    //     // Play death animation
+    //     deathScreen.SetActive(true)
+    //     gameObject.GetComponent<Animator>().SetTrigger("die")
+    //     yield return new WaitForSeconds(1f)
+    //     // Disable pause button
+    //     GameObject.FindGameObjectWithTag("PauseButton").SetActive(false)
+    //     deathScreen.GetComponent<Animator>().SetTrigger("Death")
+    //     yield return new WaitForSeconds(2f)
+    // }
 
     public void UseStamina(float amount)
     {
@@ -192,14 +241,6 @@ public class PlayerStats : MonoBehaviour
         healthBar.value = Mathf.Floor(PlayerCurrentHealth);
     }
 
-    private void Die()
-    {
-        //Debug.Log("You died!")
-        // Play death animation
-        // Activate death screen
-        // ...
-    }
-
     public float GetPlayerCurrentHealth()
     {
         return PlayerCurrentHealth;
@@ -208,5 +249,13 @@ public class PlayerStats : MonoBehaviour
     public float GetPlayerCurrentStamina()
     {
         return PlayerCurrentStamina;
+    }
+
+    public bool RecoverStamina()
+    {
+        if (PlayerCurrentStamina >= PlayerCurrentMaxStamina) { return true; }
+        PlayerCurrentStamina += (float)(staminaRegenRatio * Time.deltaTime);
+        staminaBar.value = PlayerCurrentStamina;
+        return false;
     }
 }

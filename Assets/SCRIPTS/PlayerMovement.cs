@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 relativePosition = collision.transform.position - transform.position;
 
             // Determina la direzione del knockback in base alla posizione della freccia
-            KnockFromRight = (relativePosition.x > 0); // Se la freccia è alla destra del giocatore, KnockFromRight sarà true
+            KnockFromRight = relativePosition.x > 0; // Se la freccia è alla destra del giocatore, KnockFromRight sarà true
 
             // Applica il knockback e altri effetti desiderati
             KBCounter = KBTotalTime;
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public bool canAttack(){
-        return Grounded == true;
+        return Grounded;
     }
 
     public void AddCoin()

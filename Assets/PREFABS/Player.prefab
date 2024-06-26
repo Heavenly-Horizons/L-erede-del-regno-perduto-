@@ -232,6 +232,8 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}
   animator: {fileID: 5782237442543137681}
+  isPlayerDead: 0
+  staminaRecoveryCooldown: 2
 --- !u!114 &2433138471206888094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,9 +249,12 @@ MonoBehaviour:
   attackPoint: {fileID: 2182708495531444672}
   attackRange: 5
   attackCooldown: 1.23
+  cooldownTimer: 0
   enemyTag: Nemico
   knockbackForce: 14.9
   knockbackDuration: 0.3
+  staminaRecoveryCD: 0
+  staminaRecovered: 0
 --- !u!114 &5938812389755038220
 MonoBehaviour:
   m_ObjectHideFlags: 0
