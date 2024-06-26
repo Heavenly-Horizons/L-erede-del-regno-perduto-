@@ -25,4 +25,15 @@ public class Boss : MonoBehaviour
             isFlipped = true;
         }
     }
+
+    public void StopMovementCall(){
+        StartCoroutine(StopMovement());
+    }
+
+    private IEnumerator StopMovement()
+    {
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        yield return new WaitForSeconds(0.5f);
+    }
+
 }

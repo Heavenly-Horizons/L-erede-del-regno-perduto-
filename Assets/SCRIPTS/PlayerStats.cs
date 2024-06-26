@@ -209,25 +209,9 @@ public class PlayerStats : MonoBehaviour
             isPlayerDead = true;
             GameObject.FindGameObjectWithTag("DeathScreen").SetActive(true);
             Debug.Log("Menu morte attivo: " + GameObject.FindGameObjectWithTag("DeathScreen").activeSelf);
-            //StartCoroutine(PlayDeathAnimation())
             // ...
         }
     }
-
-    // provo a fare una cosa, attivo solamente il gameobject del menù della morte e vedo che succede
-
-    // IEnumerator PlayDeathAnimation()
-    // {
-    //     GameObject deathScreen = GameObject.FindGameObjectWithTag("DeathScreen")
-    //     // Play death animation
-    //     deathScreen.SetActive(true)
-    //     gameObject.GetComponent<Animator>().SetTrigger("die")
-    //     yield return new WaitForSeconds(1f)
-    //     // Disable pause button
-    //     GameObject.FindGameObjectWithTag("PauseButton").SetActive(false)
-    //     deathScreen.GetComponent<Animator>().SetTrigger("Death")
-    //     yield return new WaitForSeconds(2f)
-    // }
 
     public void UseStamina(float amount)
     {

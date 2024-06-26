@@ -40,12 +40,6 @@ public class BossWalk : StateMachineBehaviour
         }
     }
 
-    public IEnumerator StopMovement(float duration, Animator animator)
-    {
-        animator.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        yield return new WaitForSeconds(duration);
-    }
-
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
