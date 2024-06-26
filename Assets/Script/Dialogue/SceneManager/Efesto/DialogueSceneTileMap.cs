@@ -1,18 +1,13 @@
 using UnityEngine;
 
-namespace Script.Dialogue.SceneManager.Efesto.PT2
+namespace Script.Dialogue.SceneManager.Efesto
 {
-    public class DialogueSceneTileMap : MonoBehaviour
+    public class DialogueSceneTileMap : DialogueSceneTileMapAbstract
     {
         public static byte K = 0;
         [SerializeField] private DialogueSystem dialogueSystem;
 
-        private void Reset()
-        {
-            dialogueSystem.ResetDialogueTrigger();
-        }
-
-        private void Update()
+        public override void Update()
         {
             switch (K)
             {
@@ -23,7 +18,7 @@ namespace Script.Dialogue.SceneManager.Efesto.PT2
 
             if (dialogueSystem.isEnded)
                 //per resettare
-                Reset();
+                dialogueSystem.ResetDialogueTrigger();
         }
     }
 }
