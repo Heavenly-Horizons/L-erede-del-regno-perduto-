@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
 
 
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
