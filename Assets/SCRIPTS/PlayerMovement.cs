@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
 
     private int coinCount;
 
-
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();

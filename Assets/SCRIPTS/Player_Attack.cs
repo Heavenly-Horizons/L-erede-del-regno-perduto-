@@ -78,7 +78,6 @@ public class Player_Attack : MonoBehaviour
         }
 
         //dovrebbe andare, mo testiamo
-
         cooldownTimer += Time.deltaTime;
     }
 

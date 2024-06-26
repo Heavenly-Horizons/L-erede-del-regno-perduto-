@@ -173,6 +173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1524048169012316570, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1956032446194713308, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -73.9
@@ -221,6 +225,14 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1421112632}
+    - target: {fileID: 2433138471206888094, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: staminaRecoveryCD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938812389755038220, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: jumpForce
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2703,7 +2715,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 400
+  m_Mass: 4000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 7
@@ -3693,11 +3705,11 @@ PrefabInstance:
       objectReference: {fileID: 440278500}
     - target: {fileID: 4181703056050273126, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4181703056050273126, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_SortingOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4303332589074899289, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_IsActive
@@ -3992,7 +4004,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-      insertIndex: 1
+      insertIndex: 0
       addedObject: {fileID: 2124486548}
     - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       insertIndex: -1
