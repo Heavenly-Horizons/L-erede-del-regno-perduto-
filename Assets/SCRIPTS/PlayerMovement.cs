@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontalInput;
 
-    private int coinCount;
 
     private void Awake()
     {
@@ -115,11 +114,6 @@ public class PlayerMovement : MonoBehaviour
         return Grounded;
     }
 
-    public void AddCoin()
-    {
-        coinCount++;
-        // Aggiungi qui qualsiasi altra logica, come aggiornare l'interfaccia utente
-        Debug.Log("Coins: " + coinCount);
-    }
+    
     
 }

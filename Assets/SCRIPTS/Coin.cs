@@ -7,10 +7,11 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Aggiungi logica per incrementare il punteggio del giocatore o la quantità di monete
-            PlayerMovement player = other.GetComponent<PlayerMovement>();
-            if (player != null)
+            PlayerStats playerS = other.GetComponent<PlayerStats>();
+            if (playerS != null)
             {
-                player.AddCoin();
+                playerS.PlayerMoney++;
+                Debug.Log("soldi: " + playerS.PlayerMoney);
             }
 
             // Distruggi la moneta

@@ -125,6 +125,7 @@ public class PlayerStats : MonoBehaviour
         healthBar.value = Mathf.Floor(PlayerCurrentHealth);
         staminaBar.value = Mathf.Floor(PlayerCurrentStamina);
         playerDamage = PlayerCurrentDamage;
+        PlayerMoney = PlayerCurrentMoney;
 
         atkLevel = CurrentAtkLevel;
         staminaLevel = CurrentStaminaLevel;

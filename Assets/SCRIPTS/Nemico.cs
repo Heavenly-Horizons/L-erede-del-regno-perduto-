@@ -190,18 +190,27 @@ public class Nemico : MonoBehaviour
             Debug.Log("vita nemico arciere: " + nemicoHealthBar.value);
         }
         else
-        {   nemicoAnim.SetTrigger("die");
+        {   
             nemicoHealth = 0;
             nemicoHealthBar.value = nemicoHealth;
             gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-             GetComponentInParent<Nemico>().enabled = false;
-             GetComponent<Nemico_Attack>().enabled= false;
-
+            
+            
             if (dropCoin != null)
             {
                 dropCoin.Drop();
             }
+            StartCoroutine(PlayDeathAnimation());
+
+            
+
         }
+    }
+
+    IEnumerator PlayDeathAnimation(){
+        nemicoAnim.SetTrigger("die");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
     public void setHit(bool value){
