@@ -20,10 +20,10 @@ public class BossWeapon : MonoBehaviour
             playerStats = colliderInfo.GetComponent<PlayerStats>();
             playerMovement = colliderInfo.GetComponent<PlayerMovement>();
             playerStats.TakeDamage(attackDamage);
+            Debug.Log("Player colpito");
 
             playerMovement.KBCounter = playerMovement.KBTotalTime;
             playerMovement.KnockFromRight = GameObject.FindGameObjectWithTag("Player").transform.position.x <= transform.position.x;
-           // StartCoroutine(gameObject.GetComponent<Boss>().StopMovement(1f));
         }
     }
 

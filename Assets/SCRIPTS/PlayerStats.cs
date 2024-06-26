@@ -46,8 +46,8 @@ public class PlayerStats : MonoBehaviour
     private int CurrentHPRegenLevel, CurrentSPRegenLevel;
 
     // Altro
-    [SerializeField] private Slider healthBar;
-    [SerializeField] private Slider staminaBar;
+    public Slider healthBar;
+    public Slider staminaBar;
     public Animator animator;
     public static bool isNewGameplay = true;
     public bool isPlayerDead = false; // serve come controllo in PlayerSettings ed anche per far smettere di inseguire il player dai boss una volta morto
@@ -197,7 +197,6 @@ public class PlayerStats : MonoBehaviour
     {
         if (PlayerCurrentHealth > 0)
         {
-
             PlayerCurrentHealth = Mathf.Max(PlayerCurrentHealth - (amount - playerDefence), 0);
             healthBar.value = Mathf.Floor(PlayerCurrentHealth);
             Debug.Log(healthBar.value);

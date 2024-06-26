@@ -10,7 +10,6 @@ public class BossWalk : StateMachineBehaviour
     Boss boss;
     BossWeapon bossWeapon;
     Vector2 target;
-    float targetY;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,9 +18,8 @@ public class BossWalk : StateMachineBehaviour
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<Boss>();
         bossWeapon = animator.GetComponent<BossWeapon>();
-        attackRange = bossWeapon.attackRange * 2.5f;
-        targetY = player.position.y;
-        target = new Vector2(player.position.x, targetY);
+        attackRange = bossWeapon.attackRange * 3.5f;
+        target = new Vector2(player.position.x, -30);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -29,7 +27,7 @@ public class BossWalk : StateMachineBehaviour
     {
         boss.LookAtPlayer();
 
-        target = new Vector2(player.position.x, targetY);
+        target = new Vector2(player.position.x, -30);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
 

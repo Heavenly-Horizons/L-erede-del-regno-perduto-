@@ -11416,7 +11416,7 @@ PrefabInstance:
     - target: {fileID: 7261212059468606866, guid: f4a30a1a8b6139246b7bca370d3ad49e, type: 3}
       propertyPath: PlayerSaver
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1971086151}
     - target: {fileID: 7261212059468606866, guid: f4a30a1a8b6139246b7bca370d3ad49e, type: 3}
       propertyPath: nextSceneLoader
       value: 
@@ -12062,6 +12062,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1799333441}
+    - target: {fileID: 6676959155947815351, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1799333442}
     - target: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_Name
       value: Nemico
@@ -12993,6 +12997,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6054022566316862502, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183309659026511776, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6240870697683518094, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
@@ -15078,6 +15086,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 71272673748902069, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
   m_PrefabInstance: {fileID: 1799333439}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1799333442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5938812389755038220, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+  m_PrefabInstance: {fileID: 1799333439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799333441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7591ec49bc8f6574ebeb92450535ef9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1825055419
 GameObject:
   m_ObjectHideFlags: 0
@@ -15696,6 +15715,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1971086151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8646432457681965102, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+  m_PrefabInstance: {fileID: 969734210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2041657191
 GameObject:
   m_ObjectHideFlags: 0

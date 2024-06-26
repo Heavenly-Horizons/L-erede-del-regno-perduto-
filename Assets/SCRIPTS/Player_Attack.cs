@@ -67,6 +67,7 @@ public class Player_Attack : MonoBehaviour
 
             cooldownTimer = 0;
         }
+        
         if (staminaRecoveryCD <= 0 && !staminaRecovered)
         {
             staminaRecovered = playerStats.RecoverStamina();
