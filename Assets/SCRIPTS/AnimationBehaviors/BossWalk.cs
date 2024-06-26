@@ -6,6 +6,7 @@ public class BossWalk : StateMachineBehaviour
     public float speed = 2.5f;
     public float attackRange;
     Transform player;
+    Transform bossTransform;
     Rigidbody2D rb;
     Boss boss;
     BossWeapon bossWeapon;
@@ -26,6 +27,11 @@ public class BossWalk : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         boss.LookAtPlayer();
+
+        // Blocca la rotazione sull'asse Z impostando la rotazione iniziale
+        Vector3 eulerRotation = bossTransform.rotation.eulerAngles;
+        eulerRotation.z = 0;
+        bossTransform.rotation = Quaternion.Euler(eulerRotation);
 
         target = new Vector2(player.position.x, -30);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
