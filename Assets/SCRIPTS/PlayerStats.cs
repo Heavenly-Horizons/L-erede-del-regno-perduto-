@@ -196,7 +196,6 @@ public class PlayerStats : MonoBehaviour
     {
         if (PlayerCurrentHealth > 0)
         {
-
             PlayerCurrentHealth = Mathf.Max(PlayerCurrentHealth - (amount - playerDefence), 0);
             healthBar.value = Mathf.Floor(PlayerCurrentHealth);
             Debug.Log(healthBar.value);

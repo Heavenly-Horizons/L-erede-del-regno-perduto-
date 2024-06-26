@@ -7,6 +7,11 @@ public class Boss : MonoBehaviour
     public bool isFlipped = false;
     public float knockbackForce = 15f;
 
+    void Awake(){
+        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;  // Blocca la rotazione sull'asse Z
+        gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+    }
+
     public void LookAtPlayer()
     {
         Vector3 flipped = transform.localScale;
