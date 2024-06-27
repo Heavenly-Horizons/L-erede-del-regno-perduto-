@@ -1,14 +1,13 @@
 using TMPro;
 using UnityEngine;
 
-public class ShowPlayerMoney : MonoBehaviour
-{
+public class ShowPlayerMoney : MonoBehaviour {
     private TextMeshProUGUI moneyAmountText;
     private PlayerStats playerS;
 
-    void Start() {
+    private void Start() {
         moneyAmountText = GetComponent<TextMeshProUGUI>();
-        playerS = FindObjectOfType<PlayerStats>(); 
+        playerS = FindObjectOfType<PlayerStats>();
     }
 
     void Update() {
