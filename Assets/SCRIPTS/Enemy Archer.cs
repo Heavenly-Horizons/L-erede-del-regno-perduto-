@@ -39,6 +39,7 @@ public class EnemyArcher : MonoBehaviour
     private bool isHit = false;
 
     private DropCoin dropCoin;
+    private DropHeal dropHeal;
 
 
     void Awake()
@@ -71,6 +72,7 @@ public class EnemyArcher : MonoBehaviour
         }
 
         dropCoin = GetComponent<DropCoin>();
+        dropHeal = GetComponent<DropHeal>();
     }
 
     void FixedUpdate()
@@ -249,9 +251,10 @@ public class EnemyArcher : MonoBehaviour
             nemicoHealthBar.value = nemicoHealth;
             gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
 
-            if (dropCoin != null)
+            if (dropCoin != null && dropHeal != null)
             {
                 dropCoin.Drop();
+                dropHeal.Drop();
             }
             //Die
             Destroy(gameObject);

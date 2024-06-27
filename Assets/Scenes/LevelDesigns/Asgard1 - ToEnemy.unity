@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12072,7 +12073,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1564135598}
   m_SourcePrefab: {fileID: 100100000, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
 --- !u!4 &815765380 stripped
 Transform:
@@ -14860,6 +14864,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1564135590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+  m_PrefabInstance: {fileID: 815765379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1564135598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564135590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa969173c1e674549b00ce06965e87b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healing_hidromele: {fileID: 5722551632794112379, guid: 9b7f681f1b55ec64cae4948a0c37c7a2, type: 3}
+  dropForce: 5
+  randomForce: 10
 --- !u!1 &1696291589
 GameObject:
   m_ObjectHideFlags: 0
@@ -14973,9 +14997,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 763211277}
   - {fileID: 1799333440}
   - {fileID: 815765380}
+  - {fileID: 763211277}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1752041465
@@ -15130,6 +15154,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1824812932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824812920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa969173c1e674549b00ce06965e87b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healing_hidromele: {fileID: 5722551632794112379, guid: 9b7f681f1b55ec64cae4948a0c37c7a2, type: 3}
+  dropForce: 5
+  randomForce: 10
 --- !u!1 &1825055419
 GameObject:
   m_ObjectHideFlags: 0
@@ -16057,7 +16096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6155206349800760750, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 986481548863003747, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
@@ -16067,6 +16106,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6155206349800760750, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1824812926}
+    - targetCorrespondingSourceObject: {fileID: 6155206349800760750, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1824812932}
   m_SourcePrefab: {fileID: 100100000, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -36,6 +36,7 @@ public class Nemico : MonoBehaviour
     private bool isHit = false;
 
     private DropCoin dropCoin;
+    private DropHeal dropHeal;
 
     void Start()
     {
@@ -59,6 +60,7 @@ public class Nemico : MonoBehaviour
 
         nemicoAnim = GetComponent<Animator>();
         dropCoin = GetComponent<DropCoin>();
+        dropHeal = GetComponent<DropHeal>();
     }
 
     void FixedUpdate()
@@ -196,9 +198,10 @@ public class Nemico : MonoBehaviour
             gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
             
             
-            if (dropCoin != null)
+            if (dropCoin != null && dropHeal != null)
             {
                 dropCoin.Drop();
+                dropHeal.Drop();
             }
             StartCoroutine(PlayDeathAnimation());
 
@@ -212,7 +215,7 @@ public class Nemico : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
-
+    
     public void setHit(bool value){
         isHit = value;
     }
