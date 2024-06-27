@@ -11608,6 +11608,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1752041466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &720629901 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1805852448520013709, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+  m_PrefabInstance: {fileID: 969734210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &747532624
 GameObject:
   m_ObjectHideFlags: 0
@@ -15047,6 +15052,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2105300433071974349, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: healthBar
       value: 
@@ -15056,9 +15065,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 969734215}
     - target: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
-      propertyPath: staminaRegenRatio
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 720629901}
     - target: {fileID: 2433138471206888094, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: attackCooldown
       value: 1

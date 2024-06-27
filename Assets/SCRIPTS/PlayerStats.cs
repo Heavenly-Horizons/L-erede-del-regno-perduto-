@@ -38,6 +38,7 @@ public class PlayerStats : MonoBehaviour
     public float staminaTookForPerfectParry = 5, healthTookForPerfectParry = 0;
     public float secondsToFullStamina = 8f;
     public double staminaRegenRatio;
+    public bool isInvulnerable = false;
 
     // Statistiche attuali del player
     private float PlayerCurrentHealth, PlayerCurrentStamina;
@@ -56,18 +57,14 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {
-        if(isPlayerDead){
-            AfterDeadPlayer();
-        }else{
-            if (isNewGameplay)
-            {
-                InitializeNewPlayer();
-                isNewGameplay = false;  // Imposta a false dopo l'inizializzazione
-            }
-            else
-            {
-                LoadPlayerData();
-            }
+        if (isNewGameplay)
+        {
+            InitializeNewPlayer();
+            isNewGameplay = false;  // Imposta a false dopo l'inizializzazione
+        }
+        else
+        {
+            LoadPlayerData();
         }
 
         staminaRegenRatio = Math.Round(maxStamina / secondsToFullStamina, 2);
@@ -201,8 +198,9 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float amount)
-    {
+    public void TakeDamage(float amount) {
+        if (isInvulnerable) return;
+        
         if (PlayerCurrentHealth - (amount + playerDefence) > 0)
         {
             PlayerCurrentHealth = PlayerCurrentHealth - (amount + playerDefence);

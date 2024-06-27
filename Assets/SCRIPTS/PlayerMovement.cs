@@ -1,10 +1,9 @@
-using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float speed = 25f; // Campo serializzabile per impostare la velocità da Unity
     [SerializeField] private float jumpForce = 5f; // Forza del salto
-    [SerializeField] private CanvasGroup playerBubble;
+
     public float KBForce = 40f;
     public float KBCounter;
     public float KBTotalTime = 0.2f;
@@ -17,7 +16,6 @@ public class PlayerMovement : MonoBehaviour {
     private bool Grounded;
 
     private float horizontalInput;
-
 
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
@@ -47,16 +45,6 @@ public class PlayerMovement : MonoBehaviour {
                 KBCounter -= Time.deltaTime;
             }
 
-            //appare la bolla
-            if (Input.GetKey(KeyCode.K)) {
-                //mostra bolla
-                StartCoroutine(ShowBubble());
-                //non prende danno
-                var playerStats = GetComponent<PlayerStats>();
-            }
-            else {
-                playerBubble.alpha = 0;
-            }
 
             // Serve per far girare il personaggio da una parte all'altra
             if (horizontalInput > 0.01f)
@@ -88,29 +76,11 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    private IEnumerator ShowBubble() {
-        // Calcola quanto decrementare alpha in ogni frame basandosi sulla durata del fade
-        float fadeStep = playerBubble.alpha / 1f * Time.deltaTime;
-
-        // Continua a eseguire finché alpha è maggiore di 0
-        while (playerBubble.alpha > 0) {
-            // Decrementa il valore di alpha
-            playerBubble.alpha -= fadeStep;
-
-            // Aspetta il prossimo frame
-            yield return null;
-        }
-
-        // Assicurati che alpha sia esattamente 0 alla fine
-        playerBubble.alpha = 0;
-    }
-
     private void Jump() {
         body.velocity = new(body.velocity.x, jumpForce);
         anim.SetTrigger("Jump");
         Grounded = false;
     }
-
 
     public void CanMove() {
         canMove = true;
