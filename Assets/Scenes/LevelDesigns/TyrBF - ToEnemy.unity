@@ -332,14 +332,11 @@ PrefabInstance:
     - target: {fileID: 5938812389755038220, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: playerBubble
       value: 
-      objectReference: {fileID: 1338880367}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5219436031168958263, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1338880367}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
 --- !u!4 &45684342 stripped
 Transform:
@@ -2808,7 +2805,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 45684342}
   isFlipped: 0
-  knockbackForce: 15
 --- !u!50 &961610210
 Rigidbody2D:
   serializedVersion: 4
@@ -4436,23 +4432,6 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!1 &1338880364 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5219436031168958263, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
-  m_PrefabInstance: {fileID: 45684341}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &1338880367
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338880364}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1379371312 stripped
