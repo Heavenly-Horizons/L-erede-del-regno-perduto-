@@ -256,9 +256,10 @@ GameObject:
   - component: {fileID: 8852279839293980730}
   - component: {fileID: 853694401508086314}
   - component: {fileID: 5341908383434843569}
-  - component: {fileID: 986481548863003747}
   - component: {fileID: 2388164198109360663}
-  m_Layer: 0
+  - component: {fileID: 4216109713446143024}
+  - component: {fileID: 6863915934142979371}
+  m_Layer: 6
   m_Name: Nemico2
   m_TagString: Nemico
   m_Icon: {fileID: 0}
@@ -273,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6155206349800760750}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 59.8, y: 1.680521, z: 26.100182}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -427,28 +428,13 @@ MonoBehaviour:
   launchPoint: {fileID: 6461590446495643301}
   arrowSpeed: 30
   arrowCooldown: 2
+  animator: {fileID: 4216109713446143024}
   KBForce: 40
   knockbackDuration: 0.2
   knockbackCounter: 0
   knockFromRight: 0
   nemicoHealth: 30
   nemicoHealthBar: {fileID: 1874979669852381573}
---- !u!114 &986481548863003747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6155206349800760750}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0343d64baeb4858468a74df8e8af41a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 15
-  attackCooldown: 1
-  player: {fileID: 0}
-  playerMovement: {fileID: 0}
 --- !u!114 &2388164198109360663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +448,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 6035274226729150628, guid: 40c1e9857744d3248b1408a7ef338af7, type: 3}
+  dropForce: 5
+  randomForce: 10
+--- !u!95 &4216109713446143024
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155206349800760750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a2512bf80bc600048806ca0622465cd5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6863915934142979371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155206349800760750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa969173c1e674549b00ce06965e87b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healing_hidromele: {fileID: 5722551632794112379, guid: 9b7f681f1b55ec64cae4948a0c37c7a2, type: 3}
   dropForce: 5
   randomForce: 10
 --- !u!1 &6320708794811731962

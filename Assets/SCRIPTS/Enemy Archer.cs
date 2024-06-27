@@ -33,7 +33,7 @@ public class EnemyArcher : MonoBehaviour
     public float knockbackCounter;
     public bool knockFromRight;
 
-    public float nemicoHealth = 30;
+    public float nemicoHealth = 30f;
     public Slider nemicoHealthBar;
 
     private bool isHit = false;

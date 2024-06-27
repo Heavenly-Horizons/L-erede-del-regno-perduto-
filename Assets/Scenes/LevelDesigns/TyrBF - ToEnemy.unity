@@ -195,7 +195,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: aa21e720d4555d5418fc1e5c7ab543c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -327,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5938812389755038220, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: jumpForce
-      value: 35
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2766,7 +2766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 242246366}
-  attackDamage: 100
+  attackDamage: 15
   attackRange: 2.5
   attackOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &961610208
@@ -4396,7 +4396,7 @@ CanvasGroup:
   m_GameObject: {fileID: 1315798687}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1379371312 stripped
