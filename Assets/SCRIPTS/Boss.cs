@@ -5,7 +5,6 @@ public class Boss : MonoBehaviour
 {
     public Transform player;
     public bool isFlipped = false;
-    public float knockbackForce = 15f;
 
     void Awake(){
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;  // Blocca la rotazione sull'asse Z
@@ -40,5 +39,4 @@ public class Boss : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         yield return new WaitForSeconds(0.5f);
     }
-
 }

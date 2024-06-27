@@ -329,6 +329,10 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 5938812389755038220, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: playerBubble
+      value: 
+      objectReference: {fileID: 1338880367}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2641,6 +2645,8 @@ GameObject:
   - component: {fileID: 961610209}
   - component: {fileID: 961610208}
   - component: {fileID: 961610207}
+  - component: {fileID: 961610213}
+  - component: {fileID: 961610212}
   - component: {fileID: 961610211}
   - component: {fileID: 961610210}
   m_Layer: 0
@@ -2875,6 +2881,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.037098, y: 4.456398}
   m_EdgeRadius: 0
+--- !u!114 &961610212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961610202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa969173c1e674549b00ce06965e87b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healing_hidromele: {fileID: 5722551632794112379, guid: 9b7f681f1b55ec64cae4948a0c37c7a2, type: 3}
+  dropForce: 5
+  randomForce: 10
+--- !u!114 &961610213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961610202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8994449ee0360ed4c9102a106f0712e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 6035274226729150628, guid: 40c1e9857744d3248b1408a7ef338af7, type: 3}
+  dropForce: 5
+  randomForce: 10
 --- !u!1 &992737056
 GameObject:
   m_ObjectHideFlags: 0

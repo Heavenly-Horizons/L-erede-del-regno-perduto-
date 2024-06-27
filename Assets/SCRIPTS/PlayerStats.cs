@@ -56,14 +56,18 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {
-        if (isNewGameplay)
-        {
-            InitializeNewPlayer();
-            isNewGameplay = false;  // Imposta a false dopo l'inizializzazione
-        }
-        else
-        {
-            LoadPlayerData();
+        if(isPlayerDead){
+            AfterDeadPlayer();
+        }else{
+            if (isNewGameplay)
+            {
+                InitializeNewPlayer();
+                isNewGameplay = false;  // Imposta a false dopo l'inizializzazione
+            }
+            else
+            {
+                LoadPlayerData();
+            }
         }
 
         staminaRegenRatio = Math.Round(maxStamina / secondsToFullStamina, 2);

@@ -14,6 +14,8 @@ public class BossWalk : StateMachineBehaviour
     public Vector2 target;
     public float initialBossY;
 
+    
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -54,7 +56,5 @@ public class BossWalk : StateMachineBehaviour
         }else{
             animator.SetBool("PlayerDead", true);
         }
-
-        
     }
 }

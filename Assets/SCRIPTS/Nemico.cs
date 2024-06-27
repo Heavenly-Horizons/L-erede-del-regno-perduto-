@@ -200,8 +200,8 @@ public class Nemico : MonoBehaviour
             
             if (dropCoin != null && dropHeal != null)
             {
-                dropCoin.Drop();
-                dropHeal.Drop();
+                dropCoin.Drop(1);
+                dropHeal.Drop(1);
             }
             StartCoroutine(PlayDeathAnimation());
 

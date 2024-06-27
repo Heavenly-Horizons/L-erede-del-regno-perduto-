@@ -9,7 +9,6 @@ public class BossHealth : MonoBehaviour
     public bool isInvulnerable = false;
     public float bossHealth;
     public float damageCounter;
-    private bool playerHealed = false;
 
     void Start(){
         animator = GetComponent<Animator>();
@@ -35,15 +34,13 @@ public class BossHealth : MonoBehaviour
                 damageCounter += amount;
                 animator.ResetTrigger("Hurt");
             }else{
-                // Da attivare la sequenza finale, da attivare il trigger
+                gameObject.GetComponent<DropHeal>().Drop(4);
+                gameObject.GetComponent<DropCoin>().Drop(3);
             }
 
             if(damageCounter >= 50f){
                 GetComponent<Animator>().SetBool("Invulnerable", true);
-                if(!playerHealed){
-                    playerHealed = true;
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().HealPlayer(20);
-                }
+                gameObject.GetComponent<DropHeal>().Drop(2);
                 damageCounter = 0;
             }
         }
@@ -51,7 +48,7 @@ public class BossHealth : MonoBehaviour
 
     IEnumerator BubbleShow(){
         animator.SetTrigger("BubbleShow");
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(2f);
         animator.ResetTrigger("BubbleShow");
     }
 }
