@@ -80,7 +80,9 @@ public class PlayerStats : MonoBehaviour
         staminaBar.value = maxStamina;
 
         PlayerCurrentHealth = maxHealth;
+        PlayerCurrentMaxHealth = maxHealth;
         PlayerCurrentStamina = maxStamina;
+        PlayerCurrentMaxStamina = maxStamina;
 
         PlayerMoney = 0;
 
