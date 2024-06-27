@@ -13,7 +13,7 @@ public class ShowPlayerMoney : MonoBehaviour
 
     void Update() {
         if (playerS != null && moneyAmountText != null) {
-            moneyAmountText.text = ": " + playerS.PlayerMoney;
+            moneyAmountText.text =  playerS.PlayerMoney;
         }
     }
 }
