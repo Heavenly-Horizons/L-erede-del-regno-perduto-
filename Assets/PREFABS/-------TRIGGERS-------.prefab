@@ -83,11 +83,11 @@ PrefabInstance:
     - target: {fileID: 7261212059468606866, guid: f4a30a1a8b6139246b7bca370d3ad49e, type: 3}
       propertyPath: PlayerSaver
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 71272673748902069, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
     - target: {fileID: 7261212059468606866, guid: f4a30a1a8b6139246b7bca370d3ad49e, type: 3}
       propertyPath: nextSceneLoader
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4764859365263412244, guid: a10c477d73ca1064490271c0aec1e7ed, type: 3}
     - target: {fileID: 8651060071773862195, guid: f4a30a1a8b6139246b7bca370d3ad49e, type: 3}
       propertyPath: m_Name
       value: toNextLevel

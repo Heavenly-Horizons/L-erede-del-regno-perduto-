@@ -1321,6 +1321,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4152890641389099781, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4292634638125618756, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_text
       value: Sei sicuro di voler uscire dal gioco?
@@ -1399,6 +1403,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4614948097543312699, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671304141555384274, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4851518813039973035, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
@@ -1734,6 +1742,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8646432457681965102, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746617953489785575, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

@@ -3,18 +3,17 @@ using UnityEngine;
 
 public class ShowPlayerMoney : MonoBehaviour
 {
-    private static readonly string PlayerMoneyAmount = "PlayerMoneyAmount";
-    private int moneyAmount;
     private TextMeshProUGUI moneyAmountText;
- 
-    void Awake()
-    {
+    private PlayerStats playerS;
+
+    void Start() {
         moneyAmountText = GetComponent<TextMeshProUGUI>();
-        moneyAmount = PlayerPrefs.GetInt(PlayerMoneyAmount);
+        playerS = FindObjectOfType<PlayerStats>(); 
     }
 
     void Update() {
-        moneyAmountText.text = moneyAmount.ToString();
+        if (playerS != null && moneyAmountText != null) {
+            moneyAmountText.text = ": " + playerS.PlayerMoney;
+        }
     }
-
 }

@@ -4200,9 +4200,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1598442495171956561, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 622026784}
-    - targetCorrespondingSourceObject: {fileID: 6183309659026511776, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1315798690}
   m_SourcePrefab: {fileID: 100100000, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
 --- !u!95 &1180972702 stripped
 Animator:
@@ -4417,23 +4414,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302504700}
   m_CullTransparentMesh: 1
---- !u!1 &1315798687 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6183309659026511776, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-  m_PrefabInstance: {fileID: 1180972701}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &1315798690
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315798687}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1379371312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3066361927740686902, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
