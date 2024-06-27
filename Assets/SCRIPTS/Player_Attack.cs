@@ -21,6 +21,7 @@ public class Player_Attack : MonoBehaviour
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         playerStats = GetComponent<PlayerStats>();
+        cooldownTimer = attackCooldown;
         staminaRecoveryCD = playerStats.staminaRecoveryCooldown;
 
         if (anim == null)
@@ -55,13 +56,11 @@ public class Player_Attack : MonoBehaviour
             if (isRunning)
             {
                 anim.SetTrigger("attackRunning");
-                Attack();
                 staminaRecoveryCD = playerStats.staminaRecoveryCooldown;
             }
             else
             {
                 anim.SetTrigger("attack");
-                Attack();
                 staminaRecoveryCD = playerStats.staminaRecoveryCooldown;
             }
 
@@ -82,7 +81,7 @@ public class Player_Attack : MonoBehaviour
         cooldownTimer += Time.deltaTime;
     }
 
-    void Attack()
+    public void Attack()
     {
         // Trova tutti gli oggetti con il tag specificato
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
@@ -122,7 +121,7 @@ public class Player_Attack : MonoBehaviour
         playerStats.UseStamina(10);
     }
 
-    void OnDrawGizmosSelected()
+    public void OnDrawGizmosSelected()
     {
         if (attackPoint == null) return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);

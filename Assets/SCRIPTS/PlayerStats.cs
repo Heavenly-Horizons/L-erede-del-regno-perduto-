@@ -68,6 +68,7 @@ public class PlayerStats : MonoBehaviour
         staminaRegenRatio = Math.Round(maxStamina / secondsToFullStamina, 2);
         SavePlayerAndScene();
         animator = GetComponent<Animator>();
+         PlayerCurrentMaxStamina= 100;
     }
 
     private void InitializeNewPlayer()
@@ -237,7 +238,8 @@ public class PlayerStats : MonoBehaviour
 
     public bool RecoverStamina()
     {
-        if (PlayerCurrentStamina >= PlayerCurrentMaxStamina) { return true; }
+        if (PlayerCurrentStamina >= PlayerCurrentMaxStamina) { 
+            return true; }
         PlayerCurrentStamina += (float)(staminaRegenRatio * Time.deltaTime);
         staminaBar.value = PlayerCurrentStamina;
         return false;

@@ -12,7 +12,13 @@ public class EnemyArcher : MonoBehaviour
     public GameObject arrowPrefab;
     public Transform launchPoint;
     public float arrowSpeed = 20f;
+
+    private bool isDead = false; 
     public float arrowCooldown = 2f;  // Tempo di cooldown tra i lanci
+    
+    public Animator animator;  // Aggiungi un riferimento all'Animator
+
+    private bool isAttacking = false;  // Variabile per tenere traccia se il nemico è in attacco
 
     private bool isPatrollingLeft;
     private Rigidbody2D rb;
@@ -59,12 +65,17 @@ public class EnemyArcher : MonoBehaviour
             Debug.LogError("Player not assigned to enemy " + gameObject.name);
         }
 
+          if (animator == null)
+        {
+            Debug.LogError("Animator not assigned to enemy " + gameObject.name);
+        }
+
         dropCoin = GetComponent<DropCoin>();
     }
 
     void FixedUpdate()
     {
-        if (isStopped) return;
+         if (isStopped || isDead) return; 
 
         if (knockbackCounter > 0)
         {
@@ -78,6 +89,7 @@ public class EnemyArcher : MonoBehaviour
             if (playerDistance <= attackRange)
             {
                 rb.velocity = Vector2.zero;
+                isAttacking = true;
 
                 // Guarda verso il giocatore
                 if ((player.position.x > transform.position.x && !isFacingRight) ||
@@ -90,9 +102,11 @@ public class EnemyArcher : MonoBehaviour
                 {
                     StartCoroutine(ShootArrowWithCooldown());
                 }
+                animator.SetTrigger("Attack");
             }
             else
-            {
+            {   isAttacking = false;
+                animator.ResetTrigger("Attack");
                 Patrol();
             }
         }
@@ -119,7 +133,8 @@ public class EnemyArcher : MonoBehaviour
     }
 
     void Patrol()
-    {
+    {   
+        animator.SetTrigger("Run");
         int directionMultiplier = isPatrollingLeft ? -1 : 1;
         rb.velocity = new Vector2(patrolSpeed * Time.deltaTime * directionMultiplier, rb.velocity.y);
 
@@ -166,13 +181,14 @@ public class EnemyArcher : MonoBehaviour
     IEnumerator ShootArrowWithCooldown()
     {
         isShooting = true;
-        ShootArrow();
         yield return new WaitForSeconds(arrowCooldown);
         isShooting = false;
     }
 
-    void ShootArrow()
+    public void ShootArrow()
     {
+        if (isAttacking) // Controlla se il nemico è in attacco
+     {
         if (arrowPrefab != null && launchPoint != null)
         {
             Debug.Log("Shooting arrow");
@@ -210,12 +226,14 @@ public class EnemyArcher : MonoBehaviour
         {
             Debug.LogError("ArrowPrefab or LaunchPoint is not assigned.");
         }
+     }
     }
 
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
         if (isHit)
-        {
+        {    animator.SetTrigger("hurt");
             gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
         }
 
@@ -226,7 +244,7 @@ public class EnemyArcher : MonoBehaviour
             Debug.Log("vita nemico arciere: " + nemicoHealthBar.value);
         }
         else
-        {
+        {   animator.SetTrigger("die");
             nemicoHealth = 0;
             nemicoHealthBar.value = nemicoHealth;
             gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
