@@ -12,7 +12,15 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(CrossfadeStartOnButtonClick(toMainMenu));
     }
+    public void RetryLevel(){
+        StartCoroutine(ReplayLevel());
+    }
 
+    IEnumerator ReplayLevel(){
+        crossfade_animation.SetTrigger(crossfadeStart);
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     IEnumerator CrossfadeStartOnButtonClick(bool toMainMenu)
     {
         if(toMainMenu){

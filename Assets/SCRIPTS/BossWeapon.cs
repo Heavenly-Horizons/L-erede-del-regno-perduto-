@@ -4,7 +4,7 @@ public class BossWeapon : MonoBehaviour
 {
     public Transform attackPoint;
     public float attackDamage = 15f;
-    public float attackRange = 4f;
+    public float attackRange;
     public Vector3 attackOffset;
     private PlayerStats playerStats;
     private PlayerMovement playerMovement;

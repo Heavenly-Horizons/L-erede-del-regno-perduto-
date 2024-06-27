@@ -49,6 +49,7 @@ public class PlayerStats : MonoBehaviour
     public Slider healthBar;
     public Slider staminaBar;
     public Animator animator;
+    private GameObject deathScreen;
     public static bool isNewGameplay = true;
     public bool isPlayerDead = false; // serve come controllo in PlayerSettings ed anche per far smettere di inseguire il player dai boss una volta morto
     public float staminaRecoveryCooldown; //probabilmente è ancora poco, forse sta da raddoppiare, poi vediamo
@@ -68,7 +69,7 @@ public class PlayerStats : MonoBehaviour
         staminaRegenRatio = Math.Round(maxStamina / secondsToFullStamina, 2);
         SavePlayerAndScene();
         animator = GetComponent<Animator>();
-         PlayerCurrentMaxStamina= 100;
+        deathScreen = GameObject.FindGameObjectWithTag("DeathScreen");
     }
 
     private void InitializeNewPlayer()
@@ -159,10 +160,10 @@ public class PlayerStats : MonoBehaviour
 
     public void AfterDeadPlayer()
     {
-        PlayerCurrentHealth = PlayerPrefs.GetFloat(PlayerHealthValue);
-        PlayerCurrentStamina = PlayerPrefs.GetFloat(PlayerStaminaValue);
         PlayerCurrentMaxHealth = PlayerPrefs.GetFloat(PlayerMaxHealthValue);
         PlayerCurrentMaxStamina = PlayerPrefs.GetFloat(PlayerMaxStaminaValue);
+        PlayerCurrentHealth = PlayerCurrentMaxHealth;
+        PlayerCurrentStamina = PlayerCurrentMaxStamina;
         PlayerCurrentDamage = PlayerPrefs.GetFloat(PlayerDamageValue);
         PlayerCurrentDefence = PlayerPrefs.GetFloat(PlayerDefenceValue);
         PlayerCurrentMoney = PlayerPrefs.GetInt(PlayerMoneyAmount);
@@ -198,9 +199,9 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        if (PlayerCurrentHealth > 0)
+        if (PlayerCurrentHealth - (amount + playerDefence) > 0)
         {
-            PlayerCurrentHealth = Mathf.Max(PlayerCurrentHealth - (amount - playerDefence), 0);
+            PlayerCurrentHealth = PlayerCurrentHealth - (amount + playerDefence);
             healthBar.value = Mathf.Floor(PlayerCurrentHealth);
             Debug.Log(healthBar.value);
 
@@ -208,12 +209,20 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
+            PlayerCurrentHealth = 0;
+            healthBar.value = PlayerCurrentHealth;
             Debug.Log("You died!");
             isPlayerDead = true;
-            GameObject.FindGameObjectWithTag("DeathScreen").SetActive(true);
-            Debug.Log("Menu morte attivo: " + GameObject.FindGameObjectWithTag("DeathScreen").activeSelf);
+            animator.SetTrigger("die");
+            StartCoroutine(PlayDeathAnimation());
+            deathScreen.GetComponent<Animator>().SetTrigger("playerDead");
+            StartCoroutine(PlayDeathAnimation());
             // ...
         }
+    }
+
+    private IEnumerator PlayDeathAnimation(){
+        yield return new WaitForSeconds(1f);
     }
 
     public void UseStamina(float amount)
