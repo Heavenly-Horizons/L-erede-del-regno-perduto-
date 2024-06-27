@@ -246,7 +246,7 @@ public class EnemyArcher : MonoBehaviour
             Debug.Log("vita nemico arciere: " + nemicoHealthBar.value);
         }
         else
-        {   animator.SetTrigger("die");
+        {
             nemicoHealth = 0;
             nemicoHealthBar.value = nemicoHealth;
             gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
@@ -257,8 +257,14 @@ public class EnemyArcher : MonoBehaviour
                 dropHeal.Drop(1);
             }
             //Die
-            Destroy(gameObject);
+           StartCoroutine(PlayDeathAnimation());
         }
+    }
+
+     IEnumerator PlayDeathAnimation(){
+        animator.SetTrigger("die");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
     public void setHit(bool value){
