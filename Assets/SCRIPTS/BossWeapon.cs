@@ -5,8 +5,9 @@ public class BossWeapon : MonoBehaviour {
     public float attackDamage = 15f;
     public float attackRange;
     public Vector3 attackOffset;
-    private PlayerMovement playerMovement;
-    private PlayerStats playerStats;
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private Transform playerTransform;
 
     private void OnDrawGizmosSelected() {
         if (attackPoint == null) return;
@@ -22,14 +23,11 @@ public class BossWeapon : MonoBehaviour {
         Collider2D colliderInfo = Physics2D.OverlapCircle(pos, attackRange);
 
         if (colliderInfo != null && colliderInfo.CompareTag("Player")) {
-            playerStats = colliderInfo.GetComponent<PlayerStats>();
-            playerMovement = colliderInfo.GetComponent<PlayerMovement>();
             playerStats.TakeDamage(attackDamage);
             Debug.Log("Player colpito");
 
             playerMovement.KBCounter = playerMovement.KBTotalTime;
-            playerMovement.KnockFromRight = GameObject.FindGameObjectWithTag("Player").transform.position.x <=
-                                            transform.position.x;
+            playerMovement.KnockFromRight = playerTransform.position.x <= transform.position.x;
         }
     }
 }

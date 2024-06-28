@@ -1163,6 +1163,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 560666539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &333463787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6183309659026511776, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+  m_PrefabInstance: {fileID: 1876984091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &424885748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1570,6 +1575,9 @@ MonoBehaviour:
   attackDamage: 15
   attackRange: 3
   attackOffset: {x: 0, y: 0, z: 0}
+  playerMovement: {fileID: 1777998558}
+  playerStats: {fileID: 1915887869}
+  playerTransform: {fileID: 1088425063}
 --- !u!114 &560666543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2906,6 +2914,10 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1353524911}
+    - target: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 333463787}
     - target: {fileID: 4139658147447285326, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: m_Alpha
       value: 0
@@ -7955,6 +7967,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 71272673748902069, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
   m_PrefabInstance: {fileID: 1088425062}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1915887869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+  m_PrefabInstance: {fileID: 1088425062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915887866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188bfcebaf4e6f042891329bee38734e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1927434708
 GameObject:
   m_ObjectHideFlags: 0

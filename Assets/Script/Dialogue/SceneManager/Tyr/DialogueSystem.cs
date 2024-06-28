@@ -89,7 +89,7 @@ namespace Script.Dialogue.SceneManager.Tyr {
                 //inizia la sfida
                 default:
                     player.CanMove();
-                    DialogueSceneTileMap.k = 1;
+                    DialogueSceneTileMap.K = 1;
                     isEnded = true;
                     break;
             }
@@ -202,7 +202,7 @@ namespace Script.Dialogue.SceneManager.Tyr {
                     break;
                 default:
                     player.CanMove();
-                    DialogueSceneTileMap.k = 2;
+                    DialogueSceneTileMap.K = 2;
                     isEnded = true;
                     break;
             }

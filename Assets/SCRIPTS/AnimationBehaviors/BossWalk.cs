@@ -1,8 +1,8 @@
-using Script.Dialogue.SceneManager.AchilleBF___ToEnemy;
 using UnityEngine;
 
-public class BossWalk : StateMachineBehaviour
-{
+public class BossWalk : StateMachineBehaviour {
+    private static readonly int Attack = Animator.StringToHash("Attack");
+    private static readonly int PlayerDead = Animator.StringToHash("PlayerDead");
     public float speed = 2.5f;
     public float attackRange;
     public float initialBossY;
@@ -10,19 +10,19 @@ public class BossWalk : StateMachineBehaviour
     public Vector2 target;
     public bool isEnabled = true;
     private Boss boss;
-    private BossWeapon bossWeapon;
     private Transform bossTransform;
-    private Transform player;
+    private BossWeapon bossWeapon;
     private PlayerStats playerStats;
+    private Transform playerTransform;
     private Rigidbody2D rb;
 
-    
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        playerStats = player.GetComponent<PlayerStats>();
+        playerTransform = player.GetComponent<Transform>();
+
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<Boss>();
         bossWeapon = animator.GetComponent<BossWeapon>();
@@ -32,36 +32,33 @@ public class BossWalk : StateMachineBehaviour
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        animator.ResetTrigger("Attack");
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        animator.ResetTrigger(Attack);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if(!isEnabled){ 
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        if (!isEnabled) {
             attackRange = -1;
-            return; 
+            return;
         }
 
         boss.LookAtPlayer();
 
         // Blocca la rotazione sull'asse Z impostando la rotazione iniziale
-        var eulerRotation = bossTransform.rotation.eulerAngles;
+        Vector3 eulerRotation = bossTransform.rotation.eulerAngles;
         eulerRotation.z = 0;
         bossTransform.rotation = Quaternion.Euler(eulerRotation);
 
-        target = new Vector2(player.position.x, initialBossY);
-        var newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
-        
-        if(!playerStats.isPlayerDead){
+        target = new(playerTransform.position.x, initialBossY);
+        Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+
+        if (!playerStats.isPlayerDead) {
             rb.MovePosition(newPos);
-            if (Vector2.Distance(player.position, rb.position) <= attackRange + 1){
-                animator.SetTrigger("Attack");
-            }
-        }else{
-            animator.SetBool("PlayerDead", true);
+            if (Vector2.Distance(playerTransform.position, rb.position) <= attackRange + 1) animator.SetTrigger(Attack);
+        }
+        else {
+            animator.SetBool(PlayerDead, true);
         }
     }
 }

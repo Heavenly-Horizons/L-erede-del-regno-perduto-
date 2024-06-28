@@ -20411,6 +20411,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
   m_PrefabInstance: {fileID: 1327333431}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1327333435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6183309659026511776, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+  m_PrefabInstance: {fileID: 1327333431}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1338097439 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7362014459399189904, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
@@ -28658,6 +28663,10 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1799709033}
+    - target: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 1327333435}
     - target: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: staminaRegenRatio
       value: 0

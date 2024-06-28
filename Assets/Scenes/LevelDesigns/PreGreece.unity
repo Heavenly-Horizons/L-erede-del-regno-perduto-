@@ -9599,6 +9599,10 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1673312397}
+    - target: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 495955148}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
