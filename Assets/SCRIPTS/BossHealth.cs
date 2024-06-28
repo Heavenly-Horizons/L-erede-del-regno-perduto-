@@ -1,4 +1,6 @@
 using System.Collections;
+using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,7 @@ public class BossHealth : MonoBehaviour
     public bool isInvulnerable = false;
     public float bossHealth;
     public float damageCounter;
+    public bool isDead = false;
 
     void Start(){
         animator = GetComponent<Animator>();
@@ -26,22 +29,20 @@ public class BossHealth : MonoBehaviour
                 return; 
             }
 
-            if (bossHealth > 0)
-            {
+            if (bossHealth - amount > 0){
                 animator.SetTrigger("Hurt");
                 bossHealth -= amount;
                 bossHealthSlider.value = bossHealth;
                 damageCounter += amount;
                 animator.ResetTrigger("Hurt");
             }else{
+                isDead = true;
+                bossHealth = 0;
+                bossHealthSlider.value = bossHealth;
+                damageCounter = 0;
+                gameObject.GetComponent<Animator>().SetTrigger("Defeat");
                 gameObject.GetComponent<DropHeal>().Drop(4);
                 gameObject.GetComponent<DropCoin>().Drop(3);
-            }
-
-            if(damageCounter >= 50f){
-                GetComponent<Animator>().SetBool("Invulnerable", true);
-                gameObject.GetComponent<DropHeal>().Drop(2);
-                damageCounter = 0;
             }
         }
     }

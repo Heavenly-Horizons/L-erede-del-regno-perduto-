@@ -450,10 +450,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 604882612981997958, guid: 59e8ea4d7be88204fbccc5c2b9ff8626, type: 2}
   m_audioClip: {fileID: 8300000, guid: 51e432f5e3afef948b20af494e1359ec, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2644,6 +2644,7 @@ GameObject:
   - component: {fileID: 961610207}
   - component: {fileID: 961610213}
   - component: {fileID: 961610212}
+  - component: {fileID: 961610214}
   - component: {fileID: 961610211}
   - component: {fileID: 961610210}
   m_Layer: 0
@@ -2791,6 +2792,7 @@ MonoBehaviour:
   isInvulnerable: 0
   bossHealth: 300
   damageCounter: 0
+  isDead: 0
 --- !u!114 &961610209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2907,6 +2909,18 @@ MonoBehaviour:
   coinPrefab: {fileID: 6035274226729150628, guid: 40c1e9857744d3248b1408a7ef338af7, type: 3}
   dropForce: 5
   randomForce: 10
+--- !u!114 &961610214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961610202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6599a915308b8949867720fa3f78ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &992737056
 GameObject:
   m_ObjectHideFlags: 0
@@ -3181,7 +3195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1027452338
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3835,6 +3849,14 @@ PrefabInstance:
       propertyPath: m_text
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3580132361456422387, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580132361456422387, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3792741097629782983, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -215
@@ -4176,10 +4198,10 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 2124486548}
     - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-      insertIndex: -1
+      insertIndex: 6
       addedObject: {fileID: 1027452338}
     - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-      insertIndex: -1
+      insertIndex: 7
       addedObject: {fileID: 1393290167}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4303332589074899289, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
@@ -4471,7 +4493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1393290167
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4491,7 +4513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000077486, y: -472}
+  m_AnchoredPosition: {x: 0, y: -472}
   m_SizeDelta: {x: 1.2391, y: 0.2402}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1393290168
@@ -8835,7 +8857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1844723905
 Transform:
   m_ObjectHideFlags: 0
@@ -9162,7 +9184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2119181911
 Transform:
   m_ObjectHideFlags: 0
