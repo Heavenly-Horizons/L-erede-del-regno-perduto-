@@ -12,9 +12,10 @@ public class PlayerSettings : MonoBehaviour
     void Awake()
     {
         PlayerStats playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
-        if (SceneManager.GetActiveScene().buildIndex != 0 && !playerStats.isPlayerDead)
-        {
+        if (SceneManager.GetActiveScene().buildIndex != 0 && !playerStats.isPlayerDead){
             playerStats.LoadPlayerData(); 
+        }else{
+            playerStats.AfterDeadPlayer();
         }
     }
 }

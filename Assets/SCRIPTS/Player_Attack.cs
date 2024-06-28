@@ -116,14 +116,20 @@ public class Player_Attack : MonoBehaviour
                 {
                     bossHealth.isHit = true;
                     bossHealth.TakeDamage(playerStats.playerDamage);
-                    bossHealth.isHit = false;
                 }
             }
         }
         playerStats.UseStamina(10);
     }
 
-    public void OnDrawGizmosSelected()
+
+    // AchilleStun achilleStun = enemy.GetComponent<AchilleStun>();
+    //                 if(achilleStun != null){
+    //                     Debug.Log("Chiamando la funzione OnPlayerHit");
+    //                     achilleStun.OnPlayerHit();
+    //                 }
+
+public void OnDrawGizmosSelected()
     {
         if (attackPoint == null) return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);

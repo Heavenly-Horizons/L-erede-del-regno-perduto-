@@ -26,7 +26,6 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy {
                 // questo per fare la scena finale
                 //if (dialogueSystem.achille_Movement.life < 10) dialogueSystem.achille_Movement.life = 10
                 //dialoghi
-                achilleAnimator.SetBool(DialogueEnded, false);
                 dialogueSystem.isEnded = false;
                 dialogueSystem.SecondDialogue();
             }

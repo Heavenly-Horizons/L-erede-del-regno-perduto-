@@ -205,8 +205,6 @@ public class PlayerStats : MonoBehaviour
         {
             PlayerCurrentHealth = PlayerCurrentHealth - (amount + playerDefence);
             healthBar.value = Mathf.Floor(PlayerCurrentHealth);
-            Debug.Log(healthBar.value);
-
             animator.SetTrigger("hurt");
         }
         else
