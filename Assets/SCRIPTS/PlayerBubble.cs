@@ -18,9 +18,9 @@ public class PlayerBubble : MonoBehaviour {
 
     private void Update() {
         //appare la bolla
-        if (Input.GetKeyDown(KeyCode.K) && !bubbleShow && bubbleCooldownTimer >= bubbleCooldown && playerStats.GetPlayerCurrentStamina() >= 20) {
+        if (Input.GetKeyDown(KeyCode.K) && !bubbleShow && bubbleCooldownTimer >= bubbleCooldown && playerStats.GetPlayerCurrentStamina() >= 50) {
             //mostra bolla
-            playerStats.UseStamina(20);
+            playerStats.UseStamina(50);
             StartCoroutine(ShowBubble());
             bubbleCooldownTimer = 0f;
         }
