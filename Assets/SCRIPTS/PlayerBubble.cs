@@ -7,17 +7,20 @@ public class PlayerBubble : MonoBehaviour {
     private Color _playerBubbleColor;
     private float bubbleCooldownTimer;
     private bool bubbleShow;
+    private PlayerStats playerStats;
 
     private void Awake() {
         _playerBubbleColor = playerBubble.color;
         _playerBubbleColor.a = 0f;
         bubbleCooldownTimer = bubbleCooldown;
+        playerStats = GetComponent<PlayerStats>();
     }
 
     private void Update() {
         //appare la bolla
-        if (Input.GetKeyDown(KeyCode.K) && !bubbleShow && bubbleCooldownTimer >= bubbleCooldown) {
+        if (Input.GetKeyDown(KeyCode.K) && !bubbleShow && bubbleCooldownTimer >= bubbleCooldown && playerStats.GetPlayerCurrentStamina() >= 20) {
             //mostra bolla
+            playerStats.UseStamina(20);
             StartCoroutine(ShowBubble());
             bubbleCooldownTimer = 0f;
         }
@@ -68,5 +71,6 @@ public class PlayerBubble : MonoBehaviour {
         yield return new WaitForSeconds(bubbleCooldown);
         // togli la bubble
         StartCoroutine(NotShowBubble());
+        
     }
 }
