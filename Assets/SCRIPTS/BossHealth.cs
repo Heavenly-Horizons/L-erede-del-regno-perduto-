@@ -18,13 +18,7 @@ public class BossHealth : MonoBehaviour
     void Start(){
         animator = gameObject.GetComponent<Animator>();
         stun = gameObject.GetComponent<AchilleStun>();
-        if(stun != null){
-            Debug.Log("Il componente Stun è presente");
-        }
         bossWalk = gameObject.GetComponent<Animator>().GetBehaviour<BossWalk>();
-        if(bossWalk != null){
-            Debug.Log("Il componente BossWalk è presente");
-        }
         if (bossHealthSlider != null)
         {
             bossHealthSlider.maxValue = bossHealth;
@@ -50,7 +44,7 @@ public class BossHealth : MonoBehaviour
                 bossHealth = 0;
                 bossHealthSlider.value = bossHealth;
                 damageCounter = 0;
-                bossWalk.rangeMultiplier = 0;
+                bossWalk.isEnabled = false;
                 gameObject.GetComponent<DropHeal>().Drop(4);
                 gameObject.GetComponent<DropCoin>().Drop(3);
             }

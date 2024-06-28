@@ -1083,7 +1083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &307015128
 Transform:
   m_ObjectHideFlags: 0
@@ -1405,7 +1405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueSystem: {fileID: 882982146}
-  achilleAnimator: {fileID: 560666537}
+  animator: {fileID: 560666537}
 --- !u!4 &516781388
 Transform:
   m_ObjectHideFlags: 0
@@ -1647,8 +1647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7914089266f1b74a8e6ae50f5aa2a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunThreshold: 40
-  stunDuration: 6.5
   isStunned: 0
 --- !u!50 &560666548
 Rigidbody2D:
@@ -2545,6 +2543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944490150}
+  - component: {fileID: 944490151}
   m_Layer: 5
   m_Name: BossHealthBar
   m_TagString: Untagged
@@ -2572,6 +2571,18 @@ RectTransform:
   m_AnchoredPosition: {x: 21, y: 50}
   m_SizeDelta: {x: 1920, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &944490151
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944490149}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &949724884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7561,6 +7572,14 @@ PrefabInstance:
     - target: {fileID: 4303332589074899289, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376221813801780162, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 791925266}
+    - target: {fileID: 4376221813801780162, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetryLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4614948097543312699, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_AnchorMax.x

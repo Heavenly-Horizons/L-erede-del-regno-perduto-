@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy {
@@ -72,6 +73,7 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy {
         }
 
         public void SecondDialogue() {
+            GameObject.Find("BossHealthBar").GetComponent<CanvasGroup>().alpha = 0;
             switch (i) {
                 case 0:
                     finnRb.bodyType = RigidbodyType2D.Static;
@@ -108,7 +110,6 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy {
                         "<3"
                     });
                     break;
-
                 case 4:
                     // parla finn e finisce la scena
                     HandleDialogue(ref i, ref j, dialogueTriggerFinn, new[] {

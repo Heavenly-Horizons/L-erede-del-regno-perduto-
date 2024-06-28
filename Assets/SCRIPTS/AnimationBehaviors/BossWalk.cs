@@ -8,6 +8,7 @@ public class BossWalk : StateMachineBehaviour
     public float initialBossY;
     public int rangeMultiplier;
     public Vector2 target;
+    public bool isEnabled = true;
     private Boss boss;
     private BossWeapon bossWeapon;
     private Transform bossTransform;
@@ -39,6 +40,11 @@ public class BossWalk : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(!isEnabled){ 
+            attackRange = -1;
+            return; 
+        }
+
         boss.LookAtPlayer();
 
         // Blocca la rotazione sull'asse Z impostando la rotazione iniziale
