@@ -19578,7 +19578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 411554541}
   dialogueText: {fileID: 1231459624}
-  group: {fileID: 1234085821}
+  group: {fileID: 1234085819}
 --- !u!82 &1207777082 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5038414944528096136, guid: aedf54e29903e4748ab2b7429c1179df, type: 3}
@@ -20384,18 +20384,28 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       insertIndex: 0
-      addedObject: {fileID: 580900428}
-    - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-      insertIndex: 1
       addedObject: {fileID: 1323031579}
     - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-      insertIndex: -1
+      insertIndex: 6
+      addedObject: {fileID: 580900428}
+    - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      insertIndex: 7
       addedObject: {fileID: 2034661472}
     - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-      insertIndex: -1
+      insertIndex: 8
       addedObject: {fileID: 1234085820}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+--- !u!1 &1327333432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4671304141555384274, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+  m_PrefabInstance: {fileID: 1327333431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1327333433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8746617953489785575, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+  m_PrefabInstance: {fileID: 1327333431}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1327333434 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
@@ -28155,6 +28165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1034917606}
   staminaBar: {fileID: 262382666}
+  coinCount: {fileID: 1327333432}
+  coinImage: {fileID: 1327333433}
   dialogueSystem: {fileID: 967789170}
 --- !u!1 &2034661471
 GameObject:

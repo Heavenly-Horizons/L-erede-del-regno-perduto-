@@ -3,60 +3,52 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace Script.Dialogue
-{
-    public class DialogueManager : MonoBehaviour
-    {
+namespace Script.Dialogue {
+    public class DialogueManager : MonoBehaviour {
         private const string kAlphaColorCode = "<color=#00000000>";
         private const float kMaxtTextTime = 0.1f;
         private const int kTimeSpeed = 2;
         [SerializeField] private TMP_Text nameText;
         [SerializeField] private TMP_Text dialogueText;
-        [SerializeField] private CanvasGroup group;
+        [SerializeField] private GameObject group;
         private Dialogue dialogue;
         public Queue<string> sentences;
 
-        private void Awake()
-        {
-            sentences = new Queue<string>();
+        private void Awake() {
+            sentences = new();
         }
 
-        public void StartDialogue(Dialogue dialogue)
-        {
+        public void StartDialogue(Dialogue dialogue) {
             this.dialogue = dialogue;
-            group.alpha = 1;
+            group.SetActive(true);
             nameText.text = dialogue.name;
 
             sentences.Clear();
 
-            foreach (var sentence in dialogue.sentences) sentences.Enqueue(sentence);
+            foreach (string sentence in dialogue.sentences) sentences.Enqueue(sentence);
 
             DisplayNextSentence();
         }
 
-        public void DisplayNextSentence()
-        {
-            if (sentences.Count == 0)
-            {
+        public void DisplayNextSentence() {
+            if (sentences.Count == 0) {
                 EndDialogue();
                 return;
             }
 
-            var sentence = sentences.Dequeue();
+            string sentence = sentences.Dequeue();
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
 
-        private IEnumerator TypeSentence(string sentence)
-        {
+        private IEnumerator TypeSentence(string sentence) {
             dialogueText.text = "";
 
-            var originalText = sentence;
+            string originalText = sentence;
             var displayedText = "";
             var alphaCount = 0;
 
-            foreach (var letter in sentence)
-            {
+            foreach (char letter in sentence) {
                 alphaCount++;
                 dialogueText.text = originalText;
                 displayedText = dialogueText.text.Insert(alphaCount, kAlphaColorCode);
@@ -67,10 +59,9 @@ namespace Script.Dialogue
             yield return null;
         }
 
-        public void EndDialogue()
-        {
+        public void EndDialogue() {
             dialogue.isEnded = true;
-            group.alpha = 0;
+            group.SetActive(false);
         }
     }
 }

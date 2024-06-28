@@ -1289,6 +1289,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2245e357e7777a8499c5a3a6e3b91bac, type: 3}
+--- !u!1 &687731698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4671304141555384274, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+  m_PrefabInstance: {fileID: 830880670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &694035970
 GameObject:
   m_ObjectHideFlags: 0
@@ -3911,6 +3916,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3721252712672631346, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721252712672631346, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721252712672631346, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -1666.1
       objectReference: {fileID: 0}
@@ -3970,6 +3983,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4671304141555384274, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4851518813039973035, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: BGAudio
       value: 
@@ -4013,6 +4030,38 @@ PrefabInstance:
     - target: {fileID: 6054022566316862502, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130271033079880533, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130271033079880533, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130271033079880533, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1012024847}
+    - target: {fileID: 6130271033079880533, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130271033079880533, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: ToogleGroupActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130271033079880533, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: Script.Dialogue.DialogueManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130271033079880533, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130271033079880533, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6240870697683518094, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4138,6 +4187,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -83
       objectReference: {fileID: 0}
+    - target: {fileID: 8746617953489785575, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8809100878271922320, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4183,7 +4236,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-      insertIndex: 0
+      insertIndex: 5
       addedObject: {fileID: 1624949956}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
@@ -4465,7 +4518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 1790206429}
   dialogueText: {fileID: 2097115630}
-  group: {fileID: 1624949958}
+  group: {fileID: 1624949955}
 --- !u!4 &1012024848
 Transform:
   m_ObjectHideFlags: 0
@@ -4625,7 +4678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025879839}
   - component: {fileID: 1025879841}
-  - component: {fileID: 1025879840}
+  - component: {fileID: 1025879842}
   m_Layer: 0
   m_Name: DialogueTriggerStart
   m_TagString: Untagged
@@ -4648,20 +4701,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 838070930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1025879840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1025879838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47de5c602c4f6e4479c91c5ab3d0ee93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueSceneTileMap: {fileID: 1145323765}
-  dialoguePanel: {fileID: 1624949955}
 --- !u!61 &1025879841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4707,6 +4746,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1025879842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025879838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47de5c602c4f6e4479c91c5ab3d0ee93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSceneTileMap: {fileID: 1145323767}
+  dialoguePanel: {fileID: 1624949955}
 --- !u!1 &1055898074
 GameObject:
   m_ObjectHideFlags: 0
@@ -4973,6 +5026,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1925896914}
   staminaBar: {fileID: 1388481035}
+  coinCount: {fileID: 687731698}
+  coinImage: {fileID: 1777374421}
   dialogueSystem: {fileID: 1056827336}
   start: 0
 --- !u!1 &1171868443
@@ -6191,6 +6246,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1777374421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8746617953489785575, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+  m_PrefabInstance: {fileID: 830880670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1790206427
 GameObject:
   m_ObjectHideFlags: 0
@@ -6730,10 +6790,6 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 538393298}
-    - target: {fileID: 2796689256104001302, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7264,10 +7320,10 @@ SceneRoots:
   - {fileID: 407073959}
   - {fileID: 1674958490}
   - {fileID: 1395475900}
-  - {fileID: 830880670}
   - {fileID: 680017635}
   - {fileID: 1629077250}
   - {fileID: 838070930}
   - {fileID: 204902899}
   - {fileID: 1171868444}
   - {fileID: 1117955745}
+  - {fileID: 830880670}

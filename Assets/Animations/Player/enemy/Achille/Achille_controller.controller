@@ -221,6 +221,31 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &-3693369181603493166
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: DialogueEnded
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -4934404364961669758}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.01
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-2849101538080304440
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -509,7 +534,7 @@ MonoBehaviour:
   speed: 25
   attackRange: 0
   initialBossY: 0
-  rangeMultiplier: 6
+  rangeMultiplier: 5
   target: {x: 0, y: 0}
 --- !u!1107 &3709853133635609420
 AnimatorStateMachine:
@@ -548,6 +573,7 @@ AnimatorStateMachine:
   m_AnyStateTransitions:
   - {fileID: -2849101538080304440}
   - {fileID: -117480825726384724}
+  - {fileID: -3693369181603493166}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []

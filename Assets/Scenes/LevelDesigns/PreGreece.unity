@@ -6195,7 +6195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 371320924}
   dialogueText: {fileID: 1969863584}
-  group: {fileID: 495955151}
+  group: {fileID: 495955148}
 --- !u!4 &515020797
 Transform:
   m_ObjectHideFlags: 0
@@ -8990,10 +8990,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-      insertIndex: -1
+      insertIndex: 5
       addedObject: {fileID: 566067100}
     - targetCorrespondingSourceObject: {fileID: 4798550346548383577, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-      insertIndex: -1
+      insertIndex: 6
       addedObject: {fileID: 495955149}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}

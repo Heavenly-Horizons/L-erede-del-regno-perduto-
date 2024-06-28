@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     public float KBTotalTime = 0.2f;
 
     public bool KnockFromRight;
+    [SerializeField] private Testa_Tyr testaTyr;
     private Animator anim;
     private Rigidbody2D body;
     private bool canMove = true;
@@ -16,7 +17,6 @@ public class PlayerMovement : MonoBehaviour {
     private bool Grounded;
 
     private float horizontalInput;
-    private Testa_Tyr testaTyr;
 
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
@@ -29,8 +29,6 @@ public class PlayerMovement : MonoBehaviour {
             body.constraints = RigidbodyConstraints2D.FreezeRotation; // Blocca la rotazione sull'asse Z
             body.isKinematic = false;
         }
-
-        testaTyr = GameObject.FindGameObjectWithTag("Testa_Tyr").GetComponent<Testa_Tyr>();
     }
 
     private void FixedUpdate() {
@@ -41,14 +39,15 @@ public class PlayerMovement : MonoBehaviour {
                 // Imposta la velocità del rigidbody
                 body.velocity = new(horizontalInput * speed, body.velocity.y);
             }
-            else if(!testaTyr.tyrHead) {
+            else if (!testaTyr.tyrHead) {
                 if (KnockFromRight) body.velocity = new(-KBForce, KBForce / 3);
                 else body.velocity = new(KBForce, KBForce / 3);
 
                 KBCounter -= Time.deltaTime;
-            }  else if(testaTyr.tyrHead) {
-                if (KnockFromRight) body.velocity = new(-KBForce*3, KBForce / 5);
-                else body.velocity = new(KBForce*3, KBForce / 5);
+            }
+            else if (testaTyr.tyrHead) {
+                if (KnockFromRight) body.velocity = new(-KBForce * 3, KBForce / 5);
+                else body.velocity = new(KBForce * 3, KBForce / 5);
 
                 KBCounter -= Time.deltaTime;
             }
@@ -82,7 +81,6 @@ public class PlayerMovement : MonoBehaviour {
             // Applica il knockback e altri effetti desiderati
             KBCounter = KBTotalTime;
         }
-
     }
 
     private void Jump() {

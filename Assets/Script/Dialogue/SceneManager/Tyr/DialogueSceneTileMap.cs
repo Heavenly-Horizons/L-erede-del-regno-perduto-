@@ -1,22 +1,18 @@
 using UnityEngine;
 
-namespace Script.Dialogue.SceneManager.Tyr
-{
-    public class DialogueSceneTileMap : MonoBehaviour
-    {
+namespace Script.Dialogue.SceneManager.Tyr {
+    public class DialogueSceneTileMap : MonoBehaviour {
         public static byte k = 0;
         [SerializeField] private DialogueSystem dialogueSystem;
         [SerializeField] private readonly TyrMovement tyr_Movement = new();
 
-        private void Reset()
-        {
+        private void Reset() {
             dialogueSystem.ResetDialogueTrigger();
             dialogueSystem.i = 0;
             dialogueSystem.j = 0;
         }
 
-        private void Update()
-        {
+        private void Update() {
             //se la vita è maggiore di 10 e i dialoghi non sono finiti
             if (tyr_Movement.life > 10 && k == 0)
                 //dialoghi
@@ -32,8 +28,7 @@ namespace Script.Dialogue.SceneManager.Tyr
             //bossFight
         }
 
-        private class TyrMovement
-        {
+        private class TyrMovement {
             public readonly float life = 100;
         }
     }

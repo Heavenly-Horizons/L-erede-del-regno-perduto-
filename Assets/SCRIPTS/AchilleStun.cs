@@ -1,37 +1,36 @@
 using System.Collections;
 using UnityEngine;
 
-public class AchilleStun : MonoBehaviour
-{
-    BossHealth achilleHealth;
-    Animator achilleAnimator;
+public class AchilleStun : MonoBehaviour {
+    private static readonly int Stunned = Animator.StringToHash("Stunned");
+    private static readonly int ImmediateRecover = Animator.StringToHash("immediateRecover");
+    private Animator achilleAnimator;
+    private BossHealth achilleHealth;
 
-    void Start()
-    {
+    private void Start() {
         achilleHealth = gameObject.GetComponent<BossHealth>();
         achilleAnimator = gameObject.GetComponent<Animator>();
     }
 
-    public void Stun(){
-        if (achilleHealth.damageCounter >= 40f && !achilleHealth.isDead)
-        {
+    public void Stun() {
+        if (achilleHealth.damageCounter >= 40f && !achilleHealth.isDead) {
             gameObject.GetComponent<DropHeal>().Drop(2);
-            achilleAnimator.SetBool("Stunned", true);
+            achilleAnimator.SetBool(Stunned, true);
             StartCoroutine(WaitForAchilleStun());
-            if (achilleHealth.isHit)
-            {
+            if (achilleHealth.isHit) {
                 StopAllCoroutines();
-                achilleAnimator.SetBool("immediateRecover", true);
-                achilleAnimator.SetBool("Stunned", true);
+                achilleAnimator.SetBool(ImmediateRecover, true);
+                achilleAnimator.SetBool(Stunned, false);
                 achilleHealth.damageCounter = 0;
+                achilleAnimator.SetBool(ImmediateRecover, false);
             }
         }
     }
 
-    IEnumerator WaitForAchilleStun(){
+    private IEnumerator WaitForAchilleStun() {
         yield return new WaitForSeconds(6.5f);
         achilleHealth.damageCounter = 0;
-        achilleAnimator.SetBool("Stunned", false);
-        achilleAnimator.SetBool("immediateRecover", false);
+        achilleAnimator.SetBool(Stunned, false);
+        achilleAnimator.SetBool(ImmediateRecover, false);
     }
 }

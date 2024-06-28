@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-namespace Script.Dialogue.SceneManager.PreKingEncounter
-{
-    public class DialogueSystem : MonoBehaviour
-    {
+namespace Script.Dialogue.SceneManager.PreKingEncounter {
+    public class DialogueSystem : MonoBehaviour {
         [SerializeField] private DialogueTrigger dialogueTriggerFinn;
         [SerializeField] private DialogueTrigger dialogueTriggerNarrator;
         [SerializeField] private PlayableDirector timeline;
@@ -16,27 +14,22 @@ namespace Script.Dialogue.SceneManager.PreKingEncounter
         public byte j;
         public bool isEnded;
 
-        private void Awake()
-        {
+        private void Awake() {
             healthBar.SetActive(false);
             staminaBar.SetActive(false);
         }
 
-        public void ResetDialogueTrigger()
-        {
+        public void ResetDialogueTrigger() {
             dialogueTriggerNarrator.dialogue.isEnded = false;
             dialogueTriggerFinn.dialogue.isEnded = false;
         }
 
-        private void LoadNewDialogue(DialogueTrigger dialogueTrigger, string[] sentences)
-        {
+        private void LoadNewDialogue(DialogueTrigger dialogueTrigger, string[] sentences) {
             dialogueTrigger.dialogue.sentences = sentences;
         }
 
-        private void HandleDialogue(ref int i, ref byte j, DialogueTrigger dialogueTrigger, string[] dialogues)
-        {
-            if (j == 0)
-            {
+        private void HandleDialogue(ref int i, ref byte j, DialogueTrigger dialogueTrigger, string[] dialogues) {
+            if (j == 0) {
                 j++;
                 LoadNewDialogue(dialogueTrigger, dialogues);
                 dialogueTrigger.TriggerDialogue();
@@ -44,31 +37,26 @@ namespace Script.Dialogue.SceneManager.PreKingEncounter
                 isEnded = false;
             }
 
-            if (dialogueTrigger.dialogue.isEnded)
-            {
+            if (dialogueTrigger.dialogue.isEnded) {
                 i++;
                 j = 0;
             }
         }
 
-        public void FirstDialogue()
-        {
-            switch (i)
-            {
+        public void FirstDialogue() {
+            switch (i) {
                 case 0:
                     //disattiva la gravità
                     playerRb.bodyType = RigidbodyType2D.Static;
                     player.CanNotMove();
                     timeline.enabled = false;
-                    HandleDialogue(ref i, ref j, dialogueTriggerNarrator, new[]
-                    {
+                    HandleDialogue(ref i, ref j, dialogueTriggerNarrator, new[] {
                         "Dopo numerose battaglie e altrettante sconfitte, il villaggio di Sant’Elia è andato perduto",
                         "Ormai esiliati dalle loro stesse mura, il popolo di Sant’Elia si rifugia nella foresta"
                     });
                     break;
                 case 1:
-                    HandleDialogue(ref i, ref j, dialogueTriggerNarrator, new[]
-                    {
+                    HandleDialogue(ref i, ref j, dialogueTriggerNarrator, new[] {
                         "Dalle macerie, esce stremato e quasi del tutto sconfitto, un cavaliere",
                         "Il suo nome è Finn"
                     });
@@ -81,26 +69,21 @@ namespace Script.Dialogue.SceneManager.PreKingEncounter
                     i++;
                     break;
                 case 3:
-                    HandleDialogue(ref i, ref j, dialogueTriggerNarrator, new[]
-                    {
+                    HandleDialogue(ref i, ref j, dialogueTriggerNarrator, new[] {
                         "Ricevuta la comunicazione dal proprio re, Finn deve dirigersi alla sua tenda"
                     });
                     break;
                 case 4:
 
-                    HandleDialogue(ref i, ref j, dialogueTriggerFinn, new[]
-                    {
+                    HandleDialogue(ref i, ref j, dialogueTriggerFinn, new[] {
                         "E’ arrivata la convocazione dal Re, chissà cosa vorrà da me"
                     });
                     break;
                 //inizio tutorial
-                case 5:
+                default:
                     //attiva la gravità
                     playerRb.bodyType = RigidbodyType2D.Dynamic;
                     player.CanMove();
-                    i++;
-                    break;
-                default:
                     DialogueSceneTileMap.k = 1;
                     isEnded = true;
                     break;

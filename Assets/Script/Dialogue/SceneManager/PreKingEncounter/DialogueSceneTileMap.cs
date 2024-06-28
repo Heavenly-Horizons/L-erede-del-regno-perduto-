@@ -1,25 +1,24 @@
 using UnityEngine;
 
-namespace Script.Dialogue.SceneManager.PreKingEncounter
-{
-    public class DialogueSceneTileMap : MonoBehaviour
-    {
+namespace Script.Dialogue.SceneManager.PreKingEncounter {
+    public class DialogueSceneTileMap : DialogueSceneTileMapAbstract {
         public static byte k = 0;
         [SerializeField] private DialogueSystem dialogueSystem;
 
-        private void Reset()
-        {
+        private void Reset() {
             dialogueSystem.ResetDialogueTrigger();
             dialogueSystem.i = 0;
             dialogueSystem.j = 0;
         }
 
-        private void Update()
-        {
-            switch (k)
-            {
+        protected override void Update() {
+            switch (k) {
                 case 0:
+                    barFalse();
                     dialogueSystem.FirstDialogue();
+                    break;
+                default:
+                    barTrue();
                     break;
             }
 

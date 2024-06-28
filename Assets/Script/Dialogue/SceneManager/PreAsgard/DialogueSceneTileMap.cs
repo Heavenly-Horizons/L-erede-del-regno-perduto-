@@ -1,33 +1,26 @@
 using UnityEngine;
 
-namespace Script.Dialogue.SceneManager.PreAsgard
-{
-    internal class DialogueSceneTileMap : DialogueSceneTileMapAbstract
-    {
+namespace Script.Dialogue.SceneManager.PreAsgard {
+    internal class DialogueSceneTileMap : DialogueSceneTileMapAbstract {
         public static byte k = 0;
         [SerializeField] protected DialogueSystem dialogueSystem;
         public bool start;
 
-        private void Reset()
-        {
+        private void Reset() {
             dialogueSystem.ResetDialogueTrigger();
             dialogueSystem.i = 0;
             dialogueSystem.j = 0;
         }
 
-        public override void Update()
-        {
-            if (start)
-            {
-                switch (k)
-                {
+        protected override void Update() {
+            if (start) {
+                switch (k) {
                     case 0:
+                        barFalse();
                         dialogueSystem.FirstDialogue();
-                        //DisabilitaCanvas.DisableCanvasBar();
                         break;
                     case 1:
                         start = true;
-                        //DisabilitaCanvas.EnableCanvasBar();
                         break;
                 }
 

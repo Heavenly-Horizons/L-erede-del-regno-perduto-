@@ -1,10 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Script.Dialogue.SceneManager.PreGreece
-{
-    public class DialogueSystem : MonoBehaviour
-    {
+namespace Script.Dialogue.SceneManager.PreGreece {
+    public class DialogueSystem : MonoBehaviour {
         [SerializeField] private DialogueTrigger dialogueTriggerFinn;
         [SerializeField] private DialogueTrigger dialogueTriggerNarrator;
         [SerializeField] private DialogueTrigger dialogueTriggerFreya;
@@ -14,22 +12,18 @@ namespace Script.Dialogue.SceneManager.PreGreece
         public byte j;
         public bool isEnded;
 
-        public void ResetDialogueTrigger()
-        {
+        public void ResetDialogueTrigger() {
             dialogueTriggerNarrator.dialogue.isEnded = false;
             dialogueTriggerFinn.dialogue.isEnded = false;
             dialogueTriggerFreya.dialogue.isEnded = false;
         }
 
-        private void LoadNewDialogue(DialogueTrigger dialogueTrigger, string[] sentences)
-        {
+        private void LoadNewDialogue(DialogueTrigger dialogueTrigger, string[] sentences) {
             dialogueTrigger.dialogue.sentences = sentences;
         }
 
-        public void HandleDialogue(ref int i, ref byte j, DialogueTrigger dialogueTrigger, string[] dialogues)
-        {
-            if (j == 0)
-            {
+        public void HandleDialogue(ref int i, ref byte j, DialogueTrigger dialogueTrigger, string[] dialogues) {
+            if (j == 0) {
                 j++;
                 LoadNewDialogue(dialogueTrigger, dialogues);
                 dialogueTrigger.TriggerDialogue();
@@ -37,25 +31,21 @@ namespace Script.Dialogue.SceneManager.PreGreece
                 isEnded = false;
             }
 
-            if (dialogueTrigger.dialogue.isEnded)
-            {
+            if (dialogueTrigger.dialogue.isEnded) {
                 i++;
                 j = 0;
             }
         }
 
-        public void FirstDialogue()
-        {
-            switch (i)
-            {
+        public void FirstDialogue() {
+            switch (i) {
                 //schermo nero
                 case 0:
                     //disattiva la gravità
                     player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                     player.CanNotMove();
                     blackPanel.alpha = 1;
-                    HandleDialogue(ref i, ref j, dialogueTriggerFinn, new[]
-                    {
+                    HandleDialogue(ref i, ref j, dialogueTriggerFinn, new[] {
                         "Dannazione",
                         "Non l’ha nemmeno risparmiato",
                         "Una volta fratello e sorella...",
@@ -64,8 +54,7 @@ namespace Script.Dialogue.SceneManager.PreGreece
                     });
                     break;
                 case 1:
-                    HandleDialogue(ref i, ref j, dialogueTriggerNarrator, new[]
-                    {
+                    HandleDialogue(ref i, ref j, dialogueTriggerNarrator, new[] {
                         "Dopo un brevissimo viaggio i due si ritrovano a Sparta"
                     });
                     break;
@@ -73,15 +62,13 @@ namespace Script.Dialogue.SceneManager.PreGreece
                 //si vedono i player
                 case 2:
                     StartCoroutine(FadeOut());
-                    HandleDialogue(ref i, ref j, dialogueTriggerFinn, new[]
-                    {
+                    HandleDialogue(ref i, ref j, dialogueTriggerFinn, new[] {
                         "Bene, siamo arrivati in Grecia",
                         "Dobbiamo trovare un buon fabbro che mi possa riparare lo scudo"
                     });
                     break;
                 case 3:
-                    HandleDialogue(ref i, ref j, dialogueTriggerFreya, new[]
-                    {
+                    HandleDialogue(ref i, ref j, dialogueTriggerFreya, new[] {
                         "Proviamo da questa parte, dobbiamo muoverci ragazzo"
                     });
                     break;
@@ -94,14 +81,12 @@ namespace Script.Dialogue.SceneManager.PreGreece
             }
         }
 
-        private IEnumerator FadeOut()
-        {
+        private IEnumerator FadeOut() {
             // Calcola quanto decrementare alpha in ogni frame basandosi sulla durata del fade
-            var fadeStep = blackPanel.alpha / 1f * Time.deltaTime;
+            float fadeStep = blackPanel.alpha / 1f * Time.deltaTime;
 
             // Continua a eseguire finché alpha è maggiore di 0
-            while (blackPanel.alpha > 0)
-            {
+            while (blackPanel.alpha > 0) {
                 // Decrementa il valore di alpha
                 blackPanel.alpha -= fadeStep;
 

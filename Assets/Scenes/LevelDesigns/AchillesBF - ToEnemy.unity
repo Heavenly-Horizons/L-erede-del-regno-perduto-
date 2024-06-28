@@ -1405,6 +1405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueSystem: {fileID: 882982146}
+  achilleAnimator: {fileID: 560666537}
 --- !u!4 &516781388
 Transform:
   m_ObjectHideFlags: 0
@@ -1785,7 +1786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1088425063}
   isFlipped: 0
-  dialogueSystem: {fileID: 882982146}
+  dialogueSystemObject: {fileID: 882982145}
   isDialogueEnded: 0
 --- !u!114 &560666545
 MonoBehaviour:
@@ -3033,6 +3034,10 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5938812389755038220, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: testaTyr
+      value: 
+      objectReference: {fileID: 1342279657}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7132,7 +7137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 561635373}
   dialogueText: {fileID: 221241356}
-  group: {fileID: 869504586}
+  group: {fileID: 869504584}
 --- !u!4 &1818151147
 Transform:
   m_ObjectHideFlags: 0

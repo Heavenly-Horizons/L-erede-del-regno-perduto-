@@ -1,9 +1,7 @@
 using UnityEngine;
 
-namespace Script.Player
-{
-    public class Efesto : MonoBehaviour
-    {
+namespace Script.Player {
+    public class Efesto : MonoBehaviour {
         // static attributes for animator
         private static readonly int Run = Animator.StringToHash("Run");
 
@@ -14,33 +12,27 @@ namespace Script.Player
 
         private bool _powerUpClosedBtn = true;
 
-        private void Awake()
-        {
+        private void Awake() {
             ResetScene();
             interactionPanel.alpha = 0;
             playerAnimator.SetBool(Run, false);
         }
 
-        private void Update()
-        {
+        private void Update() {
             if (_powerUpClosedBtn) ResetScene();
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
-        {
+        private void OnCollisionEnter2D(Collision2D other) {
             interactionPanel.alpha = 1;
         }
 
-        private void OnCollisionExit2D(Collision2D other)
-        {
+        private void OnCollisionExit2D(Collision2D other) {
             interactionPanel.alpha = 0;
         }
 
-        private void OnCollisionStay2D(Collision2D other)
-        {
+        private void OnCollisionStay2D(Collision2D other) {
             if (other.gameObject.CompareTag("Player") &&
-                (Input.GetKeyDown(KeyCode.F) || (Input.anyKey && Input.GetKey(KeyCode.F))))
-            {
+                (Input.GetKeyDown(KeyCode.F) || (Input.anyKey && Input.GetKey(KeyCode.F)))) {
                 powerUpPanel.SetActive(true);
                 _powerUpClosedBtn = false;
                 playerMovement.CanNotMove();
@@ -48,14 +40,12 @@ namespace Script.Player
             }
         }
 
-        private void ResetScene()
-        {
+        private void ResetScene() {
             powerUpPanel.SetActive(false);
             playerMovement.CanMove();
         }
 
-        public void TooglePowerUpCloseBtn()
-        {
+        public void TooglePowerUpCloseBtn() {
             _powerUpClosedBtn = !_powerUpClosedBtn;
         }
     }
