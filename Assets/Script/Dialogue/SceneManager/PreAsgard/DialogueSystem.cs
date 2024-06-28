@@ -2,13 +2,17 @@ using UnityEngine;
 
 namespace Script.Dialogue.SceneManager.PreAsgard {
     internal class DialogueSystem : MonoBehaviour {
+        private static readonly int Run = Animator.StringToHash("Run");
         [SerializeField] private DialogueTrigger dialogueTriggerFinn;
         [SerializeField] private DialogueTrigger dialogueTriggerFreya;
-        [SerializeField] private GameObject player;
+        [SerializeField] private Transform freyaTransform;
+        [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private Animator playerAnimator;
+        [SerializeField] private Transform playerTransform;
         public int i;
         public byte j;
         public bool isEnded;
-        private byte k;
+        private byte _k;
 
         public void ResetDialogueTrigger() {
             dialogueTriggerFreya.dialogue.isEnded = false;
@@ -19,7 +23,7 @@ namespace Script.Dialogue.SceneManager.PreAsgard {
             dialogueTrigger.dialogue.sentences = sentences;
         }
 
-        public void HandleDialogue(ref int i, ref byte j, DialogueTrigger dialogueTrigger, string[] dialogues) {
+        private void HandleDialogue(ref int i, ref byte j, DialogueTrigger dialogueTrigger, string[] dialogues) {
             if (j == 0) {
                 j++;
                 LoadNewDialogue(dialogueTrigger, dialogues);
@@ -37,14 +41,14 @@ namespace Script.Dialogue.SceneManager.PreAsgard {
         public void FirstDialogue() {
             switch (i) {
                 case 0:
-                    if (k == 0) {
+                    if (_k == 0) {
                         //reset del player
-                        player.GetComponent<PlayerMovement>().CanNotMove();
-                        player.GetComponent<Animator>().SetBool("Run", false);
+                        playerMovement.CanNotMove();
+                        playerAnimator.SetBool(Run, false);
                         //posizione del player
-                        Vector3 newPosition = player.GetComponent<Transform>().position;
-                        player.GetComponent<Transform>().position = newPosition;
-                        k++;
+                        Vector3 newPosition = playerTransform.position;
+                        playerTransform.position = newPosition;
+                        _k++;
                     }
 
                     //inizio dialoghi
@@ -130,17 +134,16 @@ namespace Script.Dialogue.SceneManager.PreAsgard {
                     });
                     break;
                 case 13:
-                    GameObject freya = GameObject.Find("Freya");
-                    Vector3 newRotation = freya.GetComponent<Transform>().eulerAngles;
+                    Vector3 newRotation = freyaTransform.eulerAngles;
                     newRotation.y = 180;
-                    freya.GetComponent<Transform>().eulerAngles = newRotation;
+                    freyaTransform.eulerAngles = newRotation;
                     HandleDialogue(ref i, ref j, dialogueTriggerFreya, new[] {
                         "Da questa parte"
                     });
                     break;
                 default:
                     //fine dialoghi
-                    player.GetComponent<PlayerMovement>().CanMove();
+                    playerMovement.CanMove();
                     DialogueSceneTileMap.k = 1;
                     isEnded = true;
                     break;

@@ -19,8 +19,9 @@ namespace Script.Dialogue.SceneManager.PreAsgard {
                         barFalse();
                         dialogueSystem.FirstDialogue();
                         break;
-                    case 1:
-                        start = true;
+                    default:
+                        barTrue();
+                        start = false;
                         break;
                 }
 

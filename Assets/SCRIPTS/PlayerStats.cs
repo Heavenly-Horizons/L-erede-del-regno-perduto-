@@ -1,13 +1,11 @@
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class PlayerStats : MonoBehaviour
-{
+[Serializable]
+public class PlayerStats : MonoBehaviour {
     // Campi per la gestione dei valori del player
     private static readonly string PlayerNewGameplay = "PlayerNewGameplay";
     private static readonly string PlayerHealthValue = "PlayerHealthValue";
@@ -25,56 +23,64 @@ public class PlayerStats : MonoBehaviour
     private static readonly string PlayerDefenceLevel = "PlayerDefenceLevel";
     private static readonly string PlayerHPRegenLevel = "PlayerHPRegenLevel";
     private static readonly string PlayerSPRegenLevel = "PlayerSPRegenLevel";
+    public static bool isNewGameplay = true;
+    private static readonly int Hurt = Animator.StringToHash("hurt");
+    private static readonly int Die = Animator.StringToHash("die");
+    private static readonly int PlayerDead = Animator.StringToHash("playerDead");
 
     // Statistiche iniziali del player
     public float maxHealth = 100;
     public float maxStamina = 100;
-    public int PlayerMoney = 0;
+    public int PlayerMoney;
     public int atkLevel = 1, staminaLevel = 1, defLevel = 1;
     public int hpRegenLevel = 1, spRegenLevel = 1;
     public float playerDamage = 15f;
-    public float playerDefence = 0f;
+    public float playerDefence;
     public float staminaTookForParry = 10, healthTookForParry = 10;
-    public float staminaTookForPerfectParry = 5, healthTookForPerfectParry = 0;
+    public float staminaTookForPerfectParry = 5, healthTookForPerfectParry;
     public float secondsToFullStamina = 8f;
     public double staminaRegenRatio;
-    public bool isInvulnerable = false;
-
-    // Statistiche attuali del player
-    private float PlayerCurrentHealth, PlayerCurrentStamina;
-    private float PlayerCurrentMaxHealth, PlayerCurrentMaxStamina, PlayerCurrentDamage, PlayerCurrentDefence;
-    private int CurrentAtkLevel, CurrentStaminaLevel, CurrentDefenseLevel, PlayerCurrentMoney;
-    private int CurrentHPRegenLevel, CurrentSPRegenLevel;
+    public bool isInvulnerable;
 
     // Altro
     public Slider healthBar;
     public Slider staminaBar;
     public Animator animator;
-    private GameObject deathScreen;
-    public static bool isNewGameplay = true;
-    public bool isPlayerDead = false; // serve come controllo in PlayerSettings ed anche per far smettere di inseguire il player dai boss una volta morto
-    public float staminaRecoveryCooldown; //probabilmente è ancora poco, forse sta da raddoppiare, poi vediamo
+    [SerializeField] private GameObject deathScreen;
 
-    void Awake()
-    {
-        if (isNewGameplay)
-        {
+    public bool
+        isPlayerDead; // serve come controllo in PlayerSettings ed anche per far smettere di inseguire il player dai boss una volta morto
+
+    public float staminaRecoveryCooldown; //probabilmente è ancora poco, forse sta da raddoppiare, poi vediamo
+    private int CurrentAtkLevel, CurrentStaminaLevel, CurrentDefenseLevel, PlayerCurrentMoney;
+    private int CurrentHPRegenLevel, CurrentSPRegenLevel;
+    private Animator deathScreenAnimator;
+
+    // Statistiche attuali del player
+    private float PlayerCurrentHealth, PlayerCurrentStamina;
+    private float PlayerCurrentMaxHealth, PlayerCurrentMaxStamina, PlayerCurrentDamage, PlayerCurrentDefence;
+
+    private void Awake() {
+        if (isNewGameplay) {
             InitializeNewPlayer();
-            isNewGameplay = false;  // Imposta a false dopo l'inizializzazione
+            isNewGameplay = false; // Imposta a false dopo l'inizializzazione
         }
-        else
-        {
+        else {
             LoadPlayerData();
         }
 
         staminaRegenRatio = Math.Round(maxStamina / secondsToFullStamina, 2);
         SavePlayerAndScene();
         animator = GetComponent<Animator>();
-        deathScreen = GameObject.FindGameObjectWithTag("DeathScreen");
+        deathScreen.SetActive(false);
+        deathScreenAnimator = deathScreen.GetComponent<Animator>();
     }
 
-    private void InitializeNewPlayer()
-    {
+    private void OnApplicationFocus(bool focusStatus) {
+        if (!focusStatus) SavePlayerAndScene();
+    }
+
+    private void InitializeNewPlayer() {
         healthBar.maxValue = maxHealth;
         staminaBar.maxValue = maxStamina;
 
@@ -107,8 +113,7 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.SetInt(PlayerNewGameplay, -1);
     }
 
-    public void LoadPlayerData()
-    {
+    public void LoadPlayerData() {
         PlayerCurrentHealth = PlayerPrefs.GetFloat(PlayerHealthValue);
         PlayerCurrentStamina = PlayerPrefs.GetFloat(PlayerStaminaValue);
         PlayerCurrentMaxHealth = PlayerPrefs.GetFloat(PlayerMaxHealthValue);
@@ -139,8 +144,7 @@ public class PlayerStats : MonoBehaviour
         spRegenLevel = CurrentSPRegenLevel;
     }
 
-    public void SavePlayerAndScene()
-    {
+    public void SavePlayerAndScene() {
         PlayerPrefs.SetFloat(PlayerHealthValue, healthBar.value);
         PlayerPrefs.SetFloat(PlayerStaminaValue, staminaBar.value);
         PlayerPrefs.SetFloat(PlayerMaxHealthValue, healthBar.maxValue);
@@ -159,8 +163,7 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.SetInt(PlayerCurrentScene, SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void AfterDeadPlayer()
-    {
+    public void AfterDeadPlayer() {
         PlayerCurrentMaxHealth = PlayerPrefs.GetFloat(PlayerMaxHealthValue);
         PlayerCurrentMaxStamina = PlayerPrefs.GetFloat(PlayerMaxStaminaValue);
         PlayerCurrentHealth = PlayerCurrentMaxHealth;
@@ -190,70 +193,53 @@ public class PlayerStats : MonoBehaviour
         SavePlayerAndScene();
     }
 
-    private void OnApplicationFocus(bool focusStatus)
-    {
-        if (!focusStatus)
-        {
-            SavePlayerAndScene();
-        }
-    }
-
     public void TakeDamage(float amount) {
         if (isInvulnerable) return;
-        
-        if (PlayerCurrentHealth - (amount + playerDefence) > 0)
-        {
+
+        if (PlayerCurrentHealth - (amount + playerDefence) > 0) {
             PlayerCurrentHealth = PlayerCurrentHealth - (amount + playerDefence);
             healthBar.value = Mathf.Floor(PlayerCurrentHealth);
-            animator.SetTrigger("hurt");
+            animator.SetTrigger(Hurt);
         }
-        else
-        {
+        else {
             PlayerCurrentHealth = 0;
             healthBar.value = PlayerCurrentHealth;
-            gameObject.GetComponent<PlayerMovement>().enabled = false;
-            gameObject.GetComponent<Player_Attack>().enabled = false;
+            GetComponent<PlayerMovement>().enabled = false;
+            GetComponent<Player_Attack>().enabled = false;
             Debug.Log("You died!");
             isPlayerDead = true;
-            animator.SetTrigger("die");
-            StartCoroutine(PlayDeathAnimation());
-            deathScreen.GetComponent<Animator>().SetTrigger("playerDead");
-            StartCoroutine(PlayDeathAnimation());
-            // ...
+            animator.SetTrigger(Die);
+            deathScreen.SetActive(true);
+            deathScreenAnimator.SetTrigger(PlayerDead);
+            gameObject.tag = "Untagged";
         }
     }
 
-    private IEnumerator PlayDeathAnimation(){
+    private IEnumerator PlayDeathAnimation() {
         yield return new WaitForSeconds(1f);
     }
 
-    public void UseStamina(float amount)
-    {
+    public void UseStamina(float amount) {
         PlayerCurrentStamina = Mathf.Max(PlayerCurrentStamina - amount, 0);
         staminaBar.value = Mathf.Floor(PlayerCurrentStamina);
     }
 
-    public void HealPlayer(float amount)
-    {
+    public void HealPlayer(float amount) {
         PlayerCurrentHealth = Mathf.Min(PlayerCurrentHealth + amount, maxHealth);
         healthBar.value = Mathf.Floor(PlayerCurrentHealth);
     }
 
-    public float GetPlayerCurrentHealth()
-    {
+    public float GetPlayerCurrentHealth() {
         return PlayerCurrentHealth;
     }
 
-    public float GetPlayerCurrentStamina()
-    {
+    public float GetPlayerCurrentStamina() {
         return PlayerCurrentStamina;
     }
 
-    public bool RecoverStamina()
-    {
-        if (PlayerCurrentStamina >= PlayerCurrentMaxStamina) { 
-            return true; }
-        PlayerCurrentStamina += (float)(staminaRegenRatio * Time.deltaTime);
+    public bool RecoverStamina() {
+        if (PlayerCurrentStamina >= PlayerCurrentMaxStamina) return true;
+        PlayerCurrentStamina += (float) (staminaRegenRatio * Time.deltaTime);
         staminaBar.value = PlayerCurrentStamina;
         return false;
     }

@@ -930,11 +930,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &279482206 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6806204472469710527, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
-  m_PrefabInstance: {fileID: 2129696699}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &345505369
 GameObject:
   m_ObjectHideFlags: 0
@@ -18158,6 +18153,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1956032446194713308, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
   m_PrefabInstance: {fileID: 1236879063}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1236879065 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5938812389755038220, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+  m_PrefabInstance: {fileID: 1236879063}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408085835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7591ec49bc8f6574ebeb92450535ef9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1236879066 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5782237442543137681, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+  m_PrefabInstance: {fileID: 1236879063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1236879072 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2296248865219714047, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
@@ -19506,7 +19517,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTriggerFinn: {fileID: 1236879072}
   dialogueTriggerFreya: {fileID: 1059560211}
-  player: {fileID: 408085835}
+  freyaTransform: {fileID: 1059560210}
+  playerMovement: {fileID: 1236879065}
+  playerAnimator: {fileID: 1236879066}
+  playerTransform: {fileID: 1236879064}
   i: 0
   j: 0
   isEnded: 0
@@ -21033,10 +21047,6 @@ PrefabInstance:
       propertyPath: nextSceneLoader
       value: 
       objectReference: {fileID: 1453472663}
-    - target: {fileID: 4809776513194308126, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
-      propertyPath: nextLevelTrigger
-      value: 
-      objectReference: {fileID: 279482206}
     - target: {fileID: 4914214148729771028, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
       propertyPath: m_Name
       value: -------TRIGGERS-------

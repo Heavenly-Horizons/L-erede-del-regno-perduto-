@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bee365cdccad2449d9a80fda32327a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneLoader: {fileID: 8227426943475801035, guid: a10c477d73ca1064490271c0aec1e7ed, type: 3}
-  nextLevelTrigger: {fileID: 7338576839349915049}
-  SoundSaver: {fileID: 164219453386051125, guid: aedf54e29903e4748ab2b7429c1179df, type: 3}
-  PlayerSaver: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+  nextSceneLoader: {fileID: 0}
+  nextLevelTrigger: {fileID: 8651060071773862195}
+  SoundSaver: {fileID: 0}
+  PlayerSaver: {fileID: 0}

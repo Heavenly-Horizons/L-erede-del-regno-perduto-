@@ -1,6 +1,9 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+    private static readonly int Run = Animator.StringToHash("Run");
+    private static readonly int Grounded1 = Animator.StringToHash("Grounded");
+    private static readonly int Jump1 = Animator.StringToHash("Jump");
     [SerializeField] private float speed = 25f; // Campo serializzabile per impostare la velocità da Unity
     [SerializeField] private float jumpForce = 5f; // Forza del salto
 
@@ -9,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public float KBTotalTime = 0.2f;
 
     public bool KnockFromRight;
-    [SerializeField] private Testa_Tyr testaTyr;
+    public Testa_Tyr testaTyr;
     private Animator anim;
     private Rigidbody2D body;
     private bool canMove = true;
@@ -21,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        testaTyr = GameObject.FindGameObjectWithTag("Testa_Tyr")?.GetComponent<Testa_Tyr>();
 
         if (body == null) {
             Debug.LogError("Rigidbody2D component is missing on " + gameObject.name);
@@ -32,24 +36,36 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        AnimatorStateInfo animatorStateInfo = anim.GetCurrentAnimatorStateInfo(0);
         if (canMove) {
             // Ottieni l'input orizzontale in Update
             horizontalInput = Input.GetAxis("Horizontal"); // Correzione del nome della variabile
-            if (KBCounter <= 0) {
+            if (KBCounter <= 0)
                 // Imposta la velocità del rigidbody
+            {
                 body.velocity = new(horizontalInput * speed, body.velocity.y);
             }
-            else if (!testaTyr.tyrHead) {
+            else if (testaTyr != null && !testaTyr.tyrHead) {
                 if (KnockFromRight) body.velocity = new(-KBForce, KBForce / 3);
                 else body.velocity = new(KBForce, KBForce / 3);
 
                 KBCounter -= Time.deltaTime;
             }
-            else if (testaTyr.tyrHead) {
+            else if (testaTyr != null && testaTyr.tyrHead) {
                 if (KnockFromRight) body.velocity = new(-KBForce * 3, KBForce / 5);
                 else body.velocity = new(KBForce * 3, KBForce / 5);
 
                 KBCounter -= Time.deltaTime;
+            }
+            else {
+                if (animatorStateInfo.IsName("hurt") &&
+                    animatorStateInfo.normalizedTime > 0) {
+                    if (KnockFromRight) body.velocity = new(-KBForce / 3f, 0);
+                    else body.velocity = new(KBForce / 3f, 0);
+                }
+                else {
+                    KBCounter -= Time.deltaTime;
+                }
             }
 
 
@@ -61,8 +77,8 @@ public class PlayerMovement : MonoBehaviour {
             // Logica per il salto
             if (Input.GetKey(KeyCode.Space) && Grounded) Jump();
 
-            anim.SetBool("Run", horizontalInput != 0);
-            anim.SetBool("Grounded", Grounded);
+            anim.SetBool(Run, horizontalInput != 0);
+            anim.SetBool(Grounded1, Grounded);
         }
     }
 
@@ -85,7 +101,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Jump() {
         body.velocity = new(body.velocity.x, jumpForce);
-        anim.SetTrigger("Jump");
+        anim.SetTrigger(Jump1);
         Grounded = false;
     }
 
@@ -97,7 +113,7 @@ public class PlayerMovement : MonoBehaviour {
         canMove = false;
     }
 
-    public bool canAttack() {
+    public bool CanAttack() {
         return Grounded;
     }
 }

@@ -769,6 +769,11 @@ Transform:
   - {fileID: 704590169}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &422021571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4764859365263412244, guid: a10c477d73ca1064490271c0aec1e7ed, type: 3}
+  m_PrefabInstance: {fileID: 1629077250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4945,19 +4950,19 @@ PrefabInstance:
     - target: {fileID: 4809776513194308126, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
       propertyPath: SoundSaver
       value: 
-      objectReference: {fileID: 204902898}
+      objectReference: {fileID: 204902897}
     - target: {fileID: 4809776513194308126, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
       propertyPath: PlayerSaver
       value: 
-      objectReference: {fileID: 1954574534}
+      objectReference: {fileID: 1954574529}
     - target: {fileID: 4809776513194308126, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
       propertyPath: nextSceneLoader
       value: 
-      objectReference: {fileID: 1629077251}
+      objectReference: {fileID: 422021571}
     - target: {fileID: 4809776513194308126, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
       propertyPath: nextLevelTrigger
       value: 
-      objectReference: {fileID: 1117955749}
+      objectReference: {fileID: 1117955746}
     - target: {fileID: 4914214148729771028, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
       propertyPath: m_Name
       value: -------TRIGGERS-------
@@ -4975,9 +4980,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
---- !u!61 &1117955749 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 4876588494002213413, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
+--- !u!1 &1117955746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6806204472469710527, guid: 02d2a9171614ef445bccbe73f3410ae8, type: 3}
   m_PrefabInstance: {fileID: 1117955745}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1145323765
@@ -5882,7 +5887,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8227426943475801035, guid: a10c477d73ca1064490271c0aec1e7ed, type: 3}
   m_PrefabInstance: {fileID: 1629077250}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 422021571}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 424b95ca2d7bb934c9e1ae09113c9c9e, type: 3}
@@ -6805,32 +6810,26 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5938812389755038220, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
   m_PrefabInstance: {fileID: 1954574526}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1954574529}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7591ec49bc8f6574ebeb92450535ef9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1954574529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 71272673748902069, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+  m_PrefabInstance: {fileID: 1954574526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1954574531 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2296248865219714047, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
   m_PrefabInstance: {fileID: 1954574526}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1954574529}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bd114dfcef9ed140968b4e06a346f89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1954574534 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
-  m_PrefabInstance: {fileID: 1954574526}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188bfcebaf4e6f042891329bee38734e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2055474809

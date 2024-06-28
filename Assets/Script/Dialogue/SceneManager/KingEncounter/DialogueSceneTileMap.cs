@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Script.Dialogue.SceneManager.KingEncounter {
     public class DialogueSceneTileMap : DialogueSceneTileMapAbstract {
-        public static byte k = 0;
+        public static byte K = 0;
         [SerializeField] protected DialogueSystem dialogueSystem;
         public bool start;
 
@@ -14,21 +14,19 @@ namespace Script.Dialogue.SceneManager.KingEncounter {
 
         protected override void Update() {
             if (start) {
-                switch (k) {
+                switch (K) {
                     case 0:
                         barFalse();
                         dialogueSystem.FirstDialogue();
                         break;
                     default:
                         barTrue();
-                        start = true;
+                        start = false;
                         break;
                 }
 
                 if (dialogueSystem.isEnded)
-                    //per resettare
                     Reset();
-                //bossFight
             }
         }
     }

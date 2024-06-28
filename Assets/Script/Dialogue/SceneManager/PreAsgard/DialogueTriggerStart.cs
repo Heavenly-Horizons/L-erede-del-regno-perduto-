@@ -6,14 +6,7 @@ namespace Script.Dialogue.SceneManager.PreAsgard {
         [SerializeField] private GameObject dialoguePanel;
 
         private void Update() {
-            switch (dialogueSceneTileMap.GetComponent<DialogueSceneTileMap>().start) {
-                case false:
-                    dialoguePanel.SetActive(false);
-                    break;
-                case true:
-                    dialoguePanel.SetActive(true);
-                    break;
-            }
+            dialoguePanel.SetActive(dialogueSceneTileMap.start);
         }
 
         private void OnCollisionEnter2D(Collision2D other) {

@@ -113,7 +113,7 @@ namespace Script.Dialogue.SceneManager.KingEncounter {
                 default:
                     //fine dialoghi
                     player.CanMove();
-                    DialogueSceneTileMap.k = 1;
+                    DialogueSceneTileMap.K++;
                     isEnded = true;
                     break;
             }

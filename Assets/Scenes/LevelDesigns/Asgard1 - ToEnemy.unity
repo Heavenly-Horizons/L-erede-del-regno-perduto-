@@ -11498,7 +11498,7 @@ PrefabInstance:
     - target: {fileID: 5341908383434843569, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1799333440}
+      objectReference: {fileID: 1799333441}
     - target: {fileID: 6155206349800760750, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: m_Name
       value: Nemico2 (1)
@@ -11681,11 +11681,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1752041466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &720629901 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1805852448520013709, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
-  m_PrefabInstance: {fileID: 969734210}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &747532624
 GameObject:
   m_ObjectHideFlags: 0
@@ -12364,7 +12359,7 @@ PrefabInstance:
     - target: {fileID: 5341908383434843569, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1799333440}
+      objectReference: {fileID: 1799333441}
     - target: {fileID: 6155206349800760750, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: m_Name
       value: Nemico2 (2)
@@ -12984,6 +12979,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2180841689128498641, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2466881581933638811, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -13158,7 +13157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183309659026511776, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6240870697683518094, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -15435,6 +15434,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2105300433071974349, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105300433071974349, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105300433071974349, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -15449,7 +15456,7 @@ PrefabInstance:
     - target: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: deathScreen
       value: 
-      objectReference: {fileID: 720629901}
+      objectReference: {fileID: 1956394485}
     - target: {fileID: 2433138471206888094, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
       propertyPath: attackCooldown
       value: 1
@@ -16098,6 +16105,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1956394485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6183309659026511776, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+  m_PrefabInstance: {fileID: 969734210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2041657191
 GameObject:
   m_ObjectHideFlags: 0
@@ -16383,7 +16395,7 @@ PrefabInstance:
     - target: {fileID: 5341908383434843569, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1799333440}
+      objectReference: {fileID: 1799333441}
     - target: {fileID: 6155206349800760750, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: m_Name
       value: Nemico2

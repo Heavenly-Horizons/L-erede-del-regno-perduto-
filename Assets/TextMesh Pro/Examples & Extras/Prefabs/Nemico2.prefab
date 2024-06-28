@@ -423,7 +423,6 @@ MonoBehaviour:
   startDirectionLeft: 1
   patrolDistance: 30
   attackRange: 50
-  player: {fileID: 0}
   arrowPrefab: {fileID: 987083297778883385, guid: 27277137d0605bd45bd741cdb791e0c1, type: 3}
   launchPoint: {fileID: 6461590446495643301}
   arrowSpeed: 30
@@ -435,6 +434,7 @@ MonoBehaviour:
   knockFromRight: 0
   nemicoHealth: 30
   nemicoHealthBar: {fileID: 1874979669852381573}
+  player: {fileID: 71272673748902069, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
 --- !u!114 &2388164198109360663
 MonoBehaviour:
   m_ObjectHideFlags: 0
