@@ -1,18 +1,19 @@
+using Script.Dialogue.SceneManager.AchilleBF___ToEnemy;
 using UnityEngine;
 
 public class BossWalk : StateMachineBehaviour
 {
     public float speed = 2.5f;
     public float attackRange;
+    public float initialBossY;
     public int rangeMultiplier;
+    public Vector2 target;
     private Boss boss;
     private BossWeapon bossWeapon;
     private Transform bossTransform;
     private Transform player;
     private PlayerStats playerStats;
     private Rigidbody2D rb;
-    public Vector2 target;
-    public float initialBossY;
 
     
 

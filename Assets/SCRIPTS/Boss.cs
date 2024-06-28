@@ -1,14 +1,27 @@
 using System.Collections;
+using Script.Dialogue.SceneManager.AchilleBF___ToEnemy;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
     public Transform player;
     public bool isFlipped = false;
+    public GameObject dialogueSystemObject;
+    private DialogueSystem dialogueSystem;
+    public bool isDialogueEnded = false;
 
     void Awake(){
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;  // Blocca la rotazione sull'asse Z
         gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+        if(dialogueSystemObject != null){
+            dialogueSystem = dialogueSystemObject.GetComponent<DialogueSystem>();
+        }
+    }
+
+    void Update(){
+        if(dialogueSystem != null && dialogueSystem.isEnded){
+            isDialogueEnded = true;
+        }
     }
 
     public void LookAtPlayer()

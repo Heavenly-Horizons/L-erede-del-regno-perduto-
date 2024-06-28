@@ -6,7 +6,6 @@ public class BossHealth : MonoBehaviour
 {
     private AchilleStun stun;
     private Animator animator;
-    private Transform player;
     public Slider bossHealthSlider;
     public float bossHealth;
     public float bossDefence = 0;
@@ -16,7 +15,6 @@ public class BossHealth : MonoBehaviour
     public bool isHit = false;
 
     void Start(){
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = gameObject.GetComponent<Animator>();
         stun = gameObject.GetComponent<AchilleStun>();
         if (bossHealthSlider != null)
@@ -32,7 +30,6 @@ public class BossHealth : MonoBehaviour
                 StartCoroutine(BubbleShow());
                 return; 
             }
-
             if (bossHealth - (amount - bossDefence) > 0){
                 animator.SetTrigger("Hurt");
                 bossHealth -= amount - bossDefence;
@@ -48,10 +45,8 @@ public class BossHealth : MonoBehaviour
                 gameObject.GetComponent<DropHeal>().Drop(4);
                 gameObject.GetComponent<DropCoin>().Drop(3);
             }
-            
             if(stun != null){
-                bool knockFromRight = transform.position.x > player.transform.position.x;
-                stun.ApplyKnockback(knockFromRight);
+                stun.Stun();
             }
         }
     }

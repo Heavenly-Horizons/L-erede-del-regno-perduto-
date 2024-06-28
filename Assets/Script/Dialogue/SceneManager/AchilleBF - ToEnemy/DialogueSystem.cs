@@ -4,7 +4,7 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy
 {
     public class DialogueSystem : MonoBehaviour
     {
-        [SerializeField] public Achille_Movement achilleMovement;
+        [SerializeField] public BossHealth bossHealthScript;
         [SerializeField] private DialogueTrigger dialogueTriggerAchille;
         [SerializeField] private DialogueTrigger dialogueTriggerFinn;
         [SerializeField] private Rigidbody2D finnRb;
@@ -48,7 +48,7 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy
             switch (i)
             {
                 case 0:
-                    //finnRb.bodyType = RigidbodyType2D.Static;
+                    //finnRb.bodyType = RigidbodyType2D.Static
                     finnMovement.CanNotMove();
                     HandleDialogue(ref i, ref j, dialogueTriggerAchille, new[]
                     {

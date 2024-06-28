@@ -2940,10 +2940,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossHealthSlider: {fileID: 645710566}
-  isInvulnerable: 0
   bossHealth: 300
+  bossDefence: 0
   damageCounter: 0
+  isInvulnerable: 0
   isDead: 0
+  isHit: 0
 --- !u!114 &961610209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2958,6 +2960,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 45684342}
   isFlipped: 0
+  dialogueSystemObject: {fileID: 1757300461}
+  isDialogueEnded: 0
 --- !u!50 &961610210
 Rigidbody2D:
   serializedVersion: 4
