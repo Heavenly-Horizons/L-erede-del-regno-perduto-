@@ -9,6 +9,7 @@ public class Achille_Movement : MonoBehaviour
     private float run;
     private bool takesDamage = false;
     [SerializeField] private float damage = 0;
+    
 
 
     // Start is called before the first frame update

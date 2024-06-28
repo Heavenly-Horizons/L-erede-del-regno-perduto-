@@ -1,20 +1,24 @@
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour
 {
+    private AchilleStun stun;
     private Animator animator;
+    private Transform player;
     public Slider bossHealthSlider;
-    public bool isInvulnerable = false;
     public float bossHealth;
+    public float bossDefence = 0;
     public float damageCounter;
+    public bool isInvulnerable = false;
     public bool isDead = false;
+    public bool isHit = false;
 
     void Start(){
-        animator = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = gameObject.GetComponent<Animator>();
+        stun = gameObject.GetComponent<AchilleStun>();
         if (bossHealthSlider != null)
         {
             bossHealthSlider.maxValue = bossHealth;
@@ -29,11 +33,11 @@ public class BossHealth : MonoBehaviour
                 return; 
             }
 
-            if (bossHealth - amount > 0){
+            if (bossHealth - (amount - bossDefence) > 0){
                 animator.SetTrigger("Hurt");
-                bossHealth -= amount;
+                bossHealth -= amount - bossDefence;
                 bossHealthSlider.value = bossHealth;
-                damageCounter += amount;
+                damageCounter += amount - bossDefence;
                 animator.ResetTrigger("Hurt");
             }else{
                 isDead = true;
@@ -43,6 +47,11 @@ public class BossHealth : MonoBehaviour
                 gameObject.GetComponent<Animator>().SetTrigger("Defeat");
                 gameObject.GetComponent<DropHeal>().Drop(4);
                 gameObject.GetComponent<DropCoin>().Drop(3);
+            }
+            
+            if(stun != null){
+                bool knockFromRight = transform.position.x > player.transform.position.x;
+                stun.ApplyKnockback(knockFromRight);
             }
         }
     }

@@ -114,7 +114,9 @@ public class Player_Attack : MonoBehaviour
                 }
                 if (bossHealth != null)
                 {
+                    bossHealth.isHit = true;
                     bossHealth.TakeDamage(playerStats.playerDamage);
+                    bossHealth.isHit = false;
                 }
             }
         }
