@@ -40,7 +40,7 @@ public class toNextScene : MonoBehaviour {
             Debug.Log(nextLevelTriggerBoxCollider2D != null
                 ? "nextLevelTrigger.GetComponent<BoxCollider2D>() in toNextScene istanziato"
                 : "nextLevelTrigger.GetComponent<BoxCollider2D>() in toNextScene non istanziato");
-            nextLevelTriggerBoxCollider2D.isTrigger = false;
+            nextLevelTriggerBoxCollider2D.isTrigger = true;
 
             Debug.Log(nextLevelTrigger.GetComponent<BoxCollider2D>().isTrigger);
             soundsaver.SaveSoundSettings();
