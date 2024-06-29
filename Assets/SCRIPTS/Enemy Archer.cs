@@ -7,6 +7,7 @@ public class EnemyArcher : MonoBehaviour {
     private static readonly int Run = Animator.StringToHash("Run");
     private static readonly int Hurt = Animator.StringToHash("hurt");
     private static readonly int Die = Animator.StringToHash("die");
+    private BoxCollider2D boxCollider2D;
     public float patrolSpeed = 300f;
     public bool startDirectionLeft = true;
     public float patrolDistance = 30f;
@@ -66,6 +67,8 @@ public class EnemyArcher : MonoBehaviour {
 
         dropCoin = gameObject.GetComponent<DropCoin>();
         dropHeal = gameObject.GetComponent<DropHeal>();
+        
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     void Update() {
@@ -209,12 +212,22 @@ public class EnemyArcher : MonoBehaviour {
 
             //Die
             animator.SetTrigger(Die);
+            if (boxCollider2D != null)
+            {
+                // Disattiva il BoxCollider2D
+                boxCollider2D.enabled = false;
+                Debug.Log("BoxCollider2D disattivato");
+            }
+            else
+            {
+                Debug.LogError("BoxCollider2D non trovato su questo GameObject");
+            }
             StartCoroutine(PlayDeathAnimation());
         }
     }
 
     private IEnumerator PlayDeathAnimation() {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 

@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Nemico : MonoBehaviour
 {
+    private BoxCollider2D boxCollider2D;
+    
     public float velocita = 300f;
     private Animator nemicoAnim;
 
@@ -61,6 +63,7 @@ public class Nemico : MonoBehaviour
         nemicoAnim = GetComponent<Animator>();
         dropCoin = GetComponent<DropCoin>();
         dropHeal = GetComponent<DropHeal>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -203,12 +206,22 @@ public class Nemico : MonoBehaviour
             }
 
             nemicoAnim.SetTrigger("die");
+            if (boxCollider2D != null)
+            {
+                // Disattiva il BoxCollider2D
+                boxCollider2D.enabled = false;
+                Debug.Log("BoxCollider2D disattivato");
+            }
+            else
+            {
+                Debug.LogError("BoxCollider2D non trovato su questo GameObject");
+            }
             StartCoroutine(PlayDeathAnimation());
         }
     }
 
     IEnumerator PlayDeathAnimation(){
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
     

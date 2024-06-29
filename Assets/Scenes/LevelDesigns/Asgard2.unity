@@ -1248,7 +1248,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2941841462172788797, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100.3
+      value: 81.5
       objectReference: {fileID: 0}
     - target: {fileID: 2941841462172788797, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4694,7 +4694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2941841462172788797, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.9
+      value: -17.2
       objectReference: {fileID: 0}
     - target: {fileID: 2941841462172788797, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4739,6 +4739,10 @@ PrefabInstance:
     - target: {fileID: 6155206349800760750, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: m_Name
       value: Nemico2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915274663911029314, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5351,7 +5355,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 375773434396081140, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 109
+      value: 122.6
       objectReference: {fileID: 0}
     - target: {fileID: 375773434396081140, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18445,7 +18449,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 375773434396081140, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 375773434396081140, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18482,6 +18486,10 @@ PrefabInstance:
     - target: {fileID: 375773434396081140, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096924237175469900, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: giocatore

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour {
     public float damage = 15f;
-    public float lifeTime = 5f; // Tempo dopo cui la freccia viene distrutta
+    
     public float knockbackForce = 40f; // Forza del knockback
 
 
