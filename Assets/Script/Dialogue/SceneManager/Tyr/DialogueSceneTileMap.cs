@@ -4,9 +4,8 @@ namespace Script.Dialogue.SceneManager.Tyr {
     public class DialogueSceneTileMap : MonoBehaviour {
         public static byte K = 0;
         private static readonly int Defeat = Animator.StringToHash("Defeat");
-        [SerializeField] private DialogueSystem dialogueSystem;
-        [SerializeField] private Boss tyr;
-        [SerializeField] private GameObject toNextScene;
+        [SerializeReference] public DialogueSystem dialogueSystem;
+        private GameObject toNextScene;
         private BossHealth _bossHealth;
 
         private void Reset() {
@@ -15,8 +14,11 @@ namespace Script.Dialogue.SceneManager.Tyr {
             dialogueSystem.j = 0;
         }
 
-        private void Start() {
-            if (tyr != null) _bossHealth = tyr.GetComponent<BossHealth>();
+        void Awake() {
+            Reset();
+            K = 0;
+            _bossHealth = GameObject.FindGameObjectWithTag("Nemico").GetComponent<BossHealth>();
+            toNextScene = GameObject.FindGameObjectWithTag("toNextLevel");
         }
 
         private void Update() {
@@ -35,7 +37,7 @@ namespace Script.Dialogue.SceneManager.Tyr {
             }
 
             if (dialogueSystem.isEnded) {
-                tyr.isDialogueEnded = true;
+                _bossHealth.GetComponent<Boss>().isDialogueEnded = true;
                 //per resettare
                 Reset();
             }

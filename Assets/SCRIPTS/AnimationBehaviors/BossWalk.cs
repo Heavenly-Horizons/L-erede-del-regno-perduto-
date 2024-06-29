@@ -13,15 +13,15 @@ public class BossWalk : StateMachineBehaviour {
     private Transform bossTransform;
     private BossWeapon bossWeapon;
     private PlayerStats playerStats;
+    private GameObject player;
     private Transform playerTransform;
     private Rigidbody2D rb;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        var player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
         playerStats = player.GetComponent<PlayerStats>();
         playerTransform = player.GetComponent<Transform>();
-
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<Boss>();
         bossWeapon = animator.GetComponent<BossWeapon>();

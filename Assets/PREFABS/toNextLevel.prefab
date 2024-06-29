@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7261212059468606866}
   m_Layer: 0
   m_Name: toNextLevel
-  m_TagString: Untagged
+  m_TagString: toNextLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
