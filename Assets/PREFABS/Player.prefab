@@ -235,6 +235,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}
   animator: {fileID: 5782237442543137681}
+  deathScreen: {fileID: 0}
   isPlayerDead: 0
   staminaRecoveryCooldown: 2
 --- !u!114 &2433138471206888094
@@ -285,11 +286,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 35
-  jumpForce: 35
+  jumpForce: 40
   KBForce: 40
   KBCounter: 0
   KBTotalTime: 0.2
   KnockFromRight: 0
+  testaTyr: {fileID: 0}
 --- !u!1 &4555887176014241044
 GameObject:
   m_ObjectHideFlags: 0

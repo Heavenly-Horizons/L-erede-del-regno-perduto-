@@ -32,6 +32,7 @@ public class Nemico_Attack : MonoBehaviour {
             cooldownTimer = 0;
             isAttacking = true;
             animator.SetTrigger(EnemyAttack);
+            isAttacking = false;
         }
 
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") ||
