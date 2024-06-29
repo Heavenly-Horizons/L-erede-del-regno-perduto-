@@ -20,7 +20,7 @@ public class Nemico : MonoBehaviour
     private bool isGuardandoDestra = true; 
     private bool isStopped = false; 
 
-     public float normalAnimationSpeed = 1f; //velocità quando pattuglia
+    public float normalAnimationSpeed = 1f; //velocità quando pattuglia
     public float FastAnimationSpeed = 2f; //velocità quando vede il player
 
     // Knockback fields
@@ -63,7 +63,7 @@ public class Nemico : MonoBehaviour
         dropHeal = GetComponent<DropHeal>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (isStopped) return;
 
@@ -203,15 +203,13 @@ public class Nemico : MonoBehaviour
                 dropCoin.Drop(1);
                 dropHeal.Drop(1);
             }
+
+            nemicoAnim.SetTrigger("die");
             StartCoroutine(PlayDeathAnimation());
-
-            
-
         }
     }
 
     IEnumerator PlayDeathAnimation(){
-        nemicoAnim.SetTrigger("die");
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }

@@ -22,11 +22,11 @@ namespace Script.Player {
             if (_powerUpClosedBtn) ResetScene();
         }
 
-        private void OnCollisionEnter2D(Collision2D other) {
+        private void OnCollisionEnter2D() {
             interactionPanel.alpha = 1;
         }
 
-        private void OnCollisionExit2D(Collision2D other) {
+        private void OnCollisionExit2D() {
             interactionPanel.alpha = 0;
         }
 

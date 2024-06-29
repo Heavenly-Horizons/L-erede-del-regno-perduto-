@@ -394,7 +394,6 @@ GameObject:
   - component: {fileID: 4916216358999803353}
   - component: {fileID: 2197180740909332552}
   - component: {fileID: 2637351269277487188}
-  - component: {fileID: 4270971000680828691}
   m_Layer: 6
   m_Name: Nemico
   m_TagString: Nemico
@@ -635,15 +634,3 @@ MonoBehaviour:
   healing_hidromele: {fileID: 5722551632794112379, guid: 9b7f681f1b55ec64cae4948a0c37c7a2, type: 3}
   dropForce: 5
   randomForce: 10
---- !u!114 &4270971000680828691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8983481298985190905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9722ea21264018478765b961340b530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
