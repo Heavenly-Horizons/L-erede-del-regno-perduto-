@@ -52,17 +52,18 @@ public class PlayerMovement : MonoBehaviour {
                 KBCounter -= Time.deltaTime;
             }
             else if (testaTyr != null && testaTyr.tyrHead) {
-                if (KnockFromRight) body.velocity = new(-KBForce * 3, KBForce / 5);
-                else body.velocity = new(KBForce * 3, KBForce / 5);
+                if (KnockFromRight) body.velocity = new(-KBForce * 3, KBForce / 4);
+                else body.velocity = new(KBForce * 3, KBForce / 4);
 
                 KBCounter -= Time.deltaTime;
             }
             else {
                 if (animatorStateInfo.IsName("hurt") &&
                     animatorStateInfo.normalizedTime > 0) {
-                    if (KnockFromRight) body.velocity = new(-KBForce , 0);
-                    else body.velocity = new(KBForce , 0);
-                    
+                    if (KnockFromRight) body.velocity = new(-KBForce / 2, body.velocity.y);
+                    else body.velocity = new(KBForce / 2, body.velocity.y);
+                }
+                else {
                     KBCounter -= Time.deltaTime;
                 }
             }

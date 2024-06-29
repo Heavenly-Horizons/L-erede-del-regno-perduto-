@@ -18,14 +18,15 @@ public class PlayerBubble : MonoBehaviour {
 
     private void Update() {
         //appare la bolla
-        if (Input.GetKeyDown(KeyCode.K) && !bubbleShow && bubbleCooldownTimer >= bubbleCooldown && playerStats.GetPlayerCurrentStamina() >= 50) {
+        if (Input.GetKeyDown(KeyCode.K) && !bubbleShow && bubbleCooldownTimer >= bubbleCooldown &&
+            playerStats.GetPlayerCurrentStamina() >= 50) {
             //mostra bolla
             playerStats.UseStamina(50);
             StartCoroutine(ShowBubble());
             bubbleCooldownTimer = 0f;
         }
 
-        gameObject.GetComponent<PlayerStats>().isInvulnerable = bubbleShow;
+        playerStats.isInvulnerable = bubbleShow;
         bubbleCooldownTimer += Time.deltaTime;
     }
 
@@ -71,6 +72,5 @@ public class PlayerBubble : MonoBehaviour {
         yield return new WaitForSeconds(bubbleCooldown);
         // togli la bubble
         StartCoroutine(NotShowBubble());
-        
     }
 }
