@@ -55,19 +55,14 @@ public class EnemyArcher : MonoBehaviour {
         playerAnimator = player.GetComponent<Animator>();
 
         rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
-            Debug.LogError("Rigidbody2D component is missing on " + gameObject.name);
-        else
+        if (rb != null){   
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
 
         isPatrollingLeft = !startDirectionLeft;
         initialPosition = transform.position;
 
-        if (nemicoHealthBar != null) nemicoHealthBar.maxValue = nemicoHealth;
-
-        if (playerTransform == null) Debug.LogError("Player not assigned to enemy " + gameObject.name);
-
-        if (animator == null) Debug.LogError("Animator not assigned to enemy " + gameObject.name);
+        if (nemicoHealthBar != null){ nemicoHealthBar.maxValue = nemicoHealth; }
 
         dropCoin = GetComponent<DropCoin>();
         dropHeal = GetComponent<DropHeal>();
@@ -162,8 +157,6 @@ public class EnemyArcher : MonoBehaviour {
         if (isAttacking) // Controlla se il nemico è in attacco
         {
             if (arrowPrefab != null && launchPoint != null) {
-                Debug.Log("Shooting arrow");
-
                 // Calcola la direzione della freccia
                 Vector2 arrowDirection = (playerTransform.position - launchPoint.position).normalized;
 
@@ -191,9 +184,6 @@ public class EnemyArcher : MonoBehaviour {
                 // Ignora le collisioni tra la freccia e l'arciere
                 Physics2D.IgnoreCollision(arrow.GetComponent<Collider2D>(), GetComponent<Collider2D>());
             }
-            else {
-                Debug.LogError("ArrowPrefab or LaunchPoint is not assigned.");
-            }
         }
     }
 
@@ -207,7 +197,6 @@ public class EnemyArcher : MonoBehaviour {
         if (nemicoHealth - amount > 0) {
             nemicoHealth -= amount;
             nemicoHealthBar.value = Mathf.Floor(amount);
-            Debug.Log("vita nemico arciere: " + nemicoHealthBar.value);
         }
         else {
             nemicoHealth = 0;

@@ -21,10 +21,6 @@ public class Player_Attack : MonoBehaviour {
         playerStats = GetComponent<PlayerStats>();
         cooldownTimer = attackCooldown;
         staminaRecoveryCD = playerStats.staminaRecoveryCooldown;
-
-        if (anim == null) Debug.LogError("Animator component is missing on " + gameObject.name);
-
-        if (playerMovement == null) Debug.LogError("PlayerMovement component is missing on " + gameObject.name);
     }
 
     private void Update() {

@@ -11,7 +11,6 @@ public class Hidromele : MonoBehaviour
             if (playerS != null)
             {
                 playerS.HealPlayer(hidromele);
-                Debug.Log("vita player: " + playerS.GetPlayerCurrentHealth());
             }
 
             // Distruggi l'idromela

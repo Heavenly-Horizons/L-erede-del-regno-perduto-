@@ -11,7 +11,6 @@ public class Coin : MonoBehaviour
             if (playerS != null)
             {
                 playerS.PlayerMoney++;
-                Debug.Log("soldi: " + playerS.PlayerMoney);
             }
 
             // Distruggi la moneta

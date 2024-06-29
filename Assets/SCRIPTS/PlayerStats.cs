@@ -206,7 +206,6 @@ public class PlayerStats : MonoBehaviour {
             healthBar.value = PlayerCurrentHealth;
             GetComponent<PlayerMovement>().enabled = false;
             GetComponent<Player_Attack>().enabled = false;
-            Debug.Log("You died!");
             isPlayerDead = true;
             animator.SetTrigger(Die);
             deathScreen.SetActive(true);

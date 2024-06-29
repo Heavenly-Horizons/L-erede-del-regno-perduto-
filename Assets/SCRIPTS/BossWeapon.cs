@@ -29,8 +29,7 @@ public class BossWeapon : MonoBehaviour {
 
         if (colliderInfo != null && colliderInfo.CompareTag("Player")) {
             playerStats.TakeDamage(attackDamage);
-            Debug.Log("Player colpito");
-
+            
             playerMovement.KBCounter = playerMovement.KBTotalTime;
             playerMovement.KnockFromRight = playerMovement.transform.position.x <= transform.position.x;
         }

@@ -19,7 +19,7 @@ public class ContinueButtonCheck : MonoBehaviour
     void Start()
     {
         PlayerNewGameplayInt = PlayerPrefs.GetInt(PlayerNewGameplay);
-        Debug.Log("Continue button script, player new gameplay int: " + PlayerNewGameplayInt);
+        
         button = gameObject.GetComponent<Button>();
         textInside = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
@@ -28,7 +28,7 @@ public class ContinueButtonCheck : MonoBehaviour
             eventTrigger = gameObject.GetComponent<EventTrigger>(); 
             button.interactable = false;
             textInside.color = new Color(.42f, .42f, .42f, 1f);
-            Debug.Log(textInside.color);
+            
             Destroy(eventTrigger);
         }
     }

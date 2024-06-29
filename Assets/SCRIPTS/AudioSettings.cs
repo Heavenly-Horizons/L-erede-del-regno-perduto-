@@ -7,11 +7,11 @@ public class AudioSettings : MonoBehaviour
 {
      private static readonly string BGPref = "BGPref";
      private static readonly string SFXPref = "SFXPref";
-     [SerializeField] private Slider BGSlider, SFXSlider;
-     [SerializeField] private TextMeshProUGUI BGSliderValue, SFXSliderValue;
+     [SerializeReference] private Slider BGSlider, SFXSlider;
+     [SerializeReference] private TextMeshProUGUI BGSliderValue, SFXSliderValue;
      private float BGMusicFloat, SFXFloat;
-     [SerializeField] private AudioSource BGAudio;
-     [SerializeField] private AudioSource[] SFXs;
+     [SerializeReference] private AudioSource BGAudio;
+     [SerializeReference] private AudioSource[] SFXs;
 
      void Awake() {
           if(SceneManager.GetActiveScene().buildIndex != 0){ BGAudio.Play(); }
@@ -21,9 +21,6 @@ public class AudioSettings : MonoBehaviour
      public void ContinueSettings(){
           BGMusicFloat = PlayerPrefs.GetFloat(BGPref);
           SFXFloat = PlayerPrefs.GetFloat(SFXPref);
-
-          Debug.Log(BGMusicFloat);
-          Debug.Log(SFXFloat);
 
           BGSlider.value = BGMusicFloat;
           SFXSlider.value = SFXFloat;

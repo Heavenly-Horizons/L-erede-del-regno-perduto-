@@ -17,8 +17,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake() {
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
-        Debug.Log(firstPlayInt);
-
+        
         if (firstPlayInt == 0){
             BGMusicFloat = .125f;
             SFXFloat = .5f;
