@@ -16,8 +16,8 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy {
 
         void Start()
         {
-            Reset();
             k = 0;
+            Reset();
             _bossHealth = GameObject.FindGameObjectWithTag("Nemico").GetComponent<BossHealth>();
         }
 
@@ -30,9 +30,11 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy {
             }
             //se la vita è inferiore o uguale a 10
             else if (_bossHealth.bossHealth <= 10 && k == 1) {
+                _bossHealth.GetComponent<BossWeapon>().attackDamage = 0;
+                _bossHealth.GetComponent<Animator>().GetBehaviour<BossWalk>().attackRange = -1;
+                dialogueSystem.SecondDialogue();
                 //dialoghi
-                if(!isDefeat){
-                    dialogueSystem.SecondDialogue();
+                if (!isDefeat){
                     GameObject.FindGameObjectWithTag("Nemico").GetComponent<Animator>().SetTrigger("Defeat");
                     isDefeat = true;
                 }

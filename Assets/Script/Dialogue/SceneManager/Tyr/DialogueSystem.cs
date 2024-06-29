@@ -99,9 +99,8 @@ namespace Script.Dialogue.SceneManager.Tyr {
             switch (i) {
                 case 0:
                     // parla tyr
-                    player.CanNotMove();
-
                     tyrAnimator.SetTrigger("Hurt");
+                    player.CanNotMove();
                     HandleDialogue(ref i, ref j, dialogueTriggerTyr, new[] {
                         "(affannato) FERMI",
                         "Soldato"

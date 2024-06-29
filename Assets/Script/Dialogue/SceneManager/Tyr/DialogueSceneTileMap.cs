@@ -3,7 +3,6 @@ using UnityEngine;
 namespace Script.Dialogue.SceneManager.Tyr {
     public class DialogueSceneTileMap : MonoBehaviour {
         public static byte K = 0;
-        private static readonly int Defeat = Animator.StringToHash("Defeat");
         [SerializeReference] public DialogueSystem dialogueSystem;
         private GameObject toNextScene;
         private BossHealth _bossHealth;
@@ -16,8 +15,8 @@ namespace Script.Dialogue.SceneManager.Tyr {
         }
 
         void Start() {
-            Reset();
             K = 0;
+            Reset();
             _bossHealth = GameObject.FindGameObjectWithTag("Nemico").GetComponent<BossHealth>();
             toNextScene = GameObject.FindGameObjectWithTag("toNextLevel");
         }
@@ -31,10 +30,12 @@ namespace Script.Dialogue.SceneManager.Tyr {
             }
             //se la vita è inferiore o uguale a 10
             else if (_bossHealth.bossHealth <= 10 && K == 1) {
+                _bossHealth.GetComponent<BossWeapon>().attackDamage = 0;
+                _bossHealth.GetComponent<Animator>().GetBehaviour<BossWalk>().attackRange = -1;
                 //dialoghi
-                if(!isDefeat){
-                    dialogueSystem.SecondDialogue();
-                    GameObject.FindGameObjectWithTag("Nemico").GetComponent<Animator>().SetTrigger(Defeat);
+                dialogueSystem.SecondDialogue();
+                if (!isDefeat){
+                    GameObject.FindGameObjectWithTag("Nemico").GetComponent<Animator>().SetTrigger("Defeat");
                     isDefeat = true;
                 }
                 toNextScene.SetActive(true);
