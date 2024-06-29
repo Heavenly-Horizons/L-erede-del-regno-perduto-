@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour {
                     animatorStateInfo.normalizedTime > 0) {
                     if (KnockFromRight) body.velocity = new(-KBForce , 0);
                     else body.velocity = new(KBForce , 0);
+                    
                     KBCounter -= Time.deltaTime;
                 }
             }
