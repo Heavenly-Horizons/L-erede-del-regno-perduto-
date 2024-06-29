@@ -16,7 +16,7 @@ public class DropCoin : MonoBehaviour
             Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
 
             // Calcola una forza laterale random
-            float randomDirection = Random.Range(-1f, 1f) * randomForce;
+            float randomDirection = Random.Range(-2f, 2f) * randomForce;
 
             // Applica la forza verso l'alto e la forza laterale random
             rb.AddForce(new Vector2(randomDirection, dropForce), ForceMode2D.Impulse);

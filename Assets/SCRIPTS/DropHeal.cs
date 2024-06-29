@@ -13,7 +13,7 @@ public class DropHeal : MonoBehaviour
 
             Rigidbody2D rb = hidromele.GetComponent<Rigidbody2D>();
 
-            float randomDirection = Random.Range(-1f, 1f) * randomForce;
+            float randomDirection = Random.Range(-2f, 2f) * randomForce;
 
             rb.AddForce(new Vector2(randomDirection, dropForce), ForceMode2D.Impulse);
         }
