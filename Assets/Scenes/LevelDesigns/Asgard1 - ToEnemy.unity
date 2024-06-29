@@ -10781,6 +10781,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5029984961303676842, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: giocatore
       value: 
@@ -11503,6 +11507,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nemico2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8900981945705004945, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900981945705004945, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12111,6 +12123,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5029984961303676842, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: giocatore
       value: 
@@ -12363,6 +12379,14 @@ PrefabInstance:
     - target: {fileID: 6155206349800760750, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
       propertyPath: m_Name
       value: Nemico2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900981945705004945, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900981945705004945, guid: 358b9dbbe9bd5e24bbc2026577e47ead, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13059,6 +13083,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4181703056050273126, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4303332589074899289, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -13529,6 +13557,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 375773434396081140, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029984961303676842, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
@@ -15204,17 +15236,9 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1799333442}
-    - target: {fileID: 7747710294127030951, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_Name
       value: Nemico (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

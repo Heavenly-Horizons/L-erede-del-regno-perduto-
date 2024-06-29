@@ -60,10 +60,8 @@ public class PlayerMovement : MonoBehaviour {
             else {
                 if (animatorStateInfo.IsName("hurt") &&
                     animatorStateInfo.normalizedTime > 0) {
-                    if (KnockFromRight) body.velocity = new(-KBForce / 3f, 0);
-                    else body.velocity = new(KBForce / 3f, 0);
-                }
-                else {
+                    if (KnockFromRight) body.velocity = new(-KBForce , 0);
+                    else body.velocity = new(KBForce , 0);
                     KBCounter -= Time.deltaTime;
                 }
             }
