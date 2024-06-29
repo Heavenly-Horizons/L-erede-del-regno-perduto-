@@ -34,9 +34,11 @@ namespace Script.Player {
             if (other.gameObject.CompareTag("Player") &&
                 (Input.GetKeyDown(KeyCode.F) || (Input.anyKey && Input.GetKey(KeyCode.F)))) {
                 powerUpPanel.SetActive(true);
+                interactionPanel.alpha = 0; // Nascondere il messaggio
                 _powerUpClosedBtn = false;
                 playerMovement.CanNotMove();
                 playerAnimator.SetBool(Run, false);
+                playerMovement.StopMovement();
             }
         }
 

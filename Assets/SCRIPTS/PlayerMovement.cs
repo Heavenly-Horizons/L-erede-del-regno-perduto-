@@ -116,4 +116,8 @@ public class PlayerMovement : MonoBehaviour {
     public bool CanAttack() {
         return Grounded;
     }
+
+     public void StopMovement() {
+        body.velocity = Vector2.zero;
+    }
 }
