@@ -6,23 +6,35 @@ public class Arrow : MonoBehaviour {
     public float knockbackForce = 40f; // Forza del knockback
 
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Nemico")) {
-            var nemico = collision.gameObject.GetComponent<Nemico>();
-            if (nemico != null) {
-                nemico.setHit(true);
-                // Applica il knockback al nemico
-                nemico.ApplyKnockback(knockbackForce);
-                nemico.TakeDamage(damage);
-            }
+private void OnCollisionEnter2D(Collision2D collision) {
+    // Controllo se il GameObject ha il tag "Nemico"
+    if (collision.gameObject.CompareTag("Nemico")) {
+        // Ottenere il componente Nemico dal GameObject colliduto
+        var nemico = collision.gameObject.GetComponent<Nemico>();
+        if (nemico != null) {
+            nemico.setHit(true);
+            // Applica il knockback al nemico
+            nemico.ApplyKnockback(knockbackForce);
+            nemico.TakeDamage(damage);
+            Debug.Log("Danno applicato al nemico");
+        } else {
+            Debug.LogWarning("Componente Nemico non trovato sul GameObject con tag 'Nemico'.");
         }
-
-        if (collision.gameObject.CompareTag("Player")) {
-            var player = collision.gameObject.GetComponent<PlayerStats>();
-
-            if (player != null) player.TakeDamage(damage);
-        }
-
-        Destroy(gameObject);
     }
+
+    // Controllo se il GameObject ha il tag "Player"
+    if (collision.gameObject.CompareTag("Player")) {
+        // Ottenere il componente PlayerStats dal GameObject colliduto
+        var player = collision.gameObject.GetComponent<PlayerStats>();
+        if (player != null) {
+            player.TakeDamage(damage);
+            Debug.Log("Danno applicato al player");
+        } else {
+            Debug.LogWarning("Componente PlayerStats non trovato sul GameObject con tag 'Player'.");
+        }
+    }
+
+    Destroy(gameObject);
+}
+
 }

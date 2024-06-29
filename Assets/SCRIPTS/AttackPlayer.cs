@@ -7,10 +7,20 @@ public class AttackPlayer : MonoBehaviour {
     private float cooldownTimer = Mathf.Infinity;
     private PlayerMovement playerMovement;
 
-    void Start() {
-        anim = GetComponent<Animator>();
-        playerMovement = GetComponent<PlayerMovement>();
+   private void Start() {
+    // Controllo per il componente Animator
+    anim = GetComponent<Animator>();
+    if (anim == null) {
+        Debug.LogWarning("Componente Animator non trovato sul GameObject.");
     }
+
+    // Controllo per il componente PlayerMovement
+    playerMovement = GetComponent<PlayerMovement>();
+    if (playerMovement == null) {
+        Debug.LogWarning("Componente PlayerMovement non trovato sul GameObject.");
+    }
+}
+
 
     void Update() {
         // Verifica se il pulsante del mouse è stato premuto esattamente in questo frame

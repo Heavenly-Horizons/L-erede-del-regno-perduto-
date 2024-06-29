@@ -54,19 +54,37 @@ public class EnemyArcher : MonoBehaviour {
         playerTransform = player.GetComponent<Transform>();
         playerAnimator = player.GetComponent<Animator>();
 
-        rb = GetComponent<Rigidbody2D>();
-        if (rb != null){   
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-
-        isPatrollingLeft = !startDirectionLeft;
-        initialPosition = transform.position;
-
-        if (nemicoHealthBar != null){ nemicoHealthBar.maxValue = nemicoHealth; }
-
-        dropCoin = gameObject.GetComponent<DropCoin>();
-        dropHeal = gameObject.GetComponent<DropHeal>();
+    // Ottieni il componente Rigidbody2D e blocca la rotazione sull'asse Z se presente
+    rb = GetComponent<Rigidbody2D>();
+    if (rb != null) {
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
+
+    // Imposta la direzione di pattugliamento iniziale in base alla variabile startDirectionLeft
+    isPatrollingLeft = !startDirectionLeft;
+
+    // Salva la posizione iniziale dell'oggetto corrente
+    initialPosition = transform.position;
+
+    // Se il nemicoHealthBar non è null, imposta il suo valore massimo a nemicoHealth
+    if (nemicoHealthBar != null) {
+        nemicoHealthBar.maxValue = nemicoHealth;
+    }
+
+    // Ottieni i componenti DropCoin e DropHeal dell'oggetto corrente
+    dropCoin = GetComponent<DropCoin>();
+    dropHeal = GetComponent<DropHeal>();
+
+    // Esegui un controllo per verificare se i componenti sono stati correttamente assegnati
+    Debug.Log("Componenti inizializzati:");
+    Debug.Log("- playerTransform: " + (playerTransform != null ? "Assegnato" : "Non trovato"));
+    Debug.Log("- playerAnimator: " + (playerAnimator != null ? "Assegnato" : "Non trovato"));
+    Debug.Log("- rb: " + (rb != null ? "Assegnato" : "Non trovato"));
+    Debug.Log("- nemicoHealthBar: " + (nemicoHealthBar != null ? "Assegnato" : "Non trovato"));
+    Debug.Log("- dropCoin: " + (dropCoin != null ? "Assegnato" : "Non trovato"));
+    Debug.Log("- dropHeal: " + (dropHeal != null ? "Assegnato" : "Non trovato"));
+}
+
 
     void Update() {
         if (isStopped || isDead) return;
@@ -180,9 +198,11 @@ public class EnemyArcher : MonoBehaviour {
 
                 // Applica la velocità alla freccia
                 arrow.GetComponent<Rigidbody2D>().velocity = arrowDirection * arrowSpeed;
+                Debug.Log("Velocità dell'arrow assegnata: " + arrow.GetComponent<Rigidbody2D>().velocity);
 
                 // Ignora le collisioni tra la freccia e l'arciere
                 Physics2D.IgnoreCollision(arrow.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+                Debug.Log("Collisione tra Arrow e Oggetto Corrente ignorata: " + Physics2D.GetIgnoreCollision(arrow.GetComponent<Collider2D>(), GetComponent<Collider2D>()));
             }
         }
     }

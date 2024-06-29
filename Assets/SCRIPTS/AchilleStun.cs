@@ -11,14 +11,57 @@ public class AchilleStun : MonoBehaviour
     public bool isStunned = false;
     private bool isCurrentlyStunned = false;
 
-    void Start()
+    
+     void Start()
+{
+    // Ottenere il componente BossHealth
+    achilleHealth = gameObject.GetComponent<BossHealth>();
+    if (achilleHealth != null)
     {
-        achilleHealth = gameObject.GetComponent<BossHealth>();
-        achilleAnimator = gameObject.GetComponent<Animator>();
-        bossWalk = gameObject.GetComponent<Animator>().GetBehaviour<BossWalk>();
-        bossRangeFromBossWalk = bossWalk.attackRange;
-        dropHeal = gameObject.GetComponent<DropHeal>();
+        Debug.Log("Componente BossHealth Achille trovato.");
     }
+    else
+    {
+        Debug.LogWarning("Componente BossHealth non trovato sul GameObject.");
+    }
+
+    // Ottenere il componente Animator
+    achilleAnimator = gameObject.GetComponent<Animator>();
+    if (achilleAnimator != null)
+    {
+        Debug.Log("Componente Animator Achille trovato.");
+    }
+    else
+    {
+        Debug.LogWarning("Componente Animator non trovato sul GameObject.");
+    }
+
+    // Ottenere il Behaviour BossWalk dall'Animator
+    bossWalk = gameObject.GetComponent<Animator>().GetBehaviour<BossWalk>();
+    if (bossWalk != null)
+    {
+        Debug.Log("Behaviour BossWalk Achille trovato.");
+        // Ottenere l'attacco range da BossWalk
+        bossRangeFromBossWalk = bossWalk.attackRange;
+        Debug.Log("Range d'attacco da BossWalk: " + bossRangeFromBossWalk);
+    }
+    else
+    {
+        Debug.LogWarning("Behaviour BossWalk non trovato sull'Animator.");
+    }
+
+    // Ottenere il componente DropHeal
+    dropHeal = gameObject.GetComponent<DropHeal>();
+    if (dropHeal != null)
+    {
+        Debug.Log("Componente DropHeal trovato.");
+    }
+    else
+    {
+        Debug.LogWarning("Componente DropHeal non trovato sul GameObject.");
+    }
+}
+    
 
     public void Stun(){
         if (achilleHealth.damageCounter >= 40f && !achilleHealth.isDead)

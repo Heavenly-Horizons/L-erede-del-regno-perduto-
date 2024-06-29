@@ -12,6 +12,9 @@ public class DropHeal : MonoBehaviour
             GameObject hidromele = Instantiate(healing_hidromele, transform.position, Quaternion.identity);
 
             Rigidbody2D rb = hidromele.GetComponent<Rigidbody2D>();
+            if(rb== null){
+                Debug.Log(" rigidbody dell'hidromele non trovato");
+            }
 
             float randomDirection = Random.Range(-2f, 2f) * randomForce;
 

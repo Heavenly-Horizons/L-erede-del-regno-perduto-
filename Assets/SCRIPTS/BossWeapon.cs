@@ -17,7 +17,20 @@ public class BossWeapon : MonoBehaviour {
 
     void Start(){
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        if(playerMovement != null){
+            Debug.Log("PlayerMovement non è nullo");
+        }
+        else{
+            Debug.Log("PlayerMovement è nullo");
+        }
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+
+         if(playerStats != null){
+            Debug.Log("PlayerStats non è nullo");
+        }
+        else{
+            Debug.Log("PlayerStats è nullo");
+        }
     }
 
     public void Attack() {
@@ -29,9 +42,13 @@ public class BossWeapon : MonoBehaviour {
 
         if (colliderInfo != null && colliderInfo.CompareTag("Player")) {
             playerStats.TakeDamage(attackDamage);
+            Debug.Log("il player prende danno");
             
             playerMovement.KBCounter = playerMovement.KBTotalTime;
             playerMovement.KnockFromRight = playerMovement.transform.position.x <= transform.position.x;
+        }
+        else{
+            Debug.Log("Il player non funziona correttamente");
         }
     }
 }

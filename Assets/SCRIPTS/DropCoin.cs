@@ -14,6 +14,9 @@ public class DropCoin : MonoBehaviour
 
             // Ottieni il Rigidbody2D della moneta per applicare le forze
             Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
+            if(rb == null){
+                Debug.Log("rigidbody della moneta non trovato");
+            }
 
             // Calcola una forza laterale random
             float randomDirection = Random.Range(-2f, 2f) * randomForce;

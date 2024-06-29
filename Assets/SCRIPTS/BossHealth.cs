@@ -15,16 +15,33 @@ public class BossHealth : MonoBehaviour
     public bool isDead = false;
     public bool isHit = false;
 
-    void Start(){
-        animator = gameObject.GetComponent<Animator>();
-        stun = gameObject.GetComponent<AchilleStun>();
-        bossWalk = gameObject.GetComponent<Animator>().GetBehaviour<BossWalk>();
-        if (bossHealthSlider != null)
-        {
-            bossHealthSlider.maxValue = bossHealth;
-            bossHealthSlider.value = bossHealth;
-        }
+   void Start() {
+    // Controllo per il componente Animator
+    Animator anim = GetComponent<Animator>();
+    if (anim == null) {
+        Debug.LogWarning("Componente Animator non trovato sul GameObject.");
     }
+
+    // Controllo per il componente AchilleStun
+    AchilleStun stun = GetComponent<AchilleStun>();
+    if (stun == null) {
+        Debug.LogWarning("Componente AchilleStun non trovato sul GameObject.");
+    }
+
+    // Controllo per il componente BossWalk ottenuto dall'Animator
+    BossWalk bossWalk = anim.GetBehaviour<BossWalk>();
+    if (bossWalk == null) {
+        Debug.LogWarning("Componente BossWalk non trovato nell'Animator.");
+    }
+
+    // Controllo per il componente bossHealthSlider, se presente
+    if (bossHealthSlider != null) {
+        Debug.LogWarning("Componente BossHealtSlider trovato ");
+        bossHealthSlider.maxValue = bossHealth;
+        bossHealthSlider.value = bossHealth;
+    }
+}
+
     public void TakeDamage(float amount){
 
         if(bossHealthSlider != null){
@@ -45,8 +62,20 @@ public class BossHealth : MonoBehaviour
                 bossHealthSlider.value = bossHealth;
                 damageCounter = 0;
                 bossWalk.isEnabled = false;
-                gameObject.GetComponent<DropHeal>().Drop(4);
-                gameObject.GetComponent<DropCoin>().Drop(3);
+               DropHeal dropHealComponent = gameObject.GetComponent<DropHeal>();
+                if (dropHealComponent == null) {
+                    Debug.LogWarning("Componente DropHeal non trovato sul GameObject.");
+                } else {
+                    dropHealComponent.Drop(4);
+                }
+                DropCoin dropCoinComponent = gameObject.GetComponent<DropCoin>();
+            if (dropCoinComponent == null) {
+                Debug.LogWarning("Componente DropCoin non trovato sul GameObject.");
+            } else {
+                dropCoinComponent.Drop(3);
+            }
+
+
             }
             if(stun != null){
                 stun.Stun();

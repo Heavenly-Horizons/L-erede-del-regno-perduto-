@@ -10,13 +10,25 @@ public class Boss : MonoBehaviour
     private DialogueSystem dialogueSystem;
     public bool isDialogueEnded = false;
 
-    void Start(){
-        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;  // Blocca la rotazione sull'asse Z
-        gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-        if(dialogueSystemObject != null){
-            dialogueSystem = dialogueSystemObject.GetComponent<DialogueSystem>();
+    void Start() {
+    // Controllo per il componente Rigidbody2D
+    Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
+    if (rb2d == null) {
+        Debug.LogWarning("Componente Rigidbody2D non trovato sul GameObject.");
+    } else {
+        // Imposta le constraints e isKinematic del Rigidbody2D
+        rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb2d.isKinematic = false;
+    }
+
+    // Controllo per il componente DialogueSystem, se presente
+    if (dialogueSystemObject != null) {
+        dialogueSystem = dialogueSystemObject.GetComponent<DialogueSystem>();
+        if (dialogueSystem == null) {
+            Debug.LogWarning("Componente DialogueSystem non trovato sul GameObject dialogueSystemObject.");
         }
     }
+}
 
     void Update(){
         if(dialogueSystem != null && dialogueSystem.isEnded){
