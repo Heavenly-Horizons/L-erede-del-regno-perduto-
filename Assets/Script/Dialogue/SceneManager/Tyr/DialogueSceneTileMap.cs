@@ -4,7 +4,7 @@ namespace Script.Dialogue.SceneManager.Tyr {
     public class DialogueSceneTileMap : MonoBehaviour {
         public static byte K = 0;
         private static readonly int Defeat = Animator.StringToHash("Defeat");
-        public DialogueSystem dialogueSystem;
+        [SerializeReference] public DialogueSystem dialogueSystem;
         private GameObject toNextScene;
         private BossHealth _bossHealth;
 
@@ -15,6 +15,8 @@ namespace Script.Dialogue.SceneManager.Tyr {
         }
 
         void Awake() {
+            Reset();
+            K = 0;
             _bossHealth = GameObject.FindGameObjectWithTag("Nemico").GetComponent<BossHealth>();
             toNextScene = GameObject.FindGameObjectWithTag("toNextLevel");
         }
