@@ -1120,6 +1120,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8182664307851544755, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182664307851544755, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1568632423}
@@ -1130,7 +1134,7 @@ PrefabInstance:
     - target: {fileID: 8182664307851544755, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 537449382}
     - target: {fileID: 8182664307851544755, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 1
@@ -1149,7 +1153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8182664307851544755, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SavePlayerHealthStaminaScene
+      value: SavePlayerAndScene
       objectReference: {fileID: 0}
     - target: {fileID: 8182664307851544755, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1610,6 +1614,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7591ec49bc8f6574ebeb92450535ef9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &537449382 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2356905957080774766, guid: 59699483afd52bc42aacc6b1eda8e34d, type: 3}
+  m_PrefabInstance: {fileID: 537449379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537449380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188bfcebaf4e6f042891329bee38734e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &552770448
