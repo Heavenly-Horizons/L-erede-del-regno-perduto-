@@ -17,12 +17,30 @@ public class Nemico_Attack : MonoBehaviour {
 
     private void Awake() {
         if (player != null) {
+            //playerStats
             playerStats = player.GetComponent<PlayerStats>();
+            Debug.Log(playerStats != null
+                ? "player.GetComponent<PlayerStats>() in Nemico_Attack istanziato"
+                : "player.GetComponent<PlayerStats>() in Nemico_Attack non istanziato");
+
+            //playerMovement
             playerMovement = player.GetComponent<PlayerMovement>();
+            Debug.Log(playerMovement != null
+                ? "player.GetComponent<PlayerMovement>() in Nemico_Attack istanziato"
+                : "player.GetComponent<PlayerMovement>() in Nemico_Attack non istanziato");
+
+            //playerAnimator
             playerAnimator = player.GetComponent<Animator>();
+            Debug.Log(playerAnimator != null
+                ? "player.GetComponent<Animator>() in Nemico_Attack istanziato"
+                : "player.GetComponent<Animator>() in Nemico_Attack non istanziato");
         }
 
+        //animator
         animator = GetComponent<Animator>();
+        Debug.Log(animator != null
+            ? "GetComponent<Animator>() in Nemico_Attack istanziato"
+            : "GetComponent<Animator>() in Nemico_Attack non istanziato");
     }
 
     private void Update() {
@@ -57,6 +75,9 @@ public class Nemico_Attack : MonoBehaviour {
 
             // Stop enemy movement for 0.5 seconds
             var nemico = GetComponent<Nemico>();
+            Debug.Log(nemico != null
+                ? "GetComponent<Nemico>() in Nemico_Attack istanziato"
+                : "GetComponent<Nemico>() in Nemico_Attack non istanziato");
             if (nemico != null) StartCoroutine(nemico.StopMovement(0.3f));
         }
 

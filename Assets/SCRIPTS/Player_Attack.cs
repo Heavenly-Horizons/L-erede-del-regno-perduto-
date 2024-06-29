@@ -16,9 +16,24 @@ public class Player_Attack : MonoBehaviour {
     private PlayerStats playerStats;
 
     private void Awake() {
+        //anim
         anim = GetComponent<Animator>();
+        Debug.Log(anim != null
+            ? "GetComponent<Animator>() in Player_Attack istanziato"
+            : "GetComponent<Animator>() in Player_Attack non istanziato");
+
+        //playerMovement
         playerMovement = GetComponent<PlayerMovement>();
+        Debug.Log(playerMovement != null
+            ? "GetComponent<PlayerMovement>() in Player_Attack istanziato"
+            : "GetComponent<PlayerMovement>() in Player_Attack non istanziato");
+
+        //playerStats
         playerStats = GetComponent<PlayerStats>();
+        Debug.Log(playerStats != null
+            ? "GetComponent<PlayerStats>() in Player_Attack istanziato"
+            : "GetComponent<PlayerStats>() in Player_Attack non istanziato");
+
         cooldownTimer = attackCooldown;
         staminaRecoveryCD = playerStats.staminaRecoveryCooldown;
     }
@@ -82,8 +97,19 @@ public class Player_Attack : MonoBehaviour {
                 Debug.Log("We hit " + enemy.name);
 
                 var nemico = enemy.GetComponent<Nemico>();
+                Debug.Log(nemico != null
+                    ? "enemy.GetComponent<Nemico>() in Player_Attack istanziato"
+                    : "enemy.GetComponent<Nemico>() in Player_Attack non istanziato");
+
                 var nemico2 = enemy.GetComponent<EnemyArcher>();
+                Debug.Log(nemico2 != null
+                    ? "enemy.GetComponent<EnemyArcher>() in Player_Attack istanziato"
+                    : "enemy.GetComponent<EnemyArcher>() in Player_Attack non istanziato");
+
                 var bossHealth = enemy.GetComponent<BossHealth>();
+                Debug.Log(bossHealth != null
+                    ? "enemy.GetComponent<BossHealth>() in Player_Attack istanziato"
+                    : "enemy.GetComponent<BossHealth>() in Player_Attack non istanziato");
 
                 if (nemico != null) {
                     nemico.setHit(true);

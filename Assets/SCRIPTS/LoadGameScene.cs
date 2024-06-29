@@ -2,37 +2,38 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
-{
-
-    [SerializeField] private Animator crossfade_animation;
+public class SceneLoader : MonoBehaviour {
     private const string crossfadeStart = "crossfadeStart";
     private static readonly string PlayerNewGameplay = "PlayerNewGameplay";
-    public void LoadGameScene(bool toMainMenu)
-    {
+    private static readonly int CrossfadeStart = Animator.StringToHash(crossfadeStart);
+
+    [SerializeField] private Animator crossfade_animation;
+
+    public void LoadGameScene(bool toMainMenu) {
         StartCoroutine(CrossfadeStartOnButtonClick(toMainMenu));
     }
-    public void RetryLevel(){
+
+    public void RetryLevel() {
         StartCoroutine(ReplayLevel());
     }
 
-    IEnumerator ReplayLevel(){
-        crossfade_animation.SetTrigger(crossfadeStart);
+    private IEnumerator ReplayLevel() {
+        crossfade_animation.SetTrigger(CrossfadeStart);
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    IEnumerator CrossfadeStartOnButtonClick(bool toMainMenu)
-    {
-        if(toMainMenu){
+
+    private IEnumerator CrossfadeStartOnButtonClick(bool toMainMenu) {
+        if (toMainMenu) {
             crossfade_animation.SetTrigger(crossfadeStart);
             yield return new WaitForSeconds(3);
             SceneManager.LoadScene(0);
-        }else{
+        }
+        else {
             PlayerPrefs.SetInt(PlayerNewGameplay, 0);
             crossfade_animation.SetTrigger(crossfadeStart);
             yield return new WaitForSeconds(3);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
-
 }

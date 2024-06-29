@@ -13,7 +13,12 @@ public class PlayerBubble : MonoBehaviour {
         _playerBubbleColor = playerBubble.color;
         _playerBubbleColor.a = 0f;
         bubbleCooldownTimer = bubbleCooldown;
+
+        //playerStats
         playerStats = GetComponent<PlayerStats>();
+        Debug.Log(playerStats != null
+            ? "GetComponent<PlayerStats>() in PlayerBubble istanziato"
+            : "GetComponent<PlayerStats>() in PlayerBubble non istanziato");
     }
 
     private void Update() {

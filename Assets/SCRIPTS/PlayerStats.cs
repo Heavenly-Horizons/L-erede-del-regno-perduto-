@@ -71,9 +71,19 @@ public class PlayerStats : MonoBehaviour {
 
         staminaRegenRatio = Math.Round(maxStamina / secondsToFullStamina, 2);
         SavePlayerAndScene();
+
+        //animator
         animator = GetComponent<Animator>();
+        Debug.Log(animator != null
+            ? "GetComponent<Animator>() in PlayerStats istanziato"
+            : "GetComponent<Animator>() in PlayerStats non istanziato");
+
+        //deathScreen
         deathScreen.SetActive(false);
         deathScreenAnimator = deathScreen.GetComponent<Animator>();
+        Debug.Log(deathScreenAnimator != null
+            ? "deathScreen.GetComponent<Animator>() in PlayerStats istanziato"
+            : "deathScreen.GetComponent<Animator>() in PlayerStats non istanziato");
     }
 
     private void OnApplicationFocus(bool focusStatus) {
@@ -160,6 +170,9 @@ public class PlayerStats : MonoBehaviour {
 
         PlayerPrefs.SetInt(PlayerMoneyAmount, PlayerMoney);
 
+        Debug.Log(PlayerCurrentScene != null
+            ? "PlayerCurrentScene in PlayerStats è: " + PlayerCurrentScene
+            : "PlayerCurrentScene in PlayerStats non istanziato");
         PlayerPrefs.SetInt(PlayerCurrentScene, SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -204,8 +217,21 @@ public class PlayerStats : MonoBehaviour {
         else {
             PlayerCurrentHealth = 0;
             healthBar.value = PlayerCurrentHealth;
-            GetComponent<PlayerMovement>().enabled = false;
-            GetComponent<Player_Attack>().enabled = false;
+
+            //playerMovement
+            var playerMovement = GetComponent<PlayerMovement>();
+            Debug.Log(playerMovement != null
+                ? "GetComponent<PlayerMovement>() in PlayerStats istanziato"
+                : "GetComponent<PlayerMovement>() in PlayerStats non istanziato");
+            playerMovement.enabled = false;
+
+            //player_attack
+            var playerAttack = GetComponent<Player_Attack>();
+            Debug.Log(playerAttack != null
+                ? "GetComponent<Player_Attack>() in PlayerStats istanziato"
+                : "GetComponent<Player_Attack>() in PlayerStats non istanziato");
+            playerAttack.enabled = false;
+
             isPlayerDead = true;
             animator.SetTrigger(Die);
             deathScreen.SetActive(true);

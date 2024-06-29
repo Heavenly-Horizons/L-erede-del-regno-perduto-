@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour {
     private static readonly int Run = Animator.StringToHash("Run");
     private static readonly int Grounded1 = Animator.StringToHash("Grounded");
     private static readonly int Jump1 = Animator.StringToHash("Jump");
+
     [SerializeField] private float speed = 25f; // Campo serializzabile per impostare la velocità da Unity
     [SerializeField] private float jumpForce = 5f; // Forza del salto
 
@@ -22,9 +23,22 @@ public class PlayerMovement : MonoBehaviour {
     private float horizontalInput;
 
     private void Awake() {
+        //body
         body = GetComponent<Rigidbody2D>();
+        Debug.Log(body != null
+            ? "GetComponent<Rigidbody2D>() in PlayerMovement istanziato"
+            : "GetComponent<Rigidbody2D>() in PlayerMovement non istanziato");
+        //anim
         anim = GetComponent<Animator>();
+        Debug.Log(body != null
+            ? "GetComponent<Animator>() in PlayerMovement istanziato"
+            : "GetComponent<Animator>() in PlayerMovement non istanziato");
+
+        //testaTyr
         testaTyr = GameObject.FindGameObjectWithTag("Testa_Tyr")?.GetComponent<Testa_Tyr>();
+        Debug.Log(body != null
+            ? "GameObject.FindGameObjectWithTag(\"Testa_Tyr\")?.GetComponent<Testa_Tyr>() in PlayerMovement istanziato"
+            : "GameObject.FindGameObjectWithTag(\"Testa_Tyr\")?.GetComponent<Testa_Tyr>() in PlayerMovement non istanziato");
 
         if (body == null) {
             Debug.LogError("Rigidbody2D component is missing on " + gameObject.name);
@@ -117,7 +131,7 @@ public class PlayerMovement : MonoBehaviour {
         return Grounded;
     }
 
-     public void StopMovement() {
+    public void StopMovement() {
         body.velocity = Vector2.zero;
     }
 }
