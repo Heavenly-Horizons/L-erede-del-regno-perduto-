@@ -4,7 +4,7 @@ using UnityEngine;
 public class activatePenWritingSound : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void Awake() {
+    void Start() {
         if(!gameObject.activeSelf) {
             StartCoroutine(activateSound());
         }

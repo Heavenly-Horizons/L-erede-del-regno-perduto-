@@ -15,7 +15,7 @@ public class BossWeapon : MonoBehaviour {
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    void Awake(){
+    void Start(){
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
     }

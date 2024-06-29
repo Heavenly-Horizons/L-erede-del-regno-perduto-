@@ -14,7 +14,7 @@ namespace Script.Dialogue.SceneManager.PreKingEncounter {
         public byte j;
         public bool isEnded;
 
-        private void Awake() {
+        void Start() {
             healthBar.SetActive(false);
             staminaBar.SetActive(false);
         }

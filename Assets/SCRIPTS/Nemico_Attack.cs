@@ -15,7 +15,7 @@ public class Nemico_Attack : MonoBehaviour {
     private bool playerInRange;
     private PlayerStats playerStats;
 
-    private void Awake() {
+    void Start() {
         if (player != null) {
             //playerStats
             playerStats = player.GetComponent<PlayerStats>();

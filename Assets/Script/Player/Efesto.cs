@@ -12,7 +12,7 @@ namespace Script.Player {
 
         private bool _powerUpClosedBtn = true;
 
-        private void Awake() {
+        void Start() {
             ResetScene();
             interactionPanel.alpha = 0;
             playerAnimator.SetBool(Run, false);

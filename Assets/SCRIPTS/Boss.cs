@@ -10,7 +10,7 @@ public class Boss : MonoBehaviour
     private DialogueSystem dialogueSystem;
     public bool isDialogueEnded = false;
 
-    void Awake(){
+    void Start(){
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;  // Blocca la rotazione sull'asse Z
         gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
         if(dialogueSystemObject != null){

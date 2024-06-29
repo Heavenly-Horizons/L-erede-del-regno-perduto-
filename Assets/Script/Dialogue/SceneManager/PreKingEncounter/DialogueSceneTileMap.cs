@@ -11,7 +11,7 @@ namespace Script.Dialogue.SceneManager.PreKingEncounter {
             dialogueSystem.j = 0;
         }
 
-        void Awake() {
+        void Start() {
             Reset();
             k = 0;
         }

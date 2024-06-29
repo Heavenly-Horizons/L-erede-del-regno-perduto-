@@ -14,7 +14,7 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy {
             dialogueSystem.j = 0;
         }
 
-        void Awake()
+        void Start()
         {
             Reset();
             k = 0;

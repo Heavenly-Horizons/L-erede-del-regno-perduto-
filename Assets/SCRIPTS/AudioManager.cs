@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource BGAudio;
     [SerializeField] private AudioSource[] SFXs;
 
-    private void Awake() {
+    void Start() {
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
         
         if (firstPlayInt == 0){
