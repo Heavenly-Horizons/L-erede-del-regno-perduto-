@@ -6,6 +6,7 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy {
         private static readonly int DialogueEnded = Animator.StringToHash("DialogueEnded");
         [SerializeReference] public DialogueSystem dialogueSystem;
         private BossHealth _bossHealth;
+        private bool isDefeat = false;
 
         private void Reset() {
             dialogueSystem.ResetDialogueTrigger();
@@ -30,8 +31,11 @@ namespace Script.Dialogue.SceneManager.AchilleBF___ToEnemy {
             //se la vita è inferiore o uguale a 10
             else if (_bossHealth.bossHealth <= 10 && k == 1) {
                 //dialoghi
-                GameObject.FindGameObjectWithTag("Nemico").GetComponent<Animator>().SetTrigger("Defeat");
-                dialogueSystem.SecondDialogue();
+                if(!isDefeat){
+                    dialogueSystem.SecondDialogue();
+                    GameObject.FindGameObjectWithTag("Nemico").GetComponent<Animator>().SetTrigger("Defeat");
+                    isDefeat = true;
+                }
             }
 
             if (dialogueSystem.isEnded)

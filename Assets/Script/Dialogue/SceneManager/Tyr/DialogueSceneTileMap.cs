@@ -7,6 +7,7 @@ namespace Script.Dialogue.SceneManager.Tyr {
         [SerializeReference] public DialogueSystem dialogueSystem;
         private GameObject toNextScene;
         private BossHealth _bossHealth;
+        private bool isDefeat = false;
 
         private void Reset() {
             dialogueSystem.ResetDialogueTrigger();
@@ -31,8 +32,11 @@ namespace Script.Dialogue.SceneManager.Tyr {
             //se la vita è inferiore o uguale a 10
             else if (_bossHealth.bossHealth <= 10 && K == 1) {
                 //dialoghi
-                GameObject.FindGameObjectWithTag("Nemico").GetComponent<Animator>().SetTrigger(Defeat);
-                dialogueSystem.SecondDialogue();
+                if(!isDefeat){
+                    dialogueSystem.SecondDialogue();
+                    GameObject.FindGameObjectWithTag("Nemico").GetComponent<Animator>().SetTrigger(Defeat);
+                    isDefeat = true;
+                }
                 toNextScene.SetActive(true);
             }
 
