@@ -5,14 +5,19 @@ public class BossWeapon : MonoBehaviour {
     public float attackDamage = 15f;
     public float attackRange;
     public Vector3 attackOffset;
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerStats playerStats;
-    [SerializeField] private Transform playerTransform;
+    private PlayerMovement playerMovement;
+    private PlayerStats playerStats;
+    
 
     private void OnDrawGizmosSelected() {
         if (attackPoint == null) return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    void Awake(){
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
     }
 
     public void Attack() {
@@ -27,7 +32,7 @@ public class BossWeapon : MonoBehaviour {
             Debug.Log("Player colpito");
 
             playerMovement.KBCounter = playerMovement.KBTotalTime;
-            playerMovement.KnockFromRight = playerTransform.position.x <= transform.position.x;
+            playerMovement.KnockFromRight = playerMovement.transform.position.x <= transform.position.x;
         }
     }
 }
