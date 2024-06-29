@@ -3,12 +3,18 @@ using UnityEngine;
 namespace Script.Dialogue.SceneManager.PreGreece {
     public class DialogueSceneTileMap : MonoBehaviour {
         public static byte k = 0;
-        [SerializeField] private DialogueSystem dialogueSystem;
+        [SerializeReference] private DialogueSystem dialogueSystem;
 
         private void Reset() {
             dialogueSystem.ResetDialogueTrigger();
             dialogueSystem.i = 0;
             dialogueSystem.j = 0;
+        }
+
+        void Awake()
+        {
+            Reset();
+            k = 0;
         }
 
         private void Update() {

@@ -3,13 +3,19 @@ using UnityEngine;
 namespace Script.Dialogue.SceneManager.PreAsgard {
     internal class DialogueSceneTileMap : DialogueSceneTileMapAbstract {
         public static byte k = 0;
-        [SerializeField] protected DialogueSystem dialogueSystem;
+        [SerializeReference] public DialogueSystem dialogueSystem;
         public bool start;
 
         private void Reset() {
             dialogueSystem.ResetDialogueTrigger();
             dialogueSystem.i = 0;
             dialogueSystem.j = 0;
+        }
+
+        void Awake()
+        {
+            Reset();
+            k = 0;
         }
 
         protected override void Update() {

@@ -3,12 +3,17 @@ using UnityEngine;
 namespace Script.Dialogue.SceneManager.PreKingEncounter {
     public class DialogueSceneTileMap : DialogueSceneTileMapAbstract {
         public static byte k = 0;
-        [SerializeField] private DialogueSystem dialogueSystem;
+        [SerializeReference] private DialogueSystem dialogueSystem;
 
         private void Reset() {
             dialogueSystem.ResetDialogueTrigger();
             dialogueSystem.i = 0;
             dialogueSystem.j = 0;
+        }
+
+        void Awake() {
+            Reset();
+            k = 0;
         }
 
         protected override void Update() {
