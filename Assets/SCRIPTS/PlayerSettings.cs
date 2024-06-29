@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class PlayerSettings : MonoBehaviour
 {
-    [SerializeField] private Slider healthBar;
-    [SerializeField] private Slider staminaBar;
+    [SerializeReference] private Slider healthBar;
+    [SerializeReference] private Slider staminaBar;
 
 
 
-    void Awake()
+    void Start()
     {
         PlayerStats playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         if (SceneManager.GetActiveScene().buildIndex != 0 && !playerStats.isPlayerDead){

@@ -49,7 +49,7 @@ public class EnemyArcher : MonoBehaviour {
     private Rigidbody2D rb;
 
 
-    private void Awake() {
+    void Start() {
         //player
         playerTransform = player.GetComponent<Transform>();
         playerAnimator = player.GetComponent<Animator>();
@@ -64,11 +64,11 @@ public class EnemyArcher : MonoBehaviour {
 
         if (nemicoHealthBar != null){ nemicoHealthBar.maxValue = nemicoHealth; }
 
-        dropCoin = GetComponent<DropCoin>();
-        dropHeal = GetComponent<DropHeal>();
+        dropCoin = gameObject.GetComponent<DropCoin>();
+        dropHeal = gameObject.GetComponent<DropHeal>();
     }
 
-    private void FixedUpdate() {
+    void Update() {
         if (isStopped || isDead) return;
 
         if (knockbackCounter > 0) {
@@ -201,7 +201,6 @@ public class EnemyArcher : MonoBehaviour {
         else {
             nemicoHealth = 0;
             nemicoHealthBar.value = nemicoHealth;
-            gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
 
             if (dropCoin != null && dropHeal != null) {
                 dropCoin.Drop(1);
@@ -209,12 +208,12 @@ public class EnemyArcher : MonoBehaviour {
             }
 
             //Die
+            animator.SetTrigger(Die);
             StartCoroutine(PlayDeathAnimation());
         }
     }
 
     private IEnumerator PlayDeathAnimation() {
-        animator.SetTrigger(Die);
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }

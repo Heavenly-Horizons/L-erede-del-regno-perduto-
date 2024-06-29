@@ -60,7 +60,7 @@ public class PlayerStats : MonoBehaviour {
     private float PlayerCurrentHealth, PlayerCurrentStamina;
     private float PlayerCurrentMaxHealth, PlayerCurrentMaxStamina, PlayerCurrentDamage, PlayerCurrentDefence;
 
-    private void Awake() {
+    void Start() {
         if (isNewGameplay) {
             InitializeNewPlayer();
             isNewGameplay = false; // Imposta a false dopo l'inizializzazione

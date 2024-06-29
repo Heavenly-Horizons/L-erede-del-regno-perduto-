@@ -15,7 +15,7 @@ namespace Script.Dialogue.SceneManager.Tyr {
             dialogueSystem.j = 0;
         }
 
-        void Awake() {
+        void Start() {
             Reset();
             K = 0;
             _bossHealth = GameObject.FindGameObjectWithTag("Nemico").GetComponent<BossHealth>();

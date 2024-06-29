@@ -12128,10 +12128,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5029984961303676842, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: giocatore
       value: 
@@ -12144,17 +12140,9 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1799333442}
-    - target: {fileID: 7747710294127030951, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_Name
       value: Nemico
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

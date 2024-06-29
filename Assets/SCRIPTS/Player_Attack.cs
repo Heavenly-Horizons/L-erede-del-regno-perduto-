@@ -15,7 +15,7 @@ public class Player_Attack : MonoBehaviour {
     private PlayerMovement playerMovement;
     private PlayerStats playerStats;
 
-    private void Awake() {
+    void Start() {
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         playerStats = GetComponent<PlayerStats>();
@@ -23,7 +23,7 @@ public class Player_Attack : MonoBehaviour {
         staminaRecoveryCD = playerStats.staminaRecoveryCooldown;
     }
 
-    private void Update() {
+    void Update() {
         // Faccio partire il timer 
         if (staminaRecoveryCD > 0) staminaRecoveryCD -= Time.deltaTime;
         // Controllo il timer
@@ -60,13 +60,6 @@ public class Player_Attack : MonoBehaviour {
         //dovrebbe andare, mo testiamo
         cooldownTimer += Time.deltaTime;
     }
-
-
-    // AchilleStun achilleStun = enemy.GetComponent<AchilleStun>();
-    //                 if(achilleStun != null){
-    //                     Debug.Log("Chiamando la funzione OnPlayerHit");
-    //                     achilleStun.OnPlayerHit();
-    //                 }
 
     public void OnDrawGizmosSelected() {
         if (attackPoint == null) return;

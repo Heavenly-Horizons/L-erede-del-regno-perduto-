@@ -9,7 +9,7 @@ public class PlayerBubble : MonoBehaviour {
     private bool bubbleShow;
     private PlayerStats playerStats;
 
-    private void Awake() {
+    private void Start() {
         _playerBubbleColor = playerBubble.color;
         _playerBubbleColor.a = 0f;
         bubbleCooldownTimer = bubbleCooldown;

@@ -143,7 +143,7 @@ public class Nemico : MonoBehaviour
         if (collision.gameObject.CompareTag("Freccia"))
         {
             Vector3 relativePosition = collision.transform.position - transform.position;
-            KnockFromRight = (relativePosition.x > 0);
+            KnockFromRight = relativePosition.x > 0;
 
             KBCounter = KBTotalTime;
         }
@@ -195,9 +195,7 @@ public class Nemico : MonoBehaviour
         {   
             nemicoHealth = 0;
             nemicoHealthBar.value = nemicoHealth;
-            gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-            
-            
+           
             if (dropCoin != null && dropHeal != null)
             {
                 dropCoin.Drop(1);

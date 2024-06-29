@@ -2,15 +2,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class toNextScene : MonoBehaviour {
-    [SerializeField] private GameObject nextSceneLoader;
-    [SerializeField] private GameObject nextLevelTrigger;
-    [SerializeField] private GameObject SoundSaver;
-    [SerializeField] private GameObject PlayerSaver;
+    [SerializeReference] private GameObject nextSceneLoader;
+    [SerializeReference] private GameObject nextLevelTrigger;
+    [SerializeReference] private GameObject SoundSaver;
+    [SerializeReference] private GameObject PlayerSaver;
     private PlayerStats playersaver;
     private SceneLoader sceneLoader;
     private AudioManager soundsaver;
 
-    private void Awake() {
+    void Start() {
         nextLevelTrigger.GetComponent<BoxCollider2D>().isTrigger = false;
         Debug.Log(nextLevelTrigger.GetComponent<BoxCollider2D>().isTrigger);
         sceneLoader = nextSceneLoader.GetComponent<SceneLoader>();

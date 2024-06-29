@@ -11,7 +11,7 @@ public class LevelUpButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI MoneyAmountText;
     private PlayerStats playerStats;
 
-    void Awake(){
+    void Start(){
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
     }
 

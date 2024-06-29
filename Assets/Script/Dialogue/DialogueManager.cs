@@ -14,7 +14,7 @@ namespace Script.Dialogue {
         private Dialogue dialogue;
         public Queue<string> sentences;
 
-        private void Awake() {
+        void Start() {
             sentences = new();
         }
 

@@ -8,7 +8,8 @@ public class Testa_Tyr : MonoBehaviour
     [SerializeField] private GameObject player;
     private PlayerMovement playerMovement;
     public bool tyrHead =false;
-    private void Awake() {
+    
+    void Start() {
         if (player != null) {
             playerMovement = player.GetComponent<PlayerMovement>();
         }

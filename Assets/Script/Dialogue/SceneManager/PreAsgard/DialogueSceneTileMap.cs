@@ -12,7 +12,7 @@ namespace Script.Dialogue.SceneManager.PreAsgard {
             dialogueSystem.j = 0;
         }
 
-        void Awake()
+        void Start()
         {
             Reset();
             k = 0;

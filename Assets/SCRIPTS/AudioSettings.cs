@@ -13,7 +13,7 @@ public class AudioSettings : MonoBehaviour
      [SerializeReference] private AudioSource BGAudio;
      [SerializeReference] private AudioSource[] SFXs;
 
-     void Awake() {
+     void Start() {
           if(SceneManager.GetActiveScene().buildIndex != 0){ BGAudio.Play(); }
           ContinueSettings();
      }

@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private float horizontalInput;
 
-    private void Awake() {
+    void Start() {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         testaTyr = GameObject.FindGameObjectWithTag("Testa_Tyr")?.GetComponent<Testa_Tyr>();
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    private void FixedUpdate() {
+    void Update() {
         AnimatorStateInfo animatorStateInfo = anim.GetCurrentAnimatorStateInfo(0);
         if (canMove) {
             // Ottieni l'input orizzontale in Update
