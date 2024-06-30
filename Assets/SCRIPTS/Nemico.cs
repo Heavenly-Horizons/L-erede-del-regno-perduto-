@@ -4,71 +4,57 @@ using UnityEngine.UI;
 
 public class Nemico : MonoBehaviour
 {
-    private BoxCollider2D boxCollider2D;
-    
-    public float velocita = 300f;
+    private Rigidbody2D rb;
     private Animator nemicoAnim;
+    private BoxCollider2D boxCollider2D;
+    private Transform giocatore;
+    private DropCoin dropCoin;
+    private DropHeal dropHeal;
 
+    public float velocita = 300f;
     public float velocitaInseguimento = 500f;
-    public bool direzioneInizialeSinistra = false;
     public float distanzaCambioDirezione = 30f;
     public float distanzaRilevamentoGiocatore = 30f;
-    public Transform giocatore;
-
-    private bool isCambioDirezione = false;
-    private bool isInseguendo = false;
-    private Rigidbody2D rb;
-    private Vector3 posizioneIniziale;
-    private bool isGuardandoDestra = true; 
-    private bool isStopped = false; 
-
-    public float normalAnimationSpeed = 1f; //velocità quando pattuglia
-    public float FastAnimationSpeed = 2f; //velocità quando vede il player
-
-    // Knockback fields
+    public float normalAnimationSpeed = 1f;
+    public float fastAnimationSpeed = 2f;
+    public float nemicoHealth = 30f;
     public float KBForce = 40f;
     public float KBCounter;
     public float KBTotalTime = 0.2f;
     public bool KnockFromRight;
 
-    public Slider nemicoHealthBar;
-
-    public float nemicoHealth = 30;
-
+    private Vector3 posizioneIniziale;
+    private bool isGuardandoDestra = true;
+    private bool isInseguendo = false;
     private bool isHit = false;
+    private bool isStopped = false;
 
-    private DropCoin dropCoin;
-    private DropHeal dropHeal;
+    public Slider nemicoHealthBar;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
-        {
-            Debug.LogError("Rigidbody2D component is missing on " + gameObject.name);
-        }
-        else
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
+        nemicoAnim = GetComponent<Animator>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        giocatore = GameObject.FindGameObjectWithTag("Player").transform; // Assumendo che il giocatore abbia il tag "Player"
+        dropCoin = GetComponent<DropCoin>();
+        dropHeal = GetComponent<DropHeal>();
 
-        isCambioDirezione = !direzioneInizialeSinistra;
+        if (rb == null)
+            Debug.LogError("Rigidbody2D component is missing on " + gameObject.name);
+
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         posizioneIniziale = transform.position;
 
         if (giocatore == null)
-        {
             Debug.LogError("Giocatore non assegnato nel nemico " + gameObject.name);
-        }
-
-        nemicoAnim = GetComponent<Animator>();
-        dropCoin = GetComponent<DropCoin>();
-        dropHeal = GetComponent<DropHeal>();
-        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
-        if (isStopped) return;
+        if (isStopped)
+            return;
 
         if (KBCounter > 0)
         {
@@ -78,51 +64,50 @@ public class Nemico : MonoBehaviour
         }
         else
         {
-            if (giocatore != null)
-            {
-                float distanzaDalGiocatore = Vector3.Distance(transform.position, giocatore.position);
-                isInseguendo = distanzaDalGiocatore <= distanzaRilevamentoGiocatore;
-
-                if (isInseguendo)
-                {
-                    if (giocatore.position.x < transform.position.x && isGuardandoDestra)
-                    {
-                        Flip();
-                    }
-                    else if (giocatore.position.x > transform.position.x && !isGuardandoDestra)
-                    {
-                        Flip();
-                    }
-                }
-            }
-
-            if (isInseguendo)
-            {
-                nemicoAnim.speed = FastAnimationSpeed;
-                Vector3 direzioneVersoGiocatore = (giocatore.position - transform.position).normalized;
-                rb.velocity = new Vector2(direzioneVersoGiocatore.x * velocitaInseguimento * Time.deltaTime, rb.velocity.y);
-            }
-            else
-            {
-                nemicoAnim.speed=normalAnimationSpeed;
-                int moltiplicatoreDirezione = isCambioDirezione ? -1 : 1;
-                rb.velocity = new Vector2(velocita * Time.deltaTime * moltiplicatoreDirezione, rb.velocity.y);
-
-                if (moltiplicatoreDirezione > 0 && !isGuardandoDestra)
-                {
-                    Flip();
-                }
-                else if (moltiplicatoreDirezione < 0 && isGuardandoDestra)
-                {
-                    Flip();
-                }
-
-                if (Vector3.Distance(posizioneIniziale, transform.position) >= distanzaCambioDirezione)
-                {
-                    CambiaDirezione();
-                }
-            }
+            UpdateMovement();
         }
+    }
+
+    void UpdateMovement()
+    {
+        float distanzaDalGiocatore = Vector3.Distance(transform.position, giocatore.position);
+        isInseguendo = distanzaDalGiocatore <= distanzaRilevamentoGiocatore;
+
+        if (isInseguendo)
+        {
+            HandleChasePlayer();
+        }
+        else
+        {
+            HandlePatrol();
+        }
+    }
+
+    void HandleChasePlayer()
+    {
+        nemicoAnim.speed = fastAnimationSpeed;
+
+        if (giocatore.position.x < transform.position.x && isGuardandoDestra)
+            Flip();
+        else if (giocatore.position.x > transform.position.x && !isGuardandoDestra)
+            Flip();
+
+        Vector3 direzioneVersoGiocatore = (giocatore.position - transform.position).normalized;
+        rb.velocity = new Vector2(direzioneVersoGiocatore.x * velocitaInseguimento * Time.deltaTime, rb.velocity.y);
+    }
+
+    void HandlePatrol()
+    {
+        nemicoAnim.speed = normalAnimationSpeed;
+
+        int moltiplicatoreDirezione = isGuardandoDestra ? 1 : -1;
+        rb.velocity = new Vector2(velocita * Time.deltaTime * moltiplicatoreDirezione, rb.velocity.y);
+
+        if (moltiplicatoreDirezione > 0 && !isGuardandoDestra || moltiplicatoreDirezione < 0 && isGuardandoDestra)
+            Flip();
+
+        if (Vector3.Distance(posizioneIniziale, transform.position) >= distanzaCambioDirezione)
+            CambiaDirezione();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -130,19 +115,14 @@ public class Nemico : MonoBehaviour
         if (collision.gameObject.CompareTag("NoJump"))
         {
             if (!isInseguendo)
-            {
                 CambiaDirezione();
-            }
             else
-            {
                 rb.velocity = new Vector2(rb.velocity.x, 35f);
-            }
         }
 
-        if (collision.gameObject.CompareTag("Nemico")){
+        if (collision.gameObject.CompareTag("Nemico"))
             CambiaDirezione();
-        }
-        
+
         if (collision.gameObject.CompareTag("Freccia"))
         {
             Vector3 relativePosition = collision.transform.position - transform.position;
@@ -154,10 +134,9 @@ public class Nemico : MonoBehaviour
 
     void CambiaDirezione()
     {
-        isCambioDirezione = !isCambioDirezione;
+        isGuardandoDestra = !isGuardandoDestra;
         transform.Rotate(0f, 180f, 0f);
         posizioneIniziale = transform.position;
-        isGuardandoDestra = !isGuardandoDestra;
     }
 
     void Flip()
@@ -184,24 +163,25 @@ public class Nemico : MonoBehaviour
     public void TakeDamage(float amount)
     {
         if (isHit)
-        {   nemicoAnim.SetTrigger("hurt");
+        {
+            nemicoAnim.SetTrigger("hurt");
             gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
         }
-        
+
         Debug.Log("Taking damage: " + amount);
         Debug.Log("Current health before damage: " + nemicoHealth);
 
-        if (nemicoHealth - amount > 0)
+        nemicoHealth -= amount;
+        nemicoHealth = Mathf.Max(nemicoHealth, 0);
+        nemicoHealthBar.value = nemicoHealth;
+
+        Debug.Log("Current health after damage: " + nemicoHealth);
+
+        if (nemicoHealth <= 0)
         {
-            nemicoHealth -= amount;
-            nemicoHealthBar.value = nemicoHealth;
-            Debug.Log("vita nemico arciere: " + nemicoHealthBar.value);
-        }
-        else
-        {   
             nemicoHealth = 0;
             nemicoHealthBar.value = nemicoHealth;
-           
+
             if (dropCoin != null && dropHeal != null)
             {
                 dropCoin.Drop(1);
@@ -209,9 +189,9 @@ public class Nemico : MonoBehaviour
             }
 
             nemicoAnim.SetTrigger("die");
+
             if (boxCollider2D != null)
             {
-                // Disattiva il BoxCollider2D
                 boxCollider2D.enabled = false;
                 Debug.Log("BoxCollider2D disattivato");
             }
@@ -219,17 +199,19 @@ public class Nemico : MonoBehaviour
             {
                 Debug.LogError("BoxCollider2D non trovato su questo GameObject");
             }
+
             StartCoroutine(PlayDeathAnimation());
         }
-        Debug.Log("Current health after damage: " + nemicoHealth);
     }
 
-    IEnumerator PlayDeathAnimation(){
+    IEnumerator PlayDeathAnimation()
+    {
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
-    
-    public void setHit(bool value){
+
+    public void setHit(bool value)
+    {
         isHit = value;
     }
 }

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 68986401}
   m_Layer: 0
   m_Name: nojump
-  m_TagString: Untagged
+  m_TagString: NoJump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10911,7 +10911,7 @@ GameObject:
   - component: {fileID: 563635470}
   m_Layer: 0
   m_Name: nojump
-  m_TagString: Untagged
+  m_TagString: NoJump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11081,7 +11081,7 @@ GameObject:
   - component: {fileID: 693107244}
   m_Layer: 0
   m_Name: nojump
-  m_TagString: Untagged
+  m_TagString: NoJump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11502,7 +11502,7 @@ GameObject:
   - component: {fileID: 805714910}
   m_Layer: 0
   m_Name: nojump
-  m_TagString: Untagged
+  m_TagString: NoJump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13582,7 +13582,7 @@ GameObject:
   - component: {fileID: 1381275863}
   m_Layer: 0
   m_Name: nojump
-  m_TagString: Untagged
+  m_TagString: NoJump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13596,7 +13596,7 @@ Transform:
   m_GameObject: {fileID: 1381275861}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 147.5228, y: -6.4106, z: 0}
+  m_LocalPosition: {x: 147.5228, y: -6.61, z: 0}
   m_LocalScale: {x: 51.252773, y: 3.1718388, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13892,11 +13892,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 375773434396081140, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -67.40879
+      value: -96.9
       objectReference: {fileID: 0}
     - target: {fileID: 375773434396081140, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -46.220516
+      value: -49.2
       objectReference: {fileID: 0}
     - target: {fileID: 375773434396081140, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17611,7 +17611,7 @@ GameObject:
   - component: {fileID: 2029370589}
   m_Layer: 0
   m_Name: nojump
-  m_TagString: Untagged
+  m_TagString: NoJump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18066,7 +18066,7 @@ GameObject:
   - component: {fileID: 2142435587}
   m_Layer: 0
   m_Name: nojump
-  m_TagString: Untagged
+  m_TagString: NoJump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
