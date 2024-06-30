@@ -133,8 +133,8 @@ public class PlayerStats : MonoBehaviour {
         healthBar.maxValue = PlayerCurrentMaxHealth;
         staminaBar.maxValue = PlayerCurrentMaxStamina;
 
-        healthBar.value = Mathf.Floor(PlayerCurrentHealth);
-        staminaBar.value = Mathf.Floor(PlayerCurrentStamina);
+        healthBar.value = PlayerCurrentHealth;
+        staminaBar.value = PlayerCurrentStamina;
         _playerAttack.playerDamage = PlayerCurrentDamage;
         PlayerMoney = PlayerCurrentMoney;
 

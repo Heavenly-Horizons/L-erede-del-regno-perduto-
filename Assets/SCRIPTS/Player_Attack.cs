@@ -102,5 +102,6 @@ public class Player_Attack : MonoBehaviour {
             }
 
         playerStats.UseStamina(10);
+        
     }
 }
