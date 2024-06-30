@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188bfcebaf4e6f042891329bee38734e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1000
   maxStamina: 100
   PlayerMoney: 0
   atkLevel: 1
@@ -259,6 +259,7 @@ MonoBehaviour:
   knockbackDuration: 0.3
   staminaRecoveryCD: 0
   staminaRecovered: 0
+  playerDamage: 15
 --- !u!114 &2486665029723546018
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,8 +24,7 @@ public class LevelUpButton : MonoBehaviour
                     playerStats.PlayerMoney -= 10;
                     MoneyAmountText.text = playerStats.PlayerMoney.ToString();
                     playerStats.atkLevel += 1;
-                    playerStats.playerDamage += playerStats.playerDamage * playerStats.atkLevel / 10;
-                    _playerAttack.playerDamage = playerStats.playerDamage;
+                    _playerAttack.playerDamage += _playerAttack.playerDamage * playerStats.atkLevel / 10;
                     atkLevelText.text = "livello " + playerStats.atkLevel.ToString();
                     break;    
                 case 1:

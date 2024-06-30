@@ -34,7 +34,6 @@ public class PlayerStats : MonoBehaviour {
     public int PlayerMoney;
     public int atkLevel = 1, staminaLevel = 1, defLevel = 1;
     public int hpRegenLevel = 1, spRegenLevel = 1;
-    public float playerDamage = 15f;
     public float playerDefence;
     public float staminaTookForParry = 10, healthTookForParry = 10;
     public float staminaTookForPerfectParry = 5, healthTookForPerfectParry;
@@ -59,6 +58,7 @@ public class PlayerStats : MonoBehaviour {
     // Statistiche attuali del player
     private float PlayerCurrentHealth, PlayerCurrentStamina;
     private float PlayerCurrentMaxHealth, PlayerCurrentMaxStamina, PlayerCurrentDamage, PlayerCurrentDefence;
+    private Player_Attack _playerAttack;
 
     void Start() {
         if (isNewGameplay) {
@@ -74,6 +74,7 @@ public class PlayerStats : MonoBehaviour {
         animator = GetComponent<Animator>();
         deathScreen.SetActive(false);
         deathScreenAnimator = deathScreen.GetComponent<Animator>();
+        _playerAttack = GetComponent<Player_Attack>();
     }
 
     private void OnApplicationFocus(bool focusStatus) {
@@ -98,7 +99,7 @@ public class PlayerStats : MonoBehaviour {
         PlayerPrefs.SetFloat(PlayerStaminaValue, staminaBar.value);
         PlayerPrefs.SetFloat(PlayerMaxHealthValue, healthBar.maxValue);
         PlayerPrefs.SetFloat(PlayerMaxStaminaValue, staminaBar.maxValue);
-        PlayerPrefs.SetFloat(PlayerDamageValue, playerDamage);
+        PlayerPrefs.SetFloat(PlayerDamageValue, _playerAttack.playerDamage);
         PlayerPrefs.SetFloat(PlayerDefenceValue, playerDefence);
 
         PlayerPrefs.SetInt(PlayerAttackLevel, atkLevel);
@@ -134,7 +135,7 @@ public class PlayerStats : MonoBehaviour {
 
         healthBar.value = Mathf.Floor(PlayerCurrentHealth);
         staminaBar.value = Mathf.Floor(PlayerCurrentStamina);
-        playerDamage = PlayerCurrentDamage;
+        _playerAttack.playerDamage = PlayerCurrentDamage;
         PlayerMoney = PlayerCurrentMoney;
 
         atkLevel = CurrentAtkLevel;
@@ -149,7 +150,7 @@ public class PlayerStats : MonoBehaviour {
         PlayerPrefs.SetFloat(PlayerStaminaValue, staminaBar.value);
         PlayerPrefs.SetFloat(PlayerMaxHealthValue, healthBar.maxValue);
         PlayerPrefs.SetFloat(PlayerMaxStaminaValue, staminaBar.maxValue);
-        PlayerPrefs.SetFloat(PlayerDamageValue, playerDamage);
+        PlayerPrefs.SetFloat(PlayerDamageValue, _playerAttack.playerDamage);
         PlayerPrefs.SetFloat(PlayerDefenceValue, playerDefence);
 
         PlayerPrefs.SetInt(PlayerAttackLevel, atkLevel);
@@ -181,7 +182,7 @@ public class PlayerStats : MonoBehaviour {
         healthBar.value = PlayerCurrentMaxHealth;
         staminaBar.value = PlayerCurrentMaxStamina;
 
-        playerDamage = PlayerCurrentDamage;
+        _playerAttack.playerDamage = PlayerCurrentDamage;
         atkLevel = CurrentAtkLevel;
         staminaLevel = CurrentStaminaLevel;
         defLevel = CurrentDefenseLevel;
