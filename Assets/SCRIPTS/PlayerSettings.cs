@@ -6,12 +6,13 @@ public class PlayerSettings : MonoBehaviour
 {
     [SerializeReference] private Slider healthBar;
     [SerializeReference] private Slider staminaBar;
-
+    private PlayerStats playerStats;
 
 
     void Start()
     {
-        PlayerStats playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+
         if (SceneManager.GetActiveScene().buildIndex != 0 && !playerStats.isPlayerDead){
             playerStats.LoadPlayerData(); 
         }else{

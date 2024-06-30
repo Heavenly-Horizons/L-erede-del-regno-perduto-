@@ -60,6 +60,16 @@ public class PlayerStats : MonoBehaviour {
     private float PlayerCurrentMaxHealth, PlayerCurrentMaxStamina, PlayerCurrentDamage, PlayerCurrentDefence;
     private Player_Attack _playerAttack;
 
+    void Awake(){
+        _playerAttack = gameObject.GetComponent<Player_Attack>();
+        if(_playerAttack != null){
+            Debug.Log("Player attack presente");
+        }
+        else{
+            Debug.LogError("Player attack non presente");
+        }
+    }
+
     void Start() {
         if (isNewGameplay) {
             InitializeNewPlayer();
@@ -74,7 +84,6 @@ public class PlayerStats : MonoBehaviour {
         animator = GetComponent<Animator>();
         deathScreen.SetActive(false);
         deathScreenAnimator = deathScreen.GetComponent<Animator>();
-        _playerAttack = GetComponent<Player_Attack>();
     }
 
     private void OnApplicationFocus(bool focusStatus) {
