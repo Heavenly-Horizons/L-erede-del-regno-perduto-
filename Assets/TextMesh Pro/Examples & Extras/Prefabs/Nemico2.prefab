@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fe99c0acffc094d948d01d359e080e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolSpeed: 300
+  patrolSpeed: 1500
   startDirectionLeft: 1
   patrolDistance: 30
   attackRange: 50
@@ -427,7 +427,6 @@ MonoBehaviour:
   launchPoint: {fileID: 6461590446495643301}
   arrowSpeed: 40
   arrowCooldown: 2
-  animator: {fileID: 4216109713446143024}
   KBForce: 40
   knockbackDuration: 0.2
   knockbackCounter: 0
