@@ -508,20 +508,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28b6645f49305e4eb475e80c2de83c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocita: 300
-  velocitaInseguimento: 500
-  direzioneInizialeSinistra: 0
+  velocita: 3000
+  velocitaInseguimento: 3500
   distanzaCambioDirezione: 30
   distanzaRilevamentoGiocatore: 30
-  giocatore: {fileID: 0}
   normalAnimationSpeed: 1
-  FastAnimationSpeed: 2
+  fastAnimationSpeed: 2
+  nemicoHealth: 30
   KBForce: 40
   KBCounter: 0
   KBTotalTime: 0.2
   KnockFromRight: 0
   nemicoHealthBar: {fileID: 3679472988421362576}
-  nemicoHealth: 30
 --- !u!61 &6241848780650979501
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -581,7 +579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   attackCooldown: 1
-  player: {fileID: 0}
+  player: {fileID: 8983481298985190905}
   playerMovement: {fileID: 0}
 --- !u!95 &4916216358999803353
 Animator:

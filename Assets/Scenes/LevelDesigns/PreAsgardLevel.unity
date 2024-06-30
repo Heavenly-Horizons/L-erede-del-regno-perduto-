@@ -447,13 +447,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: velocita
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: giocatore
       value: 
       objectReference: {fileID: 1236879064}
+    - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: velocitaInseguimento
+      value: 3500
+      objectReference: {fileID: 0}
     - target: {fileID: 6676959155947815351, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1595621613}
+      objectReference: {fileID: 408085835}
+    - target: {fileID: 6676959155947815351, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1236879065}
     - target: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_Name
       value: Nemico
@@ -17404,11 +17416,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1018593826 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
-  m_PrefabInstance: {fileID: 2016343205}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1059560208
 GameObject:
   m_ObjectHideFlags: 0
@@ -19255,11 +19262,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6805887095598636233, guid: 7e27ac662f5a31c43a54fb67df2eed81, type: 3}
   m_PrefabInstance: {fileID: 1589278248}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1595621613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
-  m_PrefabInstance: {fileID: 201251833}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1628915909
 GameObject:
   m_ObjectHideFlags: 0
@@ -20861,13 +20863,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: velocita
+      value: 3500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: giocatore
       value: 
       objectReference: {fileID: 1236879064}
+    - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: velocitaInseguimento
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 6676959155947815351, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1018593826}
+      objectReference: {fileID: 408085835}
+    - target: {fileID: 6676959155947815351, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1236879065}
     - target: {fileID: 8983481298985190905, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: m_Name
       value: Nemico (1)
