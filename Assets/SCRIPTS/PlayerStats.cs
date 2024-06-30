@@ -51,6 +51,7 @@ public class PlayerStats : MonoBehaviour {
         isPlayerDead; // serve come controllo in PlayerSettings ed anche per far smettere di inseguire il player dai boss una volta morto
 
     public float staminaRecoveryCooldown; //probabilmente è ancora poco, forse sta da raddoppiare, poi vediamo
+    private Player_Attack _playerAttack;
     private int CurrentAtkLevel, CurrentStaminaLevel, CurrentDefenseLevel, PlayerCurrentMoney;
     private int CurrentHPRegenLevel, CurrentSPRegenLevel;
     private Animator deathScreenAnimator;
@@ -58,19 +59,14 @@ public class PlayerStats : MonoBehaviour {
     // Statistiche attuali del player
     private float PlayerCurrentHealth, PlayerCurrentStamina;
     private float PlayerCurrentMaxHealth, PlayerCurrentMaxStamina, PlayerCurrentDamage, PlayerCurrentDefence;
-    private Player_Attack _playerAttack;
 
-    void Awake(){
+    private void Awake() {
         _playerAttack = gameObject.GetComponent<Player_Attack>();
-        if(_playerAttack != null){
+        if (_playerAttack != null)
             Debug.Log("Player attack presente");
-        }
-        else{
+        else
             Debug.LogError("Player attack non presente");
-        }
-    }
 
-    void Start() {
         if (isNewGameplay) {
             InitializeNewPlayer();
             isNewGameplay = false; // Imposta a false dopo l'inizializzazione
