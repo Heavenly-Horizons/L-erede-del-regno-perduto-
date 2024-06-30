@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fe99c0acffc094d948d01d359e080e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolSpeed: 1500
+  patrolSpeed: 1000
   startDirectionLeft: 1
   patrolDistance: 30
   attackRange: 50

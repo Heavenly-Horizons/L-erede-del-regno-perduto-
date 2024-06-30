@@ -20856,7 +20856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: velocita
-      value: 3500
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: giocatore
@@ -20864,7 +20864,7 @@ PrefabInstance:
       objectReference: {fileID: 1236879064}
     - target: {fileID: 5108587211602928839, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: velocitaInseguimento
-      value: 5000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6676959155947815351, guid: 05c104a7e759b18498048d5285f04bbf, type: 3}
       propertyPath: player

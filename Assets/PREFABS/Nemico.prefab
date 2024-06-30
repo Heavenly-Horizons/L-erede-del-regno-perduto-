@@ -508,8 +508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28b6645f49305e4eb475e80c2de83c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocita: 1500
-  velocitaInseguimento: 2000
+  velocita: 750
+  velocitaInseguimento: 1000
   distanzaCambioDirezione: 30
   distanzaRilevamentoGiocatore: 30
   normalAnimationSpeed: 1
