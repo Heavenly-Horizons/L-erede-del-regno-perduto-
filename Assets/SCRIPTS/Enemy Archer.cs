@@ -29,8 +29,6 @@ public class EnemyArcher : MonoBehaviour {
     public Slider nemicoHealthBar;
     [SerializeField] private GameObject player;
 
-    private readonly bool isDead = false;
-
     private DropCoin dropCoin;
     private DropHeal dropHeal;
     private Vector3 initialPosition;
@@ -72,7 +70,7 @@ public class EnemyArcher : MonoBehaviour {
     }
 
     void Update() {
-        if (isStopped || isDead) return;
+        if (isStopped) return;
 
         if (knockbackCounter > 0) {
             Vector2 knockbackDirection = knockFromRight ? Vector2.left : Vector2.right;
@@ -191,40 +189,48 @@ public class EnemyArcher : MonoBehaviour {
     }
 
     public void TakeDamage(float amount) {
-        if (isDead) return;
         if (isHit) {
-            animator.SetTrigger(Hurt);
-            gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            animator.SetTrigger("Hurt");
+            // Assicurati che l'oggetto sia valido prima di attivare l'oggetto figlio
+            Transform childTransform = gameObject.transform.GetChild(0);
+            if (childTransform != null && childTransform.childCount > 0) {
+                GameObject childObject = childTransform.GetChild(0).gameObject;
+                if (childObject != null) {
+                    childObject.SetActive(true);
+                }
+            }
         }
-
+    
         if (nemicoHealth - amount > 0) {
             nemicoHealth -= amount;
-            nemicoHealthBar.value = Mathf.Floor(amount);
-        }
-        else {
+            nemicoHealthBar.value = nemicoHealth;
+        } else {
             nemicoHealth = 0;
             nemicoHealthBar.value = nemicoHealth;
-
+    
             if (dropCoin != null && dropHeal != null) {
                 dropCoin.Drop(1);
                 dropHeal.Drop(1);
             }
-
-            //Die
-            animator.SetTrigger(Die);
-            if (boxCollider2D != null)
-            {
-                // Disattiva il BoxCollider2D
+    
+            // Die
+            if (animator != null) {
+                animator.SetTrigger("Die");
+            }
+    
+            // Disattiva il BoxCollider2D se presente
+            if (boxCollider2D != null) {
                 boxCollider2D.enabled = false;
                 Debug.Log("BoxCollider2D disattivato");
-            }
-            else
-            {
+            } else {
                 Debug.LogError("BoxCollider2D non trovato su questo GameObject");
             }
+    
+            // Avvia la coroutine per l'animazione di morte
             StartCoroutine(PlayDeathAnimation());
         }
     }
+
 
     private IEnumerator PlayDeathAnimation() {
         yield return new WaitForSeconds(0.5f);

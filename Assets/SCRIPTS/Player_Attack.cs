@@ -14,6 +14,7 @@ public class Player_Attack : MonoBehaviour {
     private Animator anim;
     private PlayerMovement playerMovement;
     private PlayerStats playerStats;
+    public float playerDamage = 15f;
 
     void Start() {
         anim = GetComponent<Animator>();
@@ -83,7 +84,7 @@ public class Player_Attack : MonoBehaviour {
                     nemico.KBCounter = knockbackDuration;
                     nemico.KnockFromRight = enemy.transform.position.x < transform.position.x;
                     nemico.ApplyKnockback(knockbackForce);
-                    nemico.TakeDamage(playerStats.playerDamage);
+                    nemico.TakeDamage(playerDamage);
                 }
 
                 if (nemico2 != null) {
@@ -91,12 +92,12 @@ public class Player_Attack : MonoBehaviour {
                     nemico2.knockbackCounter = knockbackDuration;
                     nemico2.knockFromRight = enemy.transform.position.x < transform.position.x;
                     nemico2.ApplyKnockback(knockbackForce);
-                    nemico2.TakeDamage(playerStats.playerDamage);
+                    nemico2.TakeDamage(playerDamage);
                 }
 
                 if (bossHealth != null) {
                     bossHealth.isHit = true;
-                    bossHealth.TakeDamage(playerStats.playerDamage);
+                    bossHealth.TakeDamage(playerDamage);
                 }
             }
 

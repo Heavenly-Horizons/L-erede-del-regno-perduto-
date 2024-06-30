@@ -187,11 +187,14 @@ public class Nemico : MonoBehaviour
         {   nemicoAnim.SetTrigger("hurt");
             gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
         }
+        
+        Debug.Log("Taking damage: " + amount);
+        Debug.Log("Current health before damage: " + nemicoHealth);
 
         if (nemicoHealth - amount > 0)
         {
             nemicoHealth -= amount;
-            nemicoHealthBar.value = Mathf.Floor(amount);
+            nemicoHealthBar.value = nemicoHealth;
             Debug.Log("vita nemico arciere: " + nemicoHealthBar.value);
         }
         else
@@ -218,6 +221,7 @@ public class Nemico : MonoBehaviour
             }
             StartCoroutine(PlayDeathAnimation());
         }
+        Debug.Log("Current health after damage: " + nemicoHealth);
     }
 
     IEnumerator PlayDeathAnimation(){

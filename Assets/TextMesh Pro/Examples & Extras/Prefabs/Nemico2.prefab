@@ -425,7 +425,7 @@ MonoBehaviour:
   attackRange: 50
   arrowPrefab: {fileID: 987083297778883385, guid: 27277137d0605bd45bd741cdb791e0c1, type: 3}
   launchPoint: {fileID: 6461590446495643301}
-  arrowSpeed: 30
+  arrowSpeed: 40
   arrowCooldown: 2
   animator: {fileID: 4216109713446143024}
   KBForce: 40

@@ -1265,6 +1265,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3078035678988654146, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_text
+      value: K
+      objectReference: {fileID: 0}
     - target: {fileID: 3147029153992461819, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_Colors.m_DisabledColor.a
       value: 1
@@ -1337,6 +1341,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1746067212}
+    - target: {fileID: 3372431819883509205, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_text
+      value: J
+      objectReference: {fileID: 0}
     - target: {fileID: 3500352720534875669, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1605,6 +1613,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1746067212}
+    - target: {fileID: 7618885892827678245, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+      propertyPath: m_text
+      value: D
+      objectReference: {fileID: 0}
     - target: {fileID: 7894512726136848654, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
       propertyPath: m_Transition
       value: 3
@@ -1846,6 +1858,8 @@ PrefabInstance:
     - {fileID: -8081653565507264549, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
     - {fileID: 1147319558660087126, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
     - {fileID: 70109183673975425, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+    - {fileID: 3577132867750170233, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
+    - {fileID: 2943398394437965694, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 986524381534845404, guid: be32d84b61dea2741bc3952c1abdf2b0, type: 3}

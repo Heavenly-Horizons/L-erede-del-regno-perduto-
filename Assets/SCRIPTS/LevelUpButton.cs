@@ -10,9 +10,11 @@ public class LevelUpButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI spRegenLevelText;
     [SerializeField] private TextMeshProUGUI MoneyAmountText;
     private PlayerStats playerStats;
+    private Player_Attack _playerAttack;
 
     void Start(){
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+        _playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Attack>();
     }
 
     public void LevelUpPlayerStat(int playerStat){
@@ -23,6 +25,7 @@ public class LevelUpButton : MonoBehaviour
                     MoneyAmountText.text = playerStats.PlayerMoney.ToString();
                     playerStats.atkLevel += 1;
                     playerStats.playerDamage += playerStats.playerDamage * playerStats.atkLevel / 10;
+                    _playerAttack.playerDamage = playerStats.playerDamage;
                     atkLevelText.text = "livello " + playerStats.atkLevel.ToString();
                     break;    
                 case 1:
