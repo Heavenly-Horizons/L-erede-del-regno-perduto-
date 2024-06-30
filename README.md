@@ -1,3 +1,6 @@
-# Tyr: time of redemption
+# L’erede del regno perduto 
 
-Il gioco narra del viaggio di Tyr, dio della guerra norreno, dopo essere stato esiliato da Asgard da Odino in quanto egli lo ha accusato di essere la divinità che darà inizio alla fine di tutto, il Ragnarok. Odino riesce a diffondere e manipolare le menti di quasi tutti i membri dei Pantheon così da inculcare ad essi questa idea. Tyr, dovrà viaggiare per incontrare divinità di ogni dove, conosciute e sconosciute, utilizzando il potere del Bifrost, affrontando numerose sfide mortali e d'ingegno, tentando di liberare dal giogo di Odino chi sfiderà, ottenendo oggetti divini per poter poi affrontare Odino in una feroce battaglia che potrebbe determinare la fine di Tyr.
+Gioco per PC del genere GDR, in 2D, con visuale a scorrimento laterale e una combinazione di stili grafici. Ambientato in un'era medievale e fantasy, "L’erede del regno perduto" trae ispirazione dalla mitologia e dalle avventure cavalleresche. Nel gioco, il protagonista è un cavaliere di una terra lontana in cerca di redenzione contro un nemico invasore. 
+Le sfide e le riflessioni che accompagneranno il protagonista e il giocatore saranno molteplici, spingendo entrambi a mettere in discussione le proprie azioni.  
+ Desideriamo creare un'esperienza avvincente, con un gameplay che combina combattimenti e una narrazione che dà contesto a ogni scontro, ispirandoci a "Tails of Iron" (2021, Odd Bug Studio).  
+Per quanto riguarda le boss fight abbiamo voluto ricreare un’esperienza che ricordi i giochi di FromSoftware (Dark Souls), questo lo si può notare principalmente nella seconda boss fight. 
