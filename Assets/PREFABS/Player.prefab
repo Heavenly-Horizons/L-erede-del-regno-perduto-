@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188bfcebaf4e6f042891329bee38734e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 100
   maxStamina: 100
   PlayerMoney: 0
   atkLevel: 1
@@ -223,7 +223,6 @@ MonoBehaviour:
   defLevel: 1
   hpRegenLevel: 1
   spRegenLevel: 1
-  playerDamage: 15
   playerDefence: 0
   staminaTookForParry: 10
   healthTookForParry: 10
